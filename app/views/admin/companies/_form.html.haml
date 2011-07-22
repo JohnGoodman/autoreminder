@@ -1,0 +1,19 @@
+- semantic_form_for [:admin, @company] do |form|
+  = render "shared/form_errors", :errors => @company.errors
+
+  - form.inputs "General Information", :class => "" do
+    = form.input :name
+    = form.input :address
+    = form.input :address_two
+    = form.input :city
+    = form.input :state, :as => :select, :collection => Carmen::states, :prompt => true
+    = form.input :zip
+  - form.inputs "Contact Information", :class => "" do
+    = form.input :phone
+    = form.input :phone_two, :as => :phone
+    = form.input :fax
+    = form.input :email
+  - form.buttons do
+    = submit_button 'Company'
+    .or-cancel
+      or #{link_to 'Cancel', ( @company.id ? admin_company_path( @company ) : admin_companies_path )}

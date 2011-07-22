@@ -1,0 +1,27 @@
+.pagination a, .pagination span {
+  @include font-size(12px);
+  display: block;
+  float: left;
+  border: 1px solid #C3C4BA;
+  @include border-radius(2px);
+  margin-right: 5px;
+  padding: 6px;
+  min-width: 15px;
+  text-align: center;
+  background: #DDD;
+  background-image: url("../images/button-background.png");
+  color: #111;
+  text-decoration: none;
+}
+
+.pagination span.current {
+  background: #261F1F;
+  color: white;
+  border: 1px solid #261F1F;
+  font-weight: bold;
+}
+
+.pagination a:hover {
+  border: 1px solid #818171;
+  @include box-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+}

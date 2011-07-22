@@ -1,0 +1,10 @@
+a.button, button {
+  font-family: 'MuseoSans500', helvetica, arial, sans-serif;
+}
+
+a.button span.icon, button span.icon {
+    top: 1px;
+    margin: auto;
+}
+
+.button { float:left; } // Fix gap between buttons

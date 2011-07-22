@@ -1,0 +1,14 @@
+/* Applications */
+
+div.textarea {
+  padding:5px;
+  background:#f3f3f3;
+  float:left;
+  width:75%;
+  min-height:16px;
+}
+
+#vehicles_list {
+  margin:0px;
+  list-style:none;
+}

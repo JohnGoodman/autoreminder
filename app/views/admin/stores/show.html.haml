@@ -1,0 +1,38 @@
+- content_for(:secondary_navigation) do
+  = render 'admin/companies/nav'
+
+= render 'admin/companies/title'
+
+%h2= @store.name
+
+%p
+  %b Address:
+  = @store.address
+%p
+  %b Address two:
+  = @store.address_two
+%p
+  %b Phone:
+  = @store.phone
+%p
+  %b Phone two:
+  = @store.phone_two
+%p
+  %b Email:
+  = @store.email
+%p
+  %b Fax:
+  = @store.fax
+%p
+  %b City:
+  = @store.city
+%p
+  %b State:
+  = @store.state
+%p
+  %b Zip:
+  = @store.zip
+
+
+%hr
+= link_to 'Delete Store', admin_company_store_path(@company, @store), :confirm => 'Delete this store?', :method => :delete

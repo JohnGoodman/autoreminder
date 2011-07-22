@@ -1,0 +1,12 @@
+.secondary-navigation.clearfix
+  = tabs_tag :namespace => :subnav do |tab|
+    - if ['index', 'new', 'create'].exclude?(controller.action_name)
+      = tab.person_show  'Person Overview', store_person_path(@store, @person), :class => 'first'
+      = tab.person_edit  'Edit Person', edit_store_person_path(@store, @person)
+
+
+    = tab.person_new   'New Person', new_store_person_path(@store), :class => "right last" if ['index','new'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+
+    = tab.vehicle_new   'Add Vehicle', new_store_person_vehicle_path(@store, @person), :class => "right last" if ['show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+
+    = tab.customer_service_reminder_new   'Add Service Reminder', new_store_person_vehicle_customer_service_reminder_path(@store, @person, @vehicle), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)

@@ -1,0 +1,40 @@
+/*div.textarea { padding:5px; background:#f3f3f3; float:left; min-width:400px; min-height:16px; }*/
+
+li#application_requested_trips_input fieldset,
+li#application_trips_input fieldset,
+li#application_skills_input fieldset {
+  width:650px;
+  display:inline;
+}
+
+li#application_requested_trips_input ol,
+li#application_trips_input ol,
+li#application_skills_input ol {
+  width:550px;
+  margin:0px 0 0 15px;
+}
+
+li#application_requested_trips_input ol fieldset,
+li#application_trips_input ol fieldset,
+li#application_skills_input ol fieldset {
+  width:550px;
+}
+
+li#application_requested_trips_input ol li label,
+li#application_trips_input ol li label,
+li#application_skills_input ol li label {
+  display:inline;
+}
+
+.fieldset_overflow {
+  float:right;
+  height:200px;
+  width:500px;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  border:1px solid #999;
+}
+
+.anesthesia_extra {
+  display:none;
+}

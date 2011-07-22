@@ -1,0 +1,12 @@
+- semantic_form_for [@store, @service_reminder] do |form|
+  = render "shared/form_errors", :errors => @service_reminder.errors
+
+  - form.inputs "General Information", :class => "" do
+    = form.input :name
+    = form.input :description
+    = form.input :email_subject
+    = form.input :email_body
+  - form.buttons do
+    = submit_button 'Service Reminder'
+    .or-cancel
+      or #{link_to 'Cancel', store_service_reminders_path(@store)}

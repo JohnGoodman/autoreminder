@@ -1,0 +1,25 @@
+%h1 Listing service_reminders
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Email subject
+    %th Email body
+    %th
+    %th
+    %th
+
+  - @service_reminders.each do |service_reminder|
+    %tr
+      %td= service_reminder.name
+      %td= service_reminder.description
+      %td= service_reminder.email_subject
+      %td= service_reminder.email_body
+      %td= link_to 'Show', service_reminder
+      %td= link_to 'Edit', edit_service_reminder_path(service_reminder)
+      %td= link_to 'Destroy', service_reminder, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Service reminder', new_service_reminder_path

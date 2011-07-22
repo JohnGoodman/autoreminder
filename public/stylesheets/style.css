@@ -1,0 +1,1346 @@
+/* line 14, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 23, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 27, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 30, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 34, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* line 36, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* line 38, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+/* line 40, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 42, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_reset.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 11, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_fonts.scss */
+body {
+  font-size: 13px;
+  font-family: "MuseoSans500", helvetica, arial, sans-serif;
+  line-height: 1.231;
+  *font-size: small;
+}
+
+/* line 20, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_fonts.scss */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif;
+}
+
+/* line 15, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+html {
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 17, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+ul, ol {
+  margin-left: 2em;
+}
+
+/* line 18, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+ol {
+  list-style-type: decimal;
+}
+
+/* line 20, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+td {
+  vertical-align: top;
+}
+
+/* line 22, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  bottom: -0.25em;
+}
+
+/* line 24, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  top: -0.5em;
+}
+
+/* line 53, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+a:hover, a:active {
+  outline: none;
+}
+
+/* line 58, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 15px;
+}
+
+/* line 71, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+label, input[type="button"], input[type="submit"], input[type="image"], button {
+  cursor: pointer;
+}
+
+/* line 80, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+button, input, select, textarea {
+  width: auto;
+  overflow: visible;
+  margin: 0;
+  font-size: 100%;
+  font-family: sans-serif;
+  vertical-align: baseline;
+}
+
+/* line 84, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+textarea {
+  overflow: auto;
+  vertical-align: text-top;
+}
+
+/* line 88, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 99, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+::-moz-selection {
+  background: #7fa6bf;
+  color: white;
+  text-shadow: none;
+}
+
+/* line 100, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+::selection {
+  background: #7fa6bf;
+  color: white;
+  text-shadow: none;
+}
+
+/* line 105, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+a:link {
+  -webkit-tap-highlight-color: #7fa6bf;
+}
+
+/* line 118, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 120, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+.ie6 legend, .ie7 legend {
+  margin-left: -7px;
+}
+
+/* line 125, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
+nav ul, nav li {
+  margin: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+/* line 10, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_helpers.scss */
+.ir {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  direction: ltr;
+  background-repeat: no-repeat;
+}
+
+/* line 12, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_helpers.scss */
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* line 14, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_helpers.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/* line 50, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_helpers.scss */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* line 16, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_helpers.scss */
+.clearfix {
+  zoom: 1;
+}
+/* line 61, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_helpers.scss */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+/* line 62, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_helpers.scss */
+.clearfix:after {
+  clear: both;
+}
+
+@font-face {
+  font-family: "MuseoSans500";
+  src: url('/fonts/museosans_500-webfont.eot');
+  src: url('/fonts/museosans_500-webfont.eot?iefix') format('eot'), url('/fonts/museosans_500-webfont.woff') format('woff'), url('/fonts/museosans_500-webfont.ttf') format('truetype'), url('/fonts/museosans_500-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: "MuseoSans500Italic";
+  src: url('/fonts/museosans_500_italic-webfont.eot');
+  src: url('/fonts/museosans_500_italic-webfont.eot?iefix') format('eot'), url('/fonts/museosans_500_italic-webfont.woff') format('woff'), url('/fonts/museosans_500_italic-webfont.ttf') format('truetype'), url('/fonts/museosans_500_italic-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: "Museo700";
+  src: url('/fonts/museo700-regular-webfont.eot');
+  src: url('/fonts/museo700-regular-webfont.eot?iefix') format('eot'), url('/fonts/museo700-regular-webfont.woff') format('woff'), url('/fonts/museo700-regular-webfont.ttf') format('truetype'), url('/fonts/museo700-regular-webfont.svg') format('svg');
+}
+
+/* line 8, ../../app/stylesheets/partials/_page.scss */
+body, select, input, textarea {
+  color: #111111;
+}
+
+/* line 15, ../../app/stylesheets/partials/_page.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+/* line 21, ../../app/stylesheets/partials/_page.scss */
+a, a:active, a:visited {
+  color: #3c3c3d;
+}
+
+/* line 22, ../../app/stylesheets/partials/_page.scss */
+a:hover {
+  color: #c52d2d;
+}
+
+/* line 24, ../../app/stylesheets/partials/_page.scss */
+strong, th {
+  font-weight: bold;
+}
+
+/* line 28, ../../app/stylesheets/partials/_page.scss */
+small {
+  font-size: 85%;
+}
+
+/* line 37, ../../app/stylesheets/partials/_page.scss */
+input:invalid, textarea:invalid {
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -o-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -khtml-border-radius: 1px;
+  border-radius: 1px;
+  -moz-box-shadow: 0 0 5px 0 red;
+  -webkit-box-shadow: 0 0 5px 0 red;
+  -o-box-shadow: 0 0 5px 0 red;
+  box-shadow: 0 0 5px 0 red;
+}
+
+/* line 42, ../../app/stylesheets/partials/_page.scss */
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid {
+  background-color: #f0dddd;
+}
+
+/* line 4, ../../app/stylesheets/partials/_layout.scss */
+h2.left,
+p.left,
+div.left,
+a.left {
+  float: left;
+}
+
+/* line 8, ../../app/stylesheets/partials/_layout.scss */
+h2.right,
+p.right,
+div.right,
+a.right {
+  float: right;
+}
+
+/* line 10, ../../app/stylesheets/partials/_layout.scss */
+div.center,
+td.center {
+  text-align: center;
+}
+
+/* line 12, ../../app/stylesheets/partials/_layout.scss */
+.right_align {
+  text-align: right;
+}
+
+/* line 14, ../../app/stylesheets/partials/_layout.scss */
+h2 {
+  padding: 10px 0;
+}
+
+/* line 16, ../../app/stylesheets/partials/_layout.scss */
+.cross {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url(/images/icons/cross.png);
+}
+
+/* line 23, ../../app/stylesheets/partials/_layout.scss */
+.tick {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url(/images/icons/tick.png);
+}
+
+/* line 30, ../../app/stylesheets/partials/_layout.scss */
+em {
+  background-color: #FEE568;
+  text-shadow: #fff4b4 0px 1px 0px;
+}
+
+/* line 35, ../../app/stylesheets/partials/_layout.scss */
+h1, h2, h3, span.pid {
+  font-family: 'Museo700', helvetica, arial, sans-serif;
+  color: #360000;
+}
+
+/* line 40, ../../app/stylesheets/partials/_layout.scss */
+header#header {
+  line-height: 80px;
+  position: relative;
+  background-color: #360000;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(255, 255, 255, 0.3);
+  -o-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+/* line 47, ../../app/stylesheets/partials/_layout.scss */
+header#header h1 {
+  float: left;
+  color: white;
+  font-size: 231%;
+  # letter-spacing: -1px;
+  padding: 0 20px;
+}
+/* line 54, ../../app/stylesheets/partials/_layout.scss */
+header#header h1 a {
+  color: white;
+  text-decoration: none;
+}
+/* line 61, ../../app/stylesheets/partials/_layout.scss */
+header#header nav ul li {
+  float: left;
+  padding: 4px 10px 0 10px;
+}
+/* line 64, ../../app/stylesheets/partials/_layout.scss */
+header#header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 108%;
+}
+/* line 68, ../../app/stylesheets/partials/_layout.scss */
+header#header nav ul li a img {
+  vertical-align: middle;
+}
+/* line 72, ../../app/stylesheets/partials/_layout.scss */
+header#header nav.right {
+  float: right;
+}
+
+/* line 75, ../../app/stylesheets/partials/_layout.scss */
+body {
+  background-image: url("../images/layout/background.png");
+}
+
+/* line 77, ../../app/stylesheets/partials/_layout.scss */
+#container {
+  min-width: 960px;
+}
+
+/* line 78, ../../app/stylesheets/partials/_layout.scss */
+#wrapper {
+  padding: 20px 20px 0 20px;
+}
+
+/* line 79, ../../app/stylesheets/partials/_layout.scss */
+#main, #footer {
+  width: 77%;
+  float: left;
+}
+
+/* line 80, ../../app/stylesheets/partials/_layout.scss */
+#main.full, #footer.full {
+  width: 100%;
+}
+
+/* line 81, ../../app/stylesheets/partials/_layout.scss */
+#sidebar {
+  width: 20%;
+  float: right;
+}
+
+/* line 83, ../../app/stylesheets/partials/_layout.scss */
+#main .block {
+  margin-bottom: 20px;
+  background-color: white;
+  text-shadow: 0 1px 0 white;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* line 92, ../../app/stylesheets/partials/_layout.scss */
+#main h1, #main span.pid {
+  font-size: 170%;
+  margin-bottom: 15px;
+}
+/* line 97, ../../app/stylesheets/partials/_layout.scss */
+#main h1.left {
+  float: left;
+}
+/* line 99, ../../app/stylesheets/partials/_layout.scss */
+#main span.pid {
+  float: right;
+}
+/* line 103, ../../app/stylesheets/partials/_layout.scss */
+#main .content {
+  padding: 15px;
+}
+/* line 105, ../../app/stylesheets/partials/_layout.scss */
+#main .secondary-navigation {
+  background: #e0e0e0 url("../images/bg-secondary-navigation.png") top;
+  border-bottom-width: 0px;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -o-border-top-left-radius: 6px;
+  -ms-border-top-left-radius: 6px;
+  -khtml-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -o-border-top-right-radius: 6px;
+  -ms-border-top-right-radius: 6px;
+  -khtml-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+/* line 111, ../../app/stylesheets/partials/_layout.scss */
+#main .secondary-navigation ul {
+  margin: 0;
+  list-style-type: none;
+}
+/* line 114, ../../app/stylesheets/partials/_layout.scss */
+#main .secondary-navigation ul li {
+  float: left;
+}
+/* line 115, ../../app/stylesheets/partials/_layout.scss */
+#main .secondary-navigation ul li.right {
+  float: right;
+}
+/* line 117, ../../app/stylesheets/partials/_layout.scss */
+#main .secondary-navigation ul li.active,
+#main .secondary-navigation ul li.current {
+  background-color: white;
+}
+/* line 118, ../../app/stylesheets/partials/_layout.scss */
+#main .secondary-navigation ul li.first {
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -o-border-top-left-radius: 6px;
+  -ms-border-top-left-radius: 6px;
+  -khtml-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+/* line 119, ../../app/stylesheets/partials/_layout.scss */
+#main .secondary-navigation ul li.last {
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -o-border-top-right-radius: 6px;
+  -ms-border-top-right-radius: 6px;
+  -khtml-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+/* line 121, ../../app/stylesheets/partials/_layout.scss */
+#main .secondary-navigation ul li a,
+#main .secondary-navigation ul li span {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+/* line 129, ../../app/stylesheets/partials/_layout.scss */
+#main .breadcrumb {
+  background-color: #F4F4F4;
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -o-border-bottom-left-radius: 6px;
+  -ms-border-bottom-left-radius: 6px;
+  -khtml-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  -o-border-bottom-right-radius: 6px;
+  -ms-border-bottom-right-radius: 6px;
+  -khtml-border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+/* line 134, ../../app/stylesheets/partials/_layout.scss */
+#main .breadcrumb ul {
+  margin-left: 0;
+  height: 20px;
+  padding-bottom: 15px;
+  padding-top: 0px;
+  list-style-type: none;
+}
+/* line 140, ../../app/stylesheets/partials/_layout.scss */
+#main .breadcrumb ul li.first {
+  padding-left: 15px;
+  background: none;
+}
+/* line 145, ../../app/stylesheets/partials/_layout.scss */
+#main .breadcrumb ul li.active {
+  color: #A4A4A4;
+}
+/* line 147, ../../app/stylesheets/partials/_layout.scss */
+#main .breadcrumb ul li {
+  color: #777;
+  display: block;
+  padding-top: 10px;
+  padding-left: 17px;
+  margin-right: 15px;
+  background: url("../images/breadcrumb.png") no-repeat 0px 12px;
+  float: left;
+  font-size: 93%;
+}
+/* line 156, ../../app/stylesheets/partials/_layout.scss */
+#main .breadcrumb ul li a {
+  text-decoration: none;
+  color: #777;
+}
+/* line 163, ../../app/stylesheets/partials/_layout.scss */
+#main #error_explanation {
+  margin: 0 0 10px 20px;
+}
+/* line 167, ../../app/stylesheets/partials/_layout.scss */
+#main p.inline-errors {
+  display: inline;
+  margin: 0px 0 0 5px;
+  padding: 0px;
+}
+
+/* line 175, ../../app/stylesheets/partials/_layout.scss */
+#sidebar .block {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  margin-bottom: 20px;
+}
+/* line 183, ../../app/stylesheets/partials/_layout.scss */
+#sidebar h3 {
+  color: #111;
+  padding: 10px 0;
+  margin: 0;
+  font-size: 13px;
+}
+
+/* line 192, ../../app/stylesheets/partials/_layout.scss */
+#box {
+  width: 480px;
+  margin: 50px auto 20px auto;
+}
+/* line 196, ../../app/stylesheets/partials/_layout.scss */
+#box .block {
+  background: white;
+  text-shadow: 0 1px 0 white;
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+/* line 203, ../../app/stylesheets/partials/_layout.scss */
+#box .block h2 {
+  font-size: 170%;
+  background: #261F1F;
+  color: white;
+  text-shadow: none;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -o-border-top-left-radius: 6px;
+  -ms-border-top-left-radius: 6px;
+  -khtml-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -o-border-top-right-radius: 6px;
+  -ms-border-top-right-radius: 6px;
+  -khtml-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+  padding: 10px 15px;
+  margin: 0;
+}
+/* line 214, ../../app/stylesheets/partials/_layout.scss */
+#box .block .content {
+  padding: 10px 20px;
+}
+
+/* line 1, ../../app/stylesheets/partials/_buttons.scss */
+a.button, button {
+  font-family: 'MuseoSans500', helvetica, arial, sans-serif;
+}
+
+/* line 5, ../../app/stylesheets/partials/_buttons.scss */
+a.button span.icon, button span.icon {
+  top: 1px;
+  margin: auto;
+}
+
+/* line 10, ../../app/stylesheets/partials/_buttons.scss */
+.button {
+  float: left;
+}
+
+/* line 1, ../../app/stylesheets/partials/_tables.scss */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+/* line 6, ../../app/stylesheets/partials/_tables.scss */
+.table th {
+  background: #eaeaea;
+  color: #222;
+  font-weight: normal;
+  padding: 10px;
+  text-align: left;
+}
+/* line 14, ../../app/stylesheets/partials/_tables.scss */
+.table th.first {
+  width: 30px;
+}
+/* line 15, ../../app/stylesheets/partials/_tables.scss */
+.table th.last {
+  width: 200px;
+  min-width: 90px;
+}
+/* line 16, ../../app/stylesheets/partials/_tables.scss */
+.table .checkbox {
+  margin-left: 10px;
+}
+/* line 17, ../../app/stylesheets/partials/_tables.scss */
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+/* line 18, ../../app/stylesheets/partials/_tables.scss */
+.table td.last {
+  text-align: right;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+/* line 19, ../../app/stylesheets/partials/_tables.scss */
+.table tr.even {
+  background: #f8f8f8;
+}
+
+/* line 22, ../../app/stylesheets/partials/_tables.scss */
+ul.table {
+  list-style: none;
+  margin: 0px;
+  margin-bottom: 15px;
+}
+/* line 27, ../../app/stylesheets/partials/_tables.scss */
+ul.table li.thead {
+  background: #eaeaea;
+  color: #222;
+  font-weight: normal;
+  text-align: left;
+  padding: 10px 0;
+}
+/* line 35, ../../app/stylesheets/partials/_tables.scss */
+ul.table li.tr {
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px 0;
+}
+/* line 40, ../../app/stylesheets/partials/_tables.scss */
+ul.table li.even {
+  background: #f8f8f8;
+}
+/* line 42, ../../app/stylesheets/partials/_tables.scss */
+ul.table div.td {
+  float: left;
+}
+/* line 46, ../../app/stylesheets/partials/_tables.scss */
+ul.table div.td.five {
+  width: 5%;
+}
+/* line 47, ../../app/stylesheets/partials/_tables.scss */
+ul.table div.td.ten {
+  width: 10%;
+}
+/* line 48, ../../app/stylesheets/partials/_tables.scss */
+ul.table div.td.twenty {
+  width: 20%;
+}
+/* line 49, ../../app/stylesheets/partials/_tables.scss */
+ul.table div.td.thirty {
+  width: 30%;
+}
+/* line 51, ../../app/stylesheets/partials/_tables.scss */
+ul.table div.td.note {
+  clear: both;
+}
+/* line 55, ../../app/stylesheets/partials/_tables.scss */
+ul.table div.td.last {
+  float: right;
+  text-align: right;
+}
+/* line 61, ../../app/stylesheets/partials/_tables.scss */
+ul.table div.td p,
+ul.table div.td a {
+  padding: 2px 10px;
+}
+
+/* line 2, ../../app/stylesheets/partials/_forms.scss */
+.form .group {
+  margin-bottom: 15px;
+}
+/* line 4, ../../app/stylesheets/partials/_forms.scss */
+.form label.label {
+  display: block;
+  font-weight: normal;
+  color: #666;
+  padding-bottom: 2px;
+}
+/* line 11, ../../app/stylesheets/partials/_forms.scss */
+.form label.right {
+  text-align: right;
+}
+/* line 13, ../../app/stylesheets/partials/_forms.scss */
+.form label.label, .form input.text_field, .form textarea.text_area {
+  font-size: 108%;
+  padding: 1px 0;
+  margin: 0;
+}
+/* line 19, ../../app/stylesheets/partials/_forms.scss */
+.form input.text_field, .form textarea.text_area {
+  width: 100%;
+  border: 1px solid #DDD;
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* line 27, ../../app/stylesheets/partials/_forms.scss */
+.buttons button {
+  float: left;
+  margin-right: 5px;
+}
+/* line 28, ../../app/stylesheets/partials/_forms.scss */
+.buttons .or-cancel {
+  float: left;
+  line-height: 26px;
+}
+
+/* line 31, ../../app/stylesheets/partials/_forms.scss */
+button, input, select, textarea {
+  font-family: 'Lucida Grande', 'MuseoSans500', helvetica, arial, sans-serif;
+}
+
+/* line 33, ../../app/stylesheets/partials/_forms.scss */
+.login div.left, .signup div div.left {
+  width: 21%;
+  float: left;
+}
+
+/* line 38, ../../app/stylesheets/partials/_forms.scss */
+.login div.right, .signup div div.right {
+  width: 74%;
+  float: right;
+}
+
+/* line 43, ../../app/stylesheets/partials/_forms.scss */
+#login_register {
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+/* line 48, ../../app/stylesheets/partials/_forms.scss */
+.search, .search_date {
+  border: 1px solid #C1C1C1;
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+  -o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+  -moz-border-radius: 13px;
+  -webkit-border-radius: 13px;
+  -o-border-radius: 13px;
+  -ms-border-radius: 13px;
+  -khtml-border-radius: 13px;
+  border-radius: 13px;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  overflow: hidden;
+  float: right;
+  width: 300px;
+  height: 25px;
+}
+
+/* line 61, ../../app/stylesheets/partials/_forms.scss */
+.search_date {
+  width: 100px;
+  margin-right: 10px;
+}
+
+/* line 66, ../../app/stylesheets/partials/_forms.scss */
+.clear-search {
+  border: 0px;
+  background: transparent url("../images/clear.png") no-repeat center left;
+  position: absolute;
+  left: 278px;
+  height: 16px;
+  width: 16px;
+  margin-top: 5px;
+  cursor: pointer;
+  -moz-border-radius-topright: 13px;
+  -webkit-border-top-right-radius: 13px;
+  -o-border-top-right-radius: 13px;
+  -ms-border-top-right-radius: 13px;
+  -khtml-border-top-right-radius: 13px;
+  border-top-right-radius: 13px;
+  -moz-border-radius-bottomright: 13px;
+  -webkit-border-bottom-right-radius: 13px;
+  -o-border-bottom-right-radius: 13px;
+  -ms-border-bottom-right-radius: 13px;
+  -khtml-border-bottom-right-radius: 13px;
+  border-bottom-right-radius: 13px;
+}
+
+/* line 79, ../../app/stylesheets/partials/_forms.scss */
+.searching {
+  background: transparent url("../images/spinner.gif") no-repeat center left;
+}
+
+/* line 83, ../../app/stylesheets/partials/_forms.scss */
+.search_box {
+  font-family: "MuseoSans500", helvetica, arial, sans-serif;
+  border: 0px;
+  background-color: transparent;
+  position: absolute;
+  left: 0px;
+  width: 266px;
+  height: 25px;
+  padding-left: 10px;
+  -moz-border-radius-topleft: 13px;
+  -webkit-border-top-left-radius: 13px;
+  -o-border-top-left-radius: 13px;
+  -ms-border-top-left-radius: 13px;
+  -khtml-border-top-left-radius: 13px;
+  border-top-left-radius: 13px;
+  -moz-border-radius-bottomleft: 13px;
+  -webkit-border-bottom-left-radius: 13px;
+  -o-border-bottom-left-radius: 13px;
+  -ms-border-bottom-left-radius: 13px;
+  -khtml-border-bottom-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+  outline: none;
+}
+
+/* line 97, ../../app/stylesheets/partials/_forms.scss */
+.watermark_container {
+  height: 25px;
+  width: 273px;
+}
+
+/* line 98, ../../app/stylesheets/partials/_forms.scss */
+.search-dates .watermark_container {
+  width: 100px;
+}
+
+/* line 100, ../../app/stylesheets/partials/_forms.scss */
+.table th .asc {
+  padding-right: 12px;
+  background: url("../images/up_arrow.gif") no-repeat right center;
+}
+
+/* line 105, ../../app/stylesheets/partials/_forms.scss */
+.table th .desc {
+  padding-right: 12px;
+  background: url("../images/up_arrow.gif") no-repeat right center;
+  background-image: url("../images/down_arrow.gif");
+}
+
+/* FIELDSETS AND LEGENDS
+--------------------------------------------------------------------------------------------------*/
+/* line 3, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset {
+  margin-bottom: 20px;
+  border-top: 1px dashed #C7C7C7;
+  padding-top: 15px;
+}
+/* line 8, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset legend {
+  margin-left: 0px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background: #242424;
+  color: white;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-shadow: none;
+}
+/* line 18, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset legend span {
+  padding-left: 16px;
+}
+/* line 21, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset legend.collapsible span {
+  background: url("/images/arrow-down.png") no-repeat left 4px;
+}
+/* line 22, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset legend.collapsible.collapsed span {
+  background: url("/images/arrow-side.png") no-repeat left;
+}
+
+/* NESTED FIELDSETS AND LEGENDS (radio, check boxes and date/time inputs use nested fieldsets)
+--------------------------------------------------------------------------------------------------*/
+/* line 27, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li {
+  overflow: hidden;
+}
+
+/* line 28, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li fieldset {
+  position: static;
+  width: 100%;
+  border-top: none;
+}
+
+/* line 29, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li fieldset legend {
+  position: static;
+  width: 135px;
+  padding: 0;
+  margin-right: 7px;
+  background: none;
+  color: #333;
+  letter-spacing: normal;
+  float: left;
+}
+
+/* line 30, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li fieldset legend span {
+  position: static;
+}
+
+/* line 31, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li fieldset legend.label label {
+  position: static;
+}
+
+/* line 32, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li fieldset ol {
+  float: left;
+  margin: -20px 0 0 0;
+  padding: 0 0 0 0%;
+  text-align: left;
+}
+
+/* line 33, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li fieldset ol li {
+  padding: 0;
+  border: 0;
+}
+
+/* line 34, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li fieldset ol li label {
+  text-align: left;
+}
+
+/* STRING, NUMERIC, PASSWORD, EMAIL, URL, PHONE & SEARCH OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+/* line 45, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li.string input,
+form.formtastic fieldset > ol > li.password input,
+form.formtastic fieldset > ol > li.numeric input,
+form.formtastic fieldset > ol > li.email input,
+form.formtastic fieldset > ol > li.url input,
+form.formtastic fieldset > ol > li.phone input,
+form.formtastic fieldset > ol > li.search input {
+  width: 185px;
+  padding: 4px;
+}
+
+/* line 47, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li.text textarea {
+  width: 480px;
+  height: 140px;
+  padding: 4px;
+}
+
+/* line 55, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li.string input[size],
+form.formtastic fieldset > ol > li.password input[size],
+form.formtastic fieldset > ol > li.numeric input[size],
+form.formtastic fieldset > ol > li.email input[size],
+form.formtastic fieldset > ol > li.url input[size],
+form.formtastic fieldset > ol > li.phone input[size],
+form.formtastic fieldset > ol > li.search input[size] {
+  /*width:auto; max-width:72%;*/
+}
+
+/* LABELS
+--------------------------------------------------------------------------------------------------*/
+/* line 60, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li label {
+  width: 135px;
+  text-align: right;
+  margin-right: 7px;
+}
+
+/* line 62, ../../app/stylesheets/partials/_formtastic.scss */
+#sidebar form.formtastic fieldset > ol > li label {
+  width: 95px;
+  text-align: left;
+  margin-right: 7px;
+}
+
+/* HINTS
+--------------------------------------------------------------------------------------------------*/
+/* line 69, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li p.inline-hints,
+p.top-hint {
+  display: inline-block;
+  font-style: italic;
+  color: #666;
+}
+
+/* line 71, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset > ol > li p.inline-hints {
+  margin: 0px 0 0 10px;
+  padding: 0px;
+}
+
+/* BUTTON OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+/* line 76, ../../app/stylesheets/partials/_formtastic.scss */
+form.formtastic fieldset.buttons {
+  padding-left: 0;
+}
+
+/* line 1, ../../app/stylesheets/partials/_pagination.scss */
+.pagination a, .pagination span {
+  font-size: 93%;
+  display: block;
+  float: left;
+  border: 1px solid #C3C4BA;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  margin-right: 5px;
+  padding: 6px;
+  min-width: 15px;
+  text-align: center;
+  background: #DDD;
+  background-image: url("../images/button-background.png");
+  color: #111;
+  text-decoration: none;
+}
+
+/* line 17, ../../app/stylesheets/partials/_pagination.scss */
+.pagination span.current {
+  background: #261F1F;
+  color: white;
+  border: 1px solid #261F1F;
+  font-weight: bold;
+}
+
+/* line 24, ../../app/stylesheets/partials/_pagination.scss */
+.pagination a:hover {
+  border: 1px solid #818171;
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* line 1, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic {
+  /* COLUNAS */
+}
+/* line 3, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic .attributes .legend {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+/* line 8, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic .attributes ol {
+  list-style: none;
+}
+/* line 11, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic .attributes ol li.attribute {
+  margin-bottom: 10px;
+  line-height: 26px;
+  clear: both;
+}
+/* line 17, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic .attributes ol li.attribute .label {
+  color: #666666;
+  font-size: 14px;
+  display: block;
+  float: left;
+  width: 135px;
+  text-align: right;
+  margin-right: 6px;
+}
+/* line 27, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic .attributes ol li.attribute .value {
+  display: block;
+  float: left;
+  width: 185px;
+  background-color: #f6f6f6;
+  padding: 2px;
+  padding-left: 4px;
+  min-height: 26px;
+  font-size: 13px;
+  border-bottom: 1px solid #e8e8e8;
+}
+/* line 42, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic hr {
+  height: 1px;
+  border-bottom: solid #e8e8e8 1px;
+  margin-bottom: 15px;
+  background-color: white;
+}
+/* line 49, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic .attributes > ol {
+  float: left;
+  width: 100%;
+}
+/* line 53, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic .column_left {
+  float: left;
+  width: 47%;
+  margin-left: 0px;
+}
+/* line 58, ../../app/stylesheets/partials/_attrtrastic.scss */
+.attrtastic .column_right {
+  float: right;
+  width: 48%;
+  margin-right: 0px;
+}
+
+/* line 2, ../../app/stylesheets/partials/_flash.scss */
+.flash .message, #flash .message {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  margin: 0 auto 15px;
+  color: white;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 11, ../../app/stylesheets/partials/_flash.scss */
+.flash .message p, #flash .message p {
+  margin: 8px;
+}
+/* line 13, ../../app/stylesheets/partials/_flash.scss */
+.flash .error, .flash .error-list, #flash .error, #flash .error-list {
+  border: 1px solid #993624;
+  background: #96301e url("../images/messages/error.png") no-repeat 10px center;
+}
+/* line 18, ../../app/stylesheets/partials/_flash.scss */
+.flash .warning, #flash .warning {
+  border: 1px solid #BB9004;
+  background: #ebb402 url("../images/messages/warning.png") no-repeat 10px center;
+}
+/* line 23, ../../app/stylesheets/partials/_flash.scss */
+.flash .notice, #flash .notice {
+  color: #28485E;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  border: 1px solid #8A9DAA;
+  background: #a1b6c4 url("../images/messages/notice.png") no-repeat 10px center;
+}
+
+/*/mediaquery*/
+/*/mediaquery*/
+@media print {
+  /* line 10, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+
+  /* line 12, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  a, a:visited {
+    color: #444 !important;
+    text-decoration: underline;
+  }
+
+  /* line 13, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  /* line 14, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* line 15, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: "";
+  }
+
+  /* line 16, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /* line 17, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  thead {
+    display: table-header-group;
+  }
+
+  /* line 18, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  /* line 19, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+}
+
+  /* line 21, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 22, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}

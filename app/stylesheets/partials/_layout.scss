@@ -1,0 +1,216 @@
+h2.left,
+p.left,
+div.left,
+a.left { float: left; }
+h2.right,
+p.right,
+div.right,
+a.right { float: right; }
+div.center,
+td.center { text-align: center; }
+
+.right_align { text-align: right; }
+
+h2 { padding: 10px 0; }
+
+.cross {
+  display:block;
+  width:16px;
+  height:16px;
+  background:url(/images/icons/cross.png);
+}
+
+.tick {
+  display:block;
+  width:16px;
+  height:16px;
+  background:url(/images/icons/tick.png);
+}
+
+em {
+  background-color: #FEE568;
+  @include text-shadow(#FFF4B4 0px 1px 0px);
+}
+
+h1, h2, h3, span.pid {
+  font-family: 'Museo700', helvetica, arial, sans-serif;
+  color: #360000;
+}
+
+header#header {
+  line-height: 80px;
+  position: relative;
+  background-color: #360000;
+  @include text-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+  @include box-shadow(inset 0 -5px 10px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(255, 255, 255, 0.3));
+
+  h1 {
+    float: left;
+    color: white;
+    @include font-size(30px);
+    # letter-spacing: -1px;
+    padding: 0 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  nav {
+    ul li {
+      float: left;
+      padding: 4px 10px 0 10px;
+      a {
+        color: white;
+        text-decoration: none;
+        @include font-size(14px);
+        img { vertical-align: middle; }
+      }
+    }
+  }// nav
+  nav.right { float:right; }
+}// #header
+
+body { background-image: url('../images/layout/background.png'); }
+
+#container { min-width: 960px; }
+#wrapper{ padding: 20px 20px 0 20px; }
+#main, #footer { width: 77%; float: left; }
+#main.full, #footer.full { width: 100%; }
+#sidebar { width: 20%; float: right; }
+
+#main .block {
+  margin-bottom: 20px;
+  background-color: white;
+  text-shadow: 0 1px 0 white;
+  @include border-radius(6px);
+  @include box-shadow(0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3));
+}
+
+#main {
+  h1, span.pid {
+    @include font-size(22px);
+    margin-bottom: 15px;
+  }
+
+  h1.left { float: left; }
+
+  span.pid {
+    float: right;
+  }
+
+  .content { padding: 15px; }
+
+  .secondary-navigation {
+    background: #E0E0E0 url("../images/bg-secondary-navigation.png") top;
+    border-bottom-width: 0px;
+    @include border-top-left-radius(6px);
+    @include border-top-right-radius(6px);
+
+    ul {
+      margin: 0;
+      list-style-type: none;
+      li { float: left; }
+      li.right { float: right; }
+      li.active,
+      li.current { background-color: white; }
+      li.first { @include border-top-left-radius(6px); }
+      li.last { @include border-top-right-radius(6px); }
+      li a,
+      li span {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+      }
+    }
+  } // .secondary-navigation
+
+  .breadcrumb {
+    background-color: #F4F4F4;
+    @include border-bottom-left-radius(6px);
+    @include border-bottom-right-radius(6px);
+
+    ul {
+      margin-left: 0;
+      height: 20px;
+      padding-bottom: 15px;
+      padding-top: 0px;
+      list-style-type: none;
+      li.first {
+        padding-left: 15px;
+        background: none;
+      }
+
+      li.active { color: #A4A4A4; }
+
+      li {
+        color: #777;
+        display: block;
+        padding-top: 10px;
+        padding-left: 17px;
+        margin-right: 15px;
+        background: url("../images/breadcrumb.png") no-repeat 0px 12px;
+        float: left;
+        @include font-size(12px);
+        a {
+          text-decoration: none;
+          color: #777;
+        }
+      }
+    }
+  }
+  #error_explanation {
+    margin:0 0 10px 20px;
+  }
+
+  p.inline-errors {
+    display:inline;
+    margin:0px 0 0 5px;
+    padding:0px;
+  }
+}
+
+#sidebar {
+  .block {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    @include border-radius(6px);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: #111;
+    padding: 10px 0;
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+
+#box {
+  width: 480px;
+  margin: 50px auto 20px auto;
+
+  .block {
+    background: white;
+    text-shadow: 0 1px 0 white;
+    @include box-shadow(0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3));
+    @include border-radius(6px);
+    margin-bottom: 20px;
+
+    h2 {
+      @include font-size(22px);
+      background: #261F1F;
+      color: white;
+      text-shadow: none;
+      @include border-top-left-radius(6px);
+      @include border-top-right-radius(6px);
+      padding: 10px 15px;
+      margin: 0;
+    }
+
+    .content { padding: 10px 20px; }
+  }
+}

@@ -1,0 +1,63 @@
+.attrtastic {
+  .attributes {
+    .legend {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    ol {
+      list-style: none;
+
+      li.attribute {
+        // espaçamento entre linhas
+        margin-bottom: 10px;
+        line-height: 26px;
+        clear: both;
+      
+        .label {
+          color: #666666;
+          font-size: 14px;
+          display: block;
+          float:left;
+          width: 135px;
+          text-align: right;
+          margin-right: 6px;
+        }
+      
+        .value {
+          display: block;
+          float:left;
+          width: 185px;
+          background-color: #f6f6f6;
+          padding: 2px;
+          padding-left: 4px;
+          min-height: 26px;
+          font-size: 13px;
+          border-bottom: 1px solid #e8e8e8;          
+        }
+      } // li.attribute
+    } // ol
+  } // .attributes
+  
+  hr {
+    // barra para subdividir grupos
+    height: 1px;
+    border-bottom: solid #e8e8e8 1px;
+    margin-bottom: 15px;
+    background-color: white; }
+  /* COLUNAS */
+  .attributes > ol {
+    // uma só coluna
+    float: left;
+    width: 100%; }
+  .column_left {
+    // duas colunas - esquerda
+    float: left;
+    width: 47%;
+    margin-left: 0px; }
+  .column_right {
+    // duas colunas - direita
+    float: right;
+    width: 48%;
+    margin-right: 0px; }
+}

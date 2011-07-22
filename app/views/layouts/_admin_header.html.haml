@@ -1,0 +1,10 @@
+%h1= link_to 'Your Loyal Customer', admin_root_path
+
+%nav.right
+  %ul
+    %li= link_to image_tag("icons/logout.png", :title => "Logout"), logout_path
+
+%nav
+  = tabs_tag do |tab|
+    = tab.companies      'Companies', admin_companies_path
+    = tab.people         'People', admin_people_path

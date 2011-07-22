@@ -1,0 +1,29 @@
+.flash, #flash {
+  .message {
+    @include border-radius(3px);
+    text-align: center;
+    margin: 0 auto 15px;
+    color: white;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    @include box-shadow(0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1));
+  }
+
+  .message p { margin: 8px; }
+
+  .error, .error-list {
+    border: 1px solid #993624;
+    background: #96301E url('../images/messages/error.png') no-repeat 10px center;
+  }
+
+  .warning {
+    border: 1px solid #BB9004;
+    background: #EBB402 url("../images/messages/warning.png") no-repeat 10px center;
+  }
+
+  .notice {
+    color: #28485E;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    border: 1px solid #8A9DAA;
+    background: #A1B6C4 url("../images/messages/notice.png") no-repeat 10px center;
+  }
+}

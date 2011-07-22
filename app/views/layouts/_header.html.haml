@@ -1,0 +1,11 @@
+%h1= link_to @store.name, root_path
+
+%nav.right
+  %ul
+    %li= link_to image_tag("icons/config.png", :title => "Store Information"), edit_store_path(@store)
+    %li= link_to image_tag("icons/logout.png", :title => "Logout"), logout_path
+
+%nav
+  %ul
+    %li= link_to "Customers", store_people_path(@store)
+    %li= link_to "Service Reminders", store_service_reminders_path(@store)

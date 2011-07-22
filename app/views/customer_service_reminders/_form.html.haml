@@ -1,0 +1,15 @@
+- semantic_form_for [@store, @person, @vehicle, @customer_service_reminder] do |form|
+  = render "shared/form_errors", :errors => @customer_service_reminder.errors
+
+  - form.inputs "General Information", :class => "" do
+    = form.input :service_reminder, :collection => @service_reminders
+    = form.input :custom_name
+    = form.input :custom_description
+    = form.input :custom_email_subject
+    = form.input :custom_email_body
+    = form.input :interval, :as => :select, :collection => months_list
+    = form.input :recurring, :as => :normal_boolean
+    = form.input :max_send, :as => :select, :collection => months_list(20, 'times')
+    = submit_button 'Service Reminder'
+    .or-cancel
+      or #{link_to 'Cancel', store_person_path(@store, @person)}

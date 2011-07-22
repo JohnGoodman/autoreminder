@@ -1,0 +1,35 @@
+- content_for(:secondary_navigation) do
+  = render 'nav'
+
+= render 'title'
+
+%p
+  %b Address:
+  = @company.address
+%p
+  %b Address two:
+  = @company.address_two
+%p
+  %b Phone:
+  = @company.phone
+%p
+  %b Phone two:
+  = @company.phone_two
+%p
+  %b Email:
+  = @company.email
+%p
+  %b Fax:
+  = @company.fax
+%p
+  %b City:
+  = @company.city
+%p
+  %b State:
+  = @company.state
+%p
+  %b Zip:
+  = @company.zip
+
+%hr
+= link_to 'Delete Company', admin_company_path(@company), :confirm => 'Delete this company?', :method => :delete

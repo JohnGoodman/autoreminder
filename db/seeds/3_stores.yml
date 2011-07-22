@@ -1,0 +1,26 @@
+- name: Tire Extreme
+  address: 123 Some Rd
+  phone: 223-774-3736
+  email: tireextreme@example.com
+  city: Jackson
+  state: MS
+  zip: 39710
+  company_id: 1
+
+- name: Tire Xpress
+  address: 453 Walden Way
+  phone: 222-464-7726
+  email: tirexpress@example.com
+  city: Jackson
+  state: MS
+  zip: 39710
+  company_id: 1
+
+- name: Tire Spot
+  address: 1004 Hiway 12
+  phone: 202-460-5606
+  email: tirespot@example.com
+  city: Jackson
+  state: MS
+  zip: 39710
+  company_id: 1

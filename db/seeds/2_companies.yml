@@ -1,0 +1,8 @@
+- name: Tire Dealer
+  address: 5004 Sunset Rd
+  address_two: Suite 34
+  phone: 223-333-3737
+  email: tiredealer@example.com
+  city: Jackson
+  state: MS
+  zip: 39710

@@ -1,0 +1,14 @@
+- semantic_form_for [@store, @person] do |form|
+  = render "shared/form_errors", :errors => @person.errors
+
+  - form.inputs "General Information", :class => "" do
+    = form.input :prefix
+    = form.input :first_name
+    = form.input :last_name
+    = form.input :email
+  - form.inputs "Note", :class => "" do
+    = form.input :note
+  - form.buttons do
+    = submit_button 'Customer'
+    .or-cancel
+      or #{link_to 'Cancel', store_people_path(@store)}
