@@ -69,7 +69,6 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    escape (0.0.4)
     factory_girl (1.3.3)
     factory_girl_rails (1.0.1)
       factory_girl (~> 1.3)
@@ -115,7 +114,6 @@ GEM
     nokogiri (1.4.6)
     orm_adapter (0.0.5)
     polyglot (0.3.1)
-    pr_geohash (1.0.0)
     rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -137,8 +135,6 @@ GEM
       thor (~> 0.14.4)
     rake (0.9.2)
     rdoc (3.7)
-    rsolr (0.12.1)
-      builder (>= 2.1.2)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -172,13 +168,6 @@ GEM
     shoulda (2.11.3)
     sqlite3 (1.3.3)
     state_machine (1.0.1)
-    sunspot (1.2.1)
-      escape (= 0.0.4)
-      pr_geohash (~> 1.0)
-      rsolr (= 0.12.1)
-    sunspot_rails (1.2.1)
-      nokogiri
-      sunspot (= 1.2.1)
     tabs_on_rails (2.0.1)
     term-ansicolor (1.0.5)
     thor (0.14.6)
@@ -219,6 +208,5 @@ DEPENDENCIES
   shoulda
   sqlite3
   state_machine
-  sunspot_rails
   tabs_on_rails
   will_paginate
