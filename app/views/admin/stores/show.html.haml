@@ -33,6 +33,29 @@
   %b Zip:
   = @store.zip
 
+%hr
+%h2.left Service Reminders
+
+.right
+  = link_to 'Mass Assign Service Reminders', mass_assign_service_reminders_admin_company_store_path(@company, @store)
+  = link_to 'Add Service Reminder', new_admin_company_store_service_reminder_path(@company, @store)
+
+.clearfix
+
+%table.table
+  %thead
+    %tr
+      %th Name
+
+  %tbody
+    - @service_reminders.each do |service_reminder|
+      %tr
+        %td= link_to service_reminder.name, edit_admin_service_reminder_path(service_reminder)
+
+    - if @service_reminders.empty?
+      %tr
+        %td{ :colspan => 1 } No Service Reminders found.
+
 
 %hr
 = link_to 'Delete Store', admin_company_store_path(@company, @store), :confirm => 'Delete this store?', :method => :delete

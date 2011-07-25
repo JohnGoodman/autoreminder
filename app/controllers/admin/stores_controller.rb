@@ -5,6 +5,7 @@ class Admin::StoresController < ApplicationController
 
   set_tab :company_stores, :subnav, :only => :index
   set_tab :store_new, :subnav, :only => :new
+  set_tab :company_store, :subnav, :only => :show
 
   def index
     @stores = @company.stores.all
@@ -15,10 +16,9 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # GET /stores/1
-  # GET /stores/1.xml
   def show
     @store = Store.find(params[:id])
+    @service_reminders = @store.service_reminders
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,8 +26,6 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # GET /stores/new
-  # GET /stores/new.xml
   def new
     @store = Store.new
 
@@ -37,13 +35,10 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # GET /stores/1/edit
   def edit
     @store = Store.find(params[:id])
   end
 
-  # POST /stores
-  # POST /stores.xml
   def create
     @store = Store.new(params[:store])
 
@@ -58,31 +53,59 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # PUT /stores/1
-  # PUT /stores/1.xml
   def update
     @store = Store.find(params[:id])
 
     respond_to do |format|
       if @store.update_attributes(params[:store])
         format.html { redirect_to(admin_company_store_path(@company, @store), :notice => 'Store was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @store.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /stores/1
-  # DELETE /stores/1.xml
   def destroy
-    @store = Store.find(params[:id])
-    @store.destroy
+    @store = Store.find(params[:id]).destroy
 
     respond_to do |format|
       format.html { redirect_to(admin_company_stores_path(@company)) }
       format.xml  { head :ok }
+    end
+  end
+
+  def mass_assign_service_reminders
+    @store = Store.find(params[:id])
+    @service_reminders = ServiceReminder.admin_reminders
+  end
+
+  def assign_service_reminders
+    @store = Store.find(params[:store_id])
+    notice = ''
+    assigned_count = 0
+
+    if params[:store][:reminders]
+      # loop them, create new reminders based off the default
+      params[:store][:reminders].each do |reminder|
+        if ServiceReminder.exists?(reminder)
+          service_reminder = ServiceReminder.find(reminder).clone
+          service_reminder.store = @store
+          if service_reminder.save
+            assigned_count += 1
+          end
+        end
+      end
+      notice = assigned_count.to_s + " Service Reminder(s) assigned."
+    else
+      notice = 'Error: No service reminders were selected.'
+    end
+
+    respond_to do |format|
+      if @store.update_attributes(params[:store])
+        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => 'Store was successfully updated.') }
+      else
+        format.html { render :action => "edit" }
+      end
     end
   end
 

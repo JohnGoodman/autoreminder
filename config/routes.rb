@@ -8,7 +8,6 @@ Ylc::Application.routes.draw do
   end
 
   resources :stores, :except => [:index, :new, :create] do
-    resources :service_reminders
     resources :people do
       resources :vehicles, :except => [:index, :show] do
         resources :customer_service_reminders
@@ -26,8 +25,14 @@ Ylc::Application.routes.draw do
     root :to => 'companies#index'
     resources :people
     resources :companies do
-      resources :stores
+      resources :stores do
+        get 'mass_assign_service_reminders', :on => :member
+        # get 'assign_service_reminders', :on => :member
+        match 'assign_service_reminders' => 'stores#assign_service_reminders', :as => 'assign_service_reminders'
+        resources :service_reminders, :except => [:index]
+      end
     end
+    resources :service_reminders
   end
 
 

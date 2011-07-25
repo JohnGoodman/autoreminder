@@ -22,7 +22,7 @@
   %tbody
     - @stores.each do |store|
       %tr
-        %td= link_to store.name, edit_admin_company_store_path(@company, store)
+        %td= link_to store.name, admin_company_store_path(@company, store)
         %td= store.address
         %td= store.address_two
         %td= store.phone

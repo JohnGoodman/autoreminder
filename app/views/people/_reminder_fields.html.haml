@@ -1,0 +1,11 @@
+= f.input :service_reminder, :collection => @service_reminders
+= f.input :custom_name
+= f.input :custom_description
+= f.input :custom_email_subject
+= f.input :custom_email_body
+= f.input :interval, :as => :select, :collection => months_list
+= f.input :recurring, :as => :normal_boolean
+= f.input :max_send, :as => :select, :collection => months_list(20, 'times')
+
+= f.check_box :_destroy
+= f.label :_destroy, "Remove Reminder"

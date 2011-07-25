@@ -1,25 +1,18 @@
-%h1 Listing service_reminders
+- content_for(:secondary_navigation) do
+  = render 'nav'
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th Email subject
-    %th Email body
-    %th
-    %th
-    %th
+%h1 Service Reminders
 
-  - @service_reminders.each do |service_reminder|
+%table.table
+  %thead
     %tr
-      %td= service_reminder.name
-      %td= service_reminder.description
-      %td= service_reminder.email_subject
-      %td= service_reminder.email_body
-      %td= link_to 'Show', service_reminder
-      %td= link_to 'Edit', edit_service_reminder_path(service_reminder)
-      %td= link_to 'Destroy', service_reminder, :confirm => 'Are you sure?', :method => :delete
+      %th Name
 
-%br
+  %tbody
+    - @service_reminders.each do |service_reminder|
+      %tr
+        %td= link_to service_reminder.name, edit_admin_service_reminder_path(service_reminder)
 
-= link_to 'New Service reminder', new_service_reminder_path
+    - if @service_reminders.empty?
+      %tr
+        %td{ :colspan => 1 } No Service Reminders found.

@@ -1,14 +1,15 @@
 class Person < ActiveRecord::Base
   belongs_to :role
   belongs_to :store
-  has_many :vehicles
+  has_many :vehicles, :dependent => :destroy
+  accepts_nested_attributes_for :vehicles
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes
 
   # Validations
   validates_presence_of     :first_name

@@ -1,0 +1,10 @@
+= f.input :year
+= f.input :make
+= f.input :model
+= f.input :email, :input_html => {:class => 'vehicle_email'}
+
+= f.check_box :_destroy
+= f.label :_destroy, "Remove Vehicle"
+
+-f.semantic_fields_for :customer_service_reminders do |builder|
+  = render "reminder_fields", :f => builder

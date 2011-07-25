@@ -5,7 +5,7 @@ class CustomerServiceReminder < ActiveRecord::Base
   attr_accessible :vehicle_id, :service_reminder_id, :sent_on, :interval, :recurring, :times_sent, :max_send, :custom_name, :custom_description, :custom_email_subject, :custom_email_body
 
   validates_presence_of     :interval
-  validates_presence_of     :vehicle_id
+  # validates_presence_of     :vehicle_id
   validates_presence_of     :service_reminder_id
 
   validates_presence_of     :custom_name,           :if => :validate_custom?

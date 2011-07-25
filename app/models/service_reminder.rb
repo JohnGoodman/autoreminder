@@ -7,4 +7,8 @@ class ServiceReminder < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :email_subject
   validates_presence_of :email_body
+
+  def self.admin_reminders
+    ServiceReminder.where(:store_id => nil)
+  end
 end

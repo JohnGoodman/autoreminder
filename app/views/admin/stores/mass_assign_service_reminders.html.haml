@@ -1,0 +1,17 @@
+- content_for(:secondary_navigation) do
+  = render 'admin/companies/nav'
+
+= render 'admin/companies/title'
+%h2 Mass Assign Service Reminders
+
+- semantic_form_for [:admin, @company, @store], :url => admin_company_store_assign_service_reminders_path(@company, @store) do |form|
+  = render "shared/form_errors", :errors => @store.errors
+
+  - form.inputs "Assign Service Reminders", :class => "" do
+    - @service_reminders.each do |s|
+      %li
+        %label= s.name
+        = check_box_tag 'store[reminders][]', s.id
+
+  - form.buttons do
+    = content_tag :button, 'Assign', {:type => :submit, :class => 'positive'}
