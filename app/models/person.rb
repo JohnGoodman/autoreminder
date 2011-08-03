@@ -2,7 +2,7 @@ class Person < ActiveRecord::Base
   belongs_to :role
   belongs_to :store
   has_many :vehicles, :dependent => :destroy
-  accepts_nested_attributes_for :vehicles
+  accepts_nested_attributes_for :vehicles, :reject_if => lambda { |a| a[:year].blank? && a[:make].blank? && a[:model].blank? }, :allow_destroy => true
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

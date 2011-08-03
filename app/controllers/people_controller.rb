@@ -17,9 +17,9 @@ class PeopleController < ApplicationController
   def new
     @person = @store.people.new
     @service_reminders = @store.all_service_reminders
-    2.times do
+    1.times do
         vehicle = @person.vehicles.build
-        1.times { vehicle.customer_service_reminders.build }
+        2.times { vehicle.customer_service_reminders.build }
       end
 
     respond_to do |format|

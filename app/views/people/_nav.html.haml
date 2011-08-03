@@ -5,7 +5,7 @@
       = tab.person_edit  'Edit Person', edit_store_person_path(@store, @person)
 
 
-    = tab.person_new   'New Person', new_store_person_path(@store), :class => "right last" if ['index','new'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+    = tab.person_new   'Add Customer', new_store_person_path(@store), :class => "right last" if ['index','new'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
 
     = tab.vehicle_new   'Add Vehicle', new_store_person_vehicle_path(@store, @person), :class => "right last" if ['show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
 

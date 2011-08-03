@@ -827,41 +827,41 @@ ul.table div.td a {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* line 27, ../../app/stylesheets/partials/_forms.scss */
+/* line 28, ../../app/stylesheets/partials/_forms.scss */
 .buttons button {
   float: left;
   margin-right: 5px;
 }
-/* line 28, ../../app/stylesheets/partials/_forms.scss */
+/* line 29, ../../app/stylesheets/partials/_forms.scss */
 .buttons .or-cancel {
   float: left;
   line-height: 26px;
 }
 
-/* line 31, ../../app/stylesheets/partials/_forms.scss */
+/* line 32, ../../app/stylesheets/partials/_forms.scss */
 button, input, select, textarea {
   font-family: 'Lucida Grande', 'MuseoSans500', helvetica, arial, sans-serif;
 }
 
-/* line 33, ../../app/stylesheets/partials/_forms.scss */
+/* line 34, ../../app/stylesheets/partials/_forms.scss */
 .login div.left, .signup div div.left {
   width: 21%;
   float: left;
 }
 
-/* line 38, ../../app/stylesheets/partials/_forms.scss */
+/* line 39, ../../app/stylesheets/partials/_forms.scss */
 .login div.right, .signup div div.right {
   width: 74%;
   float: right;
 }
 
-/* line 43, ../../app/stylesheets/partials/_forms.scss */
+/* line 44, ../../app/stylesheets/partials/_forms.scss */
 #login_register {
   text-align: center;
   padding-bottom: 5px;
 }
 
-/* line 48, ../../app/stylesheets/partials/_forms.scss */
+/* line 49, ../../app/stylesheets/partials/_forms.scss */
 .search, .search_date {
   border: 1px solid #C1C1C1;
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
@@ -883,13 +883,13 @@ button, input, select, textarea {
   height: 25px;
 }
 
-/* line 61, ../../app/stylesheets/partials/_forms.scss */
+/* line 62, ../../app/stylesheets/partials/_forms.scss */
 .search_date {
   width: 100px;
   margin-right: 10px;
 }
 
-/* line 66, ../../app/stylesheets/partials/_forms.scss */
+/* line 67, ../../app/stylesheets/partials/_forms.scss */
 .clear-search {
   border: 0px;
   background: transparent url("../images/clear.png") no-repeat center left;
@@ -913,12 +913,12 @@ button, input, select, textarea {
   border-bottom-right-radius: 13px;
 }
 
-/* line 79, ../../app/stylesheets/partials/_forms.scss */
+/* line 80, ../../app/stylesheets/partials/_forms.scss */
 .searching {
   background: transparent url("../images/spinner.gif") no-repeat center left;
 }
 
-/* line 83, ../../app/stylesheets/partials/_forms.scss */
+/* line 84, ../../app/stylesheets/partials/_forms.scss */
 .search_box {
   font-family: "MuseoSans500", helvetica, arial, sans-serif;
   border: 0px;
@@ -943,28 +943,74 @@ button, input, select, textarea {
   outline: none;
 }
 
-/* line 97, ../../app/stylesheets/partials/_forms.scss */
+/* line 98, ../../app/stylesheets/partials/_forms.scss */
 .watermark_container {
   height: 25px;
   width: 273px;
 }
 
-/* line 98, ../../app/stylesheets/partials/_forms.scss */
+/* line 99, ../../app/stylesheets/partials/_forms.scss */
 .search-dates .watermark_container {
   width: 100px;
 }
 
-/* line 100, ../../app/stylesheets/partials/_forms.scss */
+/* line 101, ../../app/stylesheets/partials/_forms.scss */
 .table th .asc {
   padding-right: 12px;
   background: url("../images/up_arrow.gif") no-repeat right center;
 }
 
-/* line 105, ../../app/stylesheets/partials/_forms.scss */
+/* line 106, ../../app/stylesheets/partials/_forms.scss */
 .table th .desc {
   padding-right: 12px;
   background: url("../images/up_arrow.gif") no-repeat right center;
   background-image: url("../images/down_arrow.gif");
+}
+
+/* line 115, ../../app/stylesheets/partials/_forms.scss */
+input,
+textarea,
+select {
+  padding: 3px;
+  font-size: 15px;
+  text-shadow: 0px 1px 0px #fff;
+  outline: none;
+  background: -webkit-gradient(linear, left top, left bottombottom, from(white), to(#f3f3f3));
+  background: -moz-linear-gradient(top, white, #f3f3f3);
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #717171;
+  -webkit-box-shadow: 1px 1px 0px #efefef;
+  -moz-box-shadow: 1px 1px 0px #efefef;
+  box-shadow: 1px 1px 0px #efefef;
+}
+
+/* line 131, ../../app/stylesheets/partials/_forms.scss */
+input:focus,
+textarea:focus,
+select:focus {
+  -webkit-box-shadow: 0px 0px 5px #007eff;
+  -moz-box-shadow: 0px 0px 5px #007eff;
+  box-shadow: 0px 0px 5px #007eff;
+}
+
+/* line 137, ../../app/stylesheets/partials/_forms.scss */
+select {
+  width: 193px;
+}
+
+/* line 141, ../../app/stylesheets/partials/_forms.scss */
+option {
+  # padding: 2px;
+}
+
+/* line 145, ../../app/stylesheets/partials/_forms.scss */
+option:hover {
+  text-shadow: 0px 1px 0px #333;
 }
 
 /* FIELDSETS AND LEGENDS
@@ -972,14 +1018,14 @@ button, input, select, textarea {
 /* line 3, ../../app/stylesheets/partials/_formtastic.scss */
 form.formtastic fieldset {
   margin-bottom: 20px;
-  border-top: 1px dashed #C7C7C7;
+  # border-top: 1px dashed #C7C7C7;
   padding-top: 15px;
 }
 /* line 8, ../../app/stylesheets/partials/_formtastic.scss */
 form.formtastic fieldset legend {
   margin-left: 0px;
   margin-bottom: 10px;
-  padding: 5px 10px;
+  padding: 5px 15px;
   background: #242424;
   color: white;
   -moz-border-radius: 6px;
@@ -991,10 +1037,7 @@ form.formtastic fieldset legend {
   letter-spacing: 2px;
   cursor: pointer;
   text-shadow: none;
-}
-/* line 18, ../../app/stylesheets/partials/_formtastic.scss */
-form.formtastic fieldset legend span {
-  padding-left: 16px;
+  /* span { padding-left:16px; } */
 }
 /* line 21, ../../app/stylesheets/partials/_formtastic.scss */
 form.formtastic fieldset legend.collapsible span {

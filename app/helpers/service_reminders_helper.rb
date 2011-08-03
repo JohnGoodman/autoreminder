@@ -12,7 +12,7 @@ module ServiceRemindersHelper
     end
   end
 
-  def email_list_title_helper(text, css_class = nil)
+  def service_reminder_title_helper(text, css_class = nil)
     if @store.present?
       content_tag :h2, text, :class => css_class
     else

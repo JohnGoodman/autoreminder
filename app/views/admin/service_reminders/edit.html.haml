@@ -3,3 +3,6 @@
 
 = render 'title'
 = render 'form'
+
+%hr
+=link_to 'Delete Service Reminder', [:admin, :service_reminder], :confirm => 'Delete this service reminder?', :method => :delete

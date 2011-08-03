@@ -4,7 +4,7 @@ $(function() {
   $('input.search_box').watermark();
 
   // jQuery uniform controls (http://pixelmatrixdesign.com/uniform)
-  $("select:not(.ignore_uniform),input:checkbox, input:radio, input:file").uniform();
+  // $("select:not(.ignore_uniform),input:checkbox, input:radio, input:file").uniform();
 
 
   $('img,a,span,td,th').each(function() {
@@ -46,7 +46,7 @@ $(function() {
       }else{
         $('.checkbox input').removeAttr('checked')
       }
-    $.uniform.update();
+    // $.uniform.update();
   });
 });
 

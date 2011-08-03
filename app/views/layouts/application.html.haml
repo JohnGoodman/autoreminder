@@ -18,11 +18,11 @@
             = yield(:secondary_navigation) if content_for?(:secondary_navigation)
             .content= yield
             = yield(:breadcrumb) if content_for?(:breadcrumb)
-                
+
         - if content_for?(:sidebar)
           #sidebar
             = yield(:sidebar)
-            
+
         %footer#footer{ :class => content_for?(:sidebar) ? '' : 'full' }
           = render "layouts/footer"
 

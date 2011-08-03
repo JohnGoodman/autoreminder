@@ -21,6 +21,7 @@
     border: 1px solid #DDD;
     @include box-shadow(inset 0 1px 3px rgba(0, 0, 0, 0.1));
   }
+
 }
 
 .buttons {
@@ -106,4 +107,41 @@ button, input, select, textarea { font-family: 'Lucida Grande', 'MuseoSans500', 
   padding-right: 12px;
   background: url("../images/up_arrow.gif") no-repeat right center;
   background-image: url("../images/down_arrow.gif");
+}
+
+
+input,
+textarea,
+select {
+  padding: 3px;
+  font-size: 15px;
+  text-shadow: 0px 1px 0px #fff;
+  outline: none;
+  background: -webkit-gradient(linear, left top, left bottombottom, from(#ffffff), to(#f3f3f3));
+  background: -moz-linear-gradient(top,  #ffffff,  #f3f3f3);
+  @include border-radius(2px);
+  border: 1px solid #717171;
+  -webkit-box-shadow: 1px 1px 0px #efefef;
+  -moz-box-shadow: 1px 1px 0px #efefef;
+  box-shadow:  1px 1px 0px #efefef;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  -webkit-box-shadow: 0px 0px 5px #007eff;
+  -moz-box-shadow: 0px 0px 5px #007eff;
+  box-shadow: 0px 0px 5px #007eff;
+}
+
+select {
+  width:193px;
+}
+
+option {
+  # padding:2px;
+}
+
+option:hover {
+  text-shadow: 0px 1px 0px #333;
 }

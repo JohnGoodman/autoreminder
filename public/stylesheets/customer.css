@@ -1,0 +1,88 @@
+.fields_holder {
+  border-bottom:1px dashed #360000;
+  margin:0px;
+  padding:10px 10px 0 10px;
+  background:#f3f3f3;
+}
+
+.fields_holder.top {
+  border-top:1px dashed #ccc;
+}
+
+.add_vehicle {
+  padding:10px 0;
+}
+
+form.formtastic fieldset.fields {
+  border:none;
+  margin:0px;
+  /*padding:0px;*/
+}
+
+
+form.formtastic fieldset.fields.vehicle {
+
+}
+
+form.formtastic fieldset.fields.reminder {
+/*  clear:both;*/
+}
+
+form.formtastic fieldset.fields legend {
+  color:#360000;
+  background:none;
+  letter-spacing:1px;
+}
+
+form.formtastic fieldset.hide_custom > ol > li.custom {
+  display:none;
+}
+
+form.formtastic fieldset.fields.reminder > ol > li {
+  margin-bottom:0;
+  padding:10px 0 0px 0;
+}
+
+form.formtastic fieldset.fields.reminder > ol > li textarea {
+  margin-bottom:15px;
+}
+
+form.formtastic fieldset.fields.reminder > ol {
+  border-bottom:1px dotted #ccc;
+}
+
+form.formtastic fieldset > ol > li.add_service_reminder_title {
+  margin:0px;
+  padding:0px;
+  border-bottom:1px dotted #ccc;
+}
+
+form.formtastic fieldset > ol > li.add_reminder {
+ margin-top:15px;
+}
+
+
+form.formtastic fieldset > ol > li.custom {
+}
+
+form.formtastic fieldset > ol > li.float_left {
+  float:left;
+  width:200px;
+  margin-left:20px;
+}
+
+form.formtastic fieldset > ol > li.float_left label {
+  text-align:left;
+  width:200px;
+}
+
+form.formtastic fieldset > ol > li.float_left.recurring label {
+  padding-left:0px;
+}
+
+a.remove_button { margin-left:10px; }
+
+form.formtastic fieldset > ol > li.add_service_reminder_title {
+  padding:5px 5px 5px 20px;
+  background:#f3f3f3;
+}

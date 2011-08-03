@@ -2,22 +2,22 @@
 --------------------------------------------------------------------------------------------------*/
 form.formtastic fieldset {
   margin-bottom: 20px;
-  border-top: 1px dashed #C7C7C7;
+  # border-top: 1px dashed #C7C7C7;
   padding-top:15px;
 
   legend {
     margin-left:0px;
     margin-bottom:10px;
-    padding: 5px 10px;
+    padding: 5px 15px;
     background: #242424;
     color: white;
     @include border-radius(6px);
     letter-spacing: 2px;
     cursor: pointer;
     @include text-shadow(none);
-    span { padding-left:16px; }
+    /* span { padding-left:16px; } */
   }
-  
+
   legend.collapsible span { background: url('/images/arrow-down.png') no-repeat left 4px; }
   legend.collapsible.collapsed span { background: url('/images/arrow-side.png') no-repeat left; }
 }

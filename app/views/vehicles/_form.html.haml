@@ -6,7 +6,7 @@
     = form.input :make
     = form.input :model
     = form.input :email, :input_html => {:value => @default_email}
-    = form.input :unsubscribe, :as => :normal_boolean, :label => 'Unsubscribe from receiving emails.'
+    = form.input :unsubscribe, :as => :normal_boolean, :label => 'Unsubscribe', :hint => 'Do not send any email reminders.'
     = submit_button 'Vehicle'
     .or-cancel
       or #{link_to 'Cancel', store_person_path(@store, @person)}
