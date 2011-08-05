@@ -458,6 +458,14 @@ body {
 }
 
 /* line 83, ../../app/stylesheets/partials/_layout.scss */
+#autoreminder {
+  width: 150px;
+  height: 67px;
+  margin: 0 auto 25px auto;
+  background: url(/images/Autoreminder.png);
+}
+
+/* line 90, ../../app/stylesheets/partials/_layout.scss */
 #main .block {
   margin-bottom: 20px;
   background-color: white;
@@ -474,24 +482,24 @@ body {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-/* line 92, ../../app/stylesheets/partials/_layout.scss */
+/* line 99, ../../app/stylesheets/partials/_layout.scss */
 #main h1, #main span.pid {
   font-size: 170%;
   margin-bottom: 15px;
 }
-/* line 97, ../../app/stylesheets/partials/_layout.scss */
+/* line 104, ../../app/stylesheets/partials/_layout.scss */
 #main h1.left {
   float: left;
 }
-/* line 99, ../../app/stylesheets/partials/_layout.scss */
+/* line 106, ../../app/stylesheets/partials/_layout.scss */
 #main span.pid {
   float: right;
 }
-/* line 103, ../../app/stylesheets/partials/_layout.scss */
+/* line 110, ../../app/stylesheets/partials/_layout.scss */
 #main .content {
   padding: 15px;
 }
-/* line 105, ../../app/stylesheets/partials/_layout.scss */
+/* line 112, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation {
   background: #e0e0e0 url("../images/bg-secondary-navigation.png") top;
   border-bottom-width: 0px;
@@ -508,25 +516,25 @@ body {
   -khtml-border-top-right-radius: 6px;
   border-top-right-radius: 6px;
 }
-/* line 111, ../../app/stylesheets/partials/_layout.scss */
+/* line 118, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul {
   margin: 0;
   list-style-type: none;
 }
-/* line 114, ../../app/stylesheets/partials/_layout.scss */
+/* line 121, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li {
   float: left;
 }
-/* line 115, ../../app/stylesheets/partials/_layout.scss */
+/* line 122, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li.right {
   float: right;
 }
-/* line 117, ../../app/stylesheets/partials/_layout.scss */
+/* line 124, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li.active,
 #main .secondary-navigation ul li.current {
   background-color: white;
 }
-/* line 118, ../../app/stylesheets/partials/_layout.scss */
+/* line 125, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li.first {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -535,7 +543,7 @@ body {
   -khtml-border-top-left-radius: 6px;
   border-top-left-radius: 6px;
 }
-/* line 119, ../../app/stylesheets/partials/_layout.scss */
+/* line 126, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li.last {
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
@@ -544,14 +552,14 @@ body {
   -khtml-border-top-right-radius: 6px;
   border-top-right-radius: 6px;
 }
-/* line 121, ../../app/stylesheets/partials/_layout.scss */
+/* line 128, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li a,
 #main .secondary-navigation ul li span {
   display: block;
   padding: 10px 15px;
   text-decoration: none;
 }
-/* line 129, ../../app/stylesheets/partials/_layout.scss */
+/* line 136, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb {
   background-color: #F4F4F4;
   -moz-border-radius-bottomleft: 6px;
@@ -567,7 +575,7 @@ body {
   -khtml-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-/* line 134, ../../app/stylesheets/partials/_layout.scss */
+/* line 141, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul {
   margin-left: 0;
   height: 20px;
@@ -575,16 +583,16 @@ body {
   padding-top: 0px;
   list-style-type: none;
 }
-/* line 140, ../../app/stylesheets/partials/_layout.scss */
+/* line 147, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul li.first {
   padding-left: 15px;
   background: none;
 }
-/* line 145, ../../app/stylesheets/partials/_layout.scss */
+/* line 152, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul li.active {
   color: #A4A4A4;
 }
-/* line 147, ../../app/stylesheets/partials/_layout.scss */
+/* line 154, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul li {
   color: #777;
   display: block;
@@ -595,23 +603,23 @@ body {
   float: left;
   font-size: 93%;
 }
-/* line 156, ../../app/stylesheets/partials/_layout.scss */
+/* line 163, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul li a {
   text-decoration: none;
   color: #777;
 }
-/* line 163, ../../app/stylesheets/partials/_layout.scss */
+/* line 170, ../../app/stylesheets/partials/_layout.scss */
 #main #error_explanation {
   margin: 0 0 10px 20px;
 }
-/* line 167, ../../app/stylesheets/partials/_layout.scss */
+/* line 174, ../../app/stylesheets/partials/_layout.scss */
 #main p.inline-errors {
   display: inline;
   margin: 0px 0 0 5px;
   padding: 0px;
 }
 
-/* line 175, ../../app/stylesheets/partials/_layout.scss */
+/* line 182, ../../app/stylesheets/partials/_layout.scss */
 #sidebar .block {
   padding-top: 2px;
   padding-bottom: 2px;
@@ -624,7 +632,7 @@ body {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
   margin-bottom: 20px;
 }
-/* line 183, ../../app/stylesheets/partials/_layout.scss */
+/* line 190, ../../app/stylesheets/partials/_layout.scss */
 #sidebar h3 {
   color: #111;
   padding: 10px 0;
@@ -632,12 +640,12 @@ body {
   font-size: 13px;
 }
 
-/* line 192, ../../app/stylesheets/partials/_layout.scss */
+/* line 199, ../../app/stylesheets/partials/_layout.scss */
 #box {
   width: 480px;
   margin: 50px auto 20px auto;
 }
-/* line 196, ../../app/stylesheets/partials/_layout.scss */
+/* line 203, ../../app/stylesheets/partials/_layout.scss */
 #box .block {
   background: white;
   text-shadow: 0 1px 0 white;
@@ -653,7 +661,7 @@ body {
   border-radius: 6px;
   margin-bottom: 20px;
 }
-/* line 203, ../../app/stylesheets/partials/_layout.scss */
+/* line 210, ../../app/stylesheets/partials/_layout.scss */
 #box .block h2 {
   font-size: 170%;
   background: #261F1F;
@@ -674,7 +682,7 @@ body {
   padding: 10px 15px;
   margin: 0;
 }
-/* line 214, ../../app/stylesheets/partials/_layout.scss */
+/* line 221, ../../app/stylesheets/partials/_layout.scss */
 #box .block .content {
   padding: 10px 20px;
 }

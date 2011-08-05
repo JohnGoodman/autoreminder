@@ -6,6 +6,7 @@ class CustomerServiceReminder < ActiveRecord::Base
 
   validates_presence_of     :interval
   validates_presence_of     :service_reminder_id
+  validates_presence_of     :max_send
 
   validates_presence_of     :custom_name,           :if => :validate_custom?
   validates_presence_of     :custom_email_subject,  :if => :validate_custom?

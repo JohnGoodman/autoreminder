@@ -1,0 +1,5 @@
+.secondary-navigation.clearfix
+  = tabs_tag :namespace => :subnav do |tab|
+    - if ['index', 'new', 'create'].exclude?(controller.action_name)
+      = tab.store_show  'Store Overview', store_path(@store), :class => 'first'
+      = tab.store_edit  'Edit', edit_store_path(@store)

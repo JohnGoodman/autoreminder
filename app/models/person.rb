@@ -38,6 +38,10 @@ class Person < ActiveRecord::Base
     store.id if store
   end
 
+  def self.not_customers
+    Person.joins(:role).where(:role => {:id.ne => 4})
+  end
+
   protected
     def password_required?
       if !online_access # If the person doesn't have online access, password isn't required

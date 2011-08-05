@@ -8,7 +8,7 @@ class CreateCustomerServiceReminders < ActiveRecord::Migration
       t.integer :interval
       t.boolean :recurring
       t.integer :times_sent
-      t.integer :max_send
+      t.integer :max_send, :default => 100
       t.string :custom_name
       t.text :custom_description
       t.string :custom_email_subject

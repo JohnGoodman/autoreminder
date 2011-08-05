@@ -13,6 +13,8 @@
     = form.input :phone_two, :as => :phone
     = form.input :fax
     = form.input :email
+  - form.inputs "Company Type", :class => "" do
+    = form.inputs :office, :as => :normal_boolean
   - form.buttons do
     = submit_button 'Company'
     .or-cancel

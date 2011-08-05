@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110701182436) do
+ActiveRecord::Schema.define(:version => 20110805023927) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20110701182436) do
     t.integer  "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "office"
   end
 
   create_table "customer_service_reminders", :force => true do |t|

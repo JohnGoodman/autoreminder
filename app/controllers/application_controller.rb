@@ -12,12 +12,14 @@ class ApplicationController < ActionController::Base
       redirect_to admin_root_path
     elsif current_user.role? :store
       redirect_to store_people_path(current_user.store)
+    elsif current_user.role? :office
+      redirect_to office_people_path
     end
   end
 
   def get_store
     return unless current_user
-    if current_user.role? :store
+    if current_user.role?(:store) || current_user.role?(:office)
       @store = current_user.store
     end
   end

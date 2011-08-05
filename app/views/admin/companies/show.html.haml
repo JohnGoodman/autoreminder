@@ -30,6 +30,9 @@
 %p
   %b Zip:
   = @company.zip
+%p
+  %b Office:
+  = yes_no_helper @company.office
 
 %hr
 = link_to 'Delete Company', admin_company_path(@company), :confirm => 'Delete this company?', :method => :delete

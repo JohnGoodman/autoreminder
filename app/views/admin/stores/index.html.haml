@@ -3,7 +3,7 @@
 
 = render 'admin/companies/title'
 
-%h2 Stores
+%h2= @company.store_type.pluralize
 
 %table.table
   %thead

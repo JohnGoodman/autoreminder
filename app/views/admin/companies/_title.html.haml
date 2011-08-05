@@ -3,4 +3,9 @@
     = @company.name
     - if @store
       = " :: "
-      %small= @store.name
+      - if controller.action_name == 'new'
+        %small New Store/Office
+      - if controller.action_name == 'edit'
+        %small= 'Edit ' + @store.type
+      - else
+        %small= @store.name

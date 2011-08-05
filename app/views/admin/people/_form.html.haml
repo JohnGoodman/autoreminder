@@ -6,14 +6,12 @@
     = form.input :first_name
     = form.input :last_name
     = form.input :email
-    = form.input :store
+    = form.input :store, :label => 'Store/Office'
   - form.inputs "Online Access", :class => "" do
     = form.input :online_access, :as => :normal_boolean
     = form.input :role, :prompt => true
     = form.input :password
     = form.input :password_confirmation
-  - form.inputs "Note", :class => "" do
-    = form.input :note
   - form.buttons do
     = submit_button 'Person'
     .or-cancel

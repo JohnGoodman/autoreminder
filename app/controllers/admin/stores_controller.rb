@@ -18,7 +18,7 @@ class Admin::StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
-    @service_reminders = @store.service_reminders
+    @service_reminders = @store.office? ? nil : @store.service_reminders
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +27,7 @@ class Admin::StoresController < ApplicationController
   end
 
   def new
-    @store = Store.new
+    @store = @company.stores.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +40,11 @@ class Admin::StoresController < ApplicationController
   end
 
   def create
-    @store = Store.new(params[:store])
+    @store = @company.stores.new(params[:store])
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => 'Store was successfully created.') }
+        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => @store.type + ' was successfully created.') }
         format.xml  { render :xml => @store, :status => :created, :location => @store }
       else
         format.html { render :action => "new" }
@@ -58,7 +58,7 @@ class Admin::StoresController < ApplicationController
 
     respond_to do |format|
       if @store.update_attributes(params[:store])
-        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => 'Store was successfully updated.') }
+        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => @store.type + ' was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end

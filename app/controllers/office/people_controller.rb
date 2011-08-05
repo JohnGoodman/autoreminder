@@ -1,12 +1,12 @@
-class Admin::PeopleController < ApplicationController
+class Office::PeopleController < ApplicationController
   before_filter :authenticate_person!
-  layout 'admin'
 
+  set_tab :person_show, :subnav, :only => :show
   set_tab :person_new, :subnav, :only => :new
   set_tab :person_edit, :subnav, :only => [:edit, :update]
 
   def index
-    @people = Person.not_customers
+    @people = @store.customers
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,12 @@ class Admin::PeopleController < ApplicationController
   end
 
   def new
-    @person = Person.new
+    @person = @store.people.new
+    @service_reminders = @store.all_service_reminders
+    1.times do
+        vehicle = @person.vehicles.build
+        2.times { vehicle.customer_service_reminders.build }
+      end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -23,16 +28,21 @@ class Admin::PeopleController < ApplicationController
     end
   end
 
+  def show
+    @person = Person.find(params[:id])
+  end
+
   def edit
     @person = Person.find(params[:id])
   end
 
   def create
-    @person = Person.new(params[:person])
+    @person = @store.people.new(params[:person])
+    @person.role = Role.find(4) unless params[:person][:role]
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to(admin_people_path, :notice => 'Person was successfully created.') }
+        format.html { redirect_to(store_person_path(@store, @person), :notice => 'Person was successfully created.') }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
       else
         format.html { render :action => "new" }
@@ -41,14 +51,12 @@ class Admin::PeopleController < ApplicationController
     end
   end
 
-  # PUT /people/1
-  # PUT /people/1.xml
   def update
     @person = Person.find(params[:id])
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        format.html { redirect_to(admin_person_path(@person), :notice => 'Person was successfully updated.') }
+        format.html { redirect_to(person_path(@person), :notice => 'Person was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -57,14 +65,11 @@ class Admin::PeopleController < ApplicationController
     end
   end
 
-  # DELETE /people/1
-  # DELETE /people/1.xml
   def destroy
-    @person = Person.find(params[:id])
-    @person.destroy
+    @person = Person.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_people_path) }
+      format.html { redirect_to(store_people_path(@store)) }
       format.xml  { head :ok }
     end
   end

@@ -80,6 +80,13 @@ body { background-image: url('../images/layout/background.png'); }
 #main.full, #footer.full { width: 100%; }
 #sidebar { width: 20%; float: right; }
 
+#autoreminder {
+  width:150px;
+  height:67px;
+  margin:0 auto 25px auto;
+  background:url(/images/Autoreminder.png);
+}
+
 #main .block {
   margin-bottom: 20px;
   background-color: white;

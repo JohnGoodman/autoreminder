@@ -8,6 +8,8 @@ class Ability
       can :manage, :all
     elsif user.role? :store
       can :manage, :all
+    elsif user.role? :office
+      can :manage, :all
     end
   end
 end

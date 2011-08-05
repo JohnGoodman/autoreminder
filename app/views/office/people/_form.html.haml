@@ -1,0 +1,26 @@
+- content_for(:stylesheets) do
+  = stylesheet_link_tag 'customer.css'
+
+- content_for(:javascripts) do
+  = javascript_include_tag 'customer.js'
+
+- semantic_form_for [@store, @person] do |form|
+  = render "shared/form_errors", :errors => @person.errors
+
+  - form.inputs "General Information", :class => "" do
+    = form.input :first_name
+    = form.input :last_name
+    = form.input :email
+
+  - @i = 1
+  -form.semantic_fields_for :vehicles do |builder|
+    = render "vehicle_fields", :f => builder
+
+  %div.add_vehicle= link_to_add_fields("Add Vehicle", form, :vehicles)
+
+
+
+  - form.buttons do
+    = submit_button 'Customer'
+    .or-cancel
+      or #{link_to 'Cancel', store_people_path(@store)}

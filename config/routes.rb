@@ -2,6 +2,8 @@ Ylc::Application.routes.draw do
   # store routes
   root :to => 'application#root'
 
+  resources :send_reminders, :only => :index
+
   devise_for :people, :controllers => { :sessions => 'people/sessions' } do
     get "/login" => "people/sessions#new"
     get "/logout" => "people/sessions#destroy"
@@ -15,12 +17,19 @@ Ylc::Application.routes.draw do
     end
   end
 
-  # company routes
+  # Office routes
+  namespace :office do
+    resources :people do
+      resources :customer_service_reminders
+    end
+  end
+
+  # Company routes
   namespace :company do
     resources :companies, :only => [:show, :edit, :update]
   end
 
-  # admin routes
+  # Admin routes
   namespace :admin do
     root :to => 'companies#index'
     resources :people
