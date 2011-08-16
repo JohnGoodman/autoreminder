@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  has_many :stores
+  has_many :stores, :dependent => :destroy
 
   validates_presence_of :name
   validates_presence_of :store_title

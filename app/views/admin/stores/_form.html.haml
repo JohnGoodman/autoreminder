@@ -14,6 +14,6 @@
     = form.input :fax
     = form.input :email
   - form.buttons do
-    = submit_button @store.type
+    = submit_button @company.heading_s
     .or-cancel
       or #{link_to 'Cancel', ( @store.id ? admin_company_store_path( @company, @store ) : admin_company_stores_path(@company) )}
