@@ -5,6 +5,10 @@
   background:#f3f3f3;
 }
 
+.fields_holder.office {
+  border-bottom:1px dashed #ccc;
+}
+
 .fields_holder.top {
   border-top:1px dashed #ccc;
 }
@@ -49,6 +53,10 @@ form.formtastic fieldset.fields.reminder > ol > li textarea {
 
 form.formtastic fieldset.fields.reminder > ol {
   border-bottom:1px dotted #ccc;
+}
+
+form.formtastic .fields_holder.office fieldset.fields.reminder > ol {
+  border-bottom:none;
 }
 
 form.formtastic fieldset > ol > li.add_service_reminder_title {

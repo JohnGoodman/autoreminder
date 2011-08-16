@@ -4,7 +4,7 @@
 - content_for(:javascripts) do
   = javascript_include_tag 'customer.js'
 
-- semantic_form_for [@store, @person] do |form|
+- semantic_form_for [:office, @person] do |form|
   = render "shared/form_errors", :errors => @person.errors
 
   - form.inputs "General Information", :class => "" do
@@ -13,12 +13,10 @@
     = form.input :email
 
   - @i = 1
-  -form.semantic_fields_for :vehicles do |builder|
-    = render "vehicle_fields", :f => builder
+  -form.semantic_fields_for :appointments do |builder|
+    = render "appointment_fields", :f => builder
 
-  %div.add_vehicle= link_to_add_fields("Add Vehicle", form, :vehicles)
-
-
+  %div.add_vehicle= link_to_add_fields("Add Appointment", form, :appointments)
 
   - form.buttons do
     = submit_button 'Customer'

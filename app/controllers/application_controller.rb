@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
     return unless current_user
     if current_user.role?(:store) || current_user.role?(:office)
       @store = current_user.store
+      @company = @store.company
     end
   end
 

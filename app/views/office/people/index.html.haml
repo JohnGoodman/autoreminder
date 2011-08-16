@@ -1,7 +1,7 @@
 - content_for(:secondary_navigation) do
   = render 'nav'
 
-%h1 Customers
+%h1.left Customers
 
 = form_tag admin_people_path, :method => 'get', :id => 'search-form' do
   = hidden_field_tag :direction, params[:direction]

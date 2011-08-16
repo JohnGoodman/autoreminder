@@ -31,8 +31,17 @@
   %b Zip:
   = @company.zip
 %p
-  %b Office:
-  = yes_no_helper @company.office
+  %b Reminder Type:
+  = @company.reminder_type
+
+%p
+  %b Store Title:
+  = @company.store_title
+
+%p
+  %b Sub Item Title:
+  = @company.sub_item_title
+
 
 %hr
 = link_to 'Delete Company', admin_company_path(@company), :confirm => 'Delete this company?', :method => :delete

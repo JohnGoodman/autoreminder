@@ -4,12 +4,15 @@ class Person < ActiveRecord::Base
   has_many :vehicles, :dependent => :destroy
   accepts_nested_attributes_for :vehicles, :reject_if => lambda { |a| a[:year].blank? && a[:make].blank? && a[:model].blank? }, :allow_destroy => true
 
+  has_many :appointments, :class_name => 'CustomerServiceReminder', :dependent => :destroy
+  accepts_nested_attributes_for :appointments, :reject_if => lambda { |a| a[:interval].blank? && a[:service_reminder_id].blank? }, :allow_destroy => true
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes
 
   # Validations
   validates_presence_of     :first_name

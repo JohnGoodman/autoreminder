@@ -3,16 +3,12 @@
     %tr
       %th Name
       %th Email
-      %th Vehicles
-      %th Service Reminders
 
   %tbody
     - @people.each do |person|
       %tr
         %td= link_to highlighter(person, :name), store_person_path(@store, person)
         %td= person.email
-        %td
-        %td
 
     - if @people.empty?
       %tr

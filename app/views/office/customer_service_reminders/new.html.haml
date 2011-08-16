@@ -1,6 +1,6 @@
 - content_for(:secondary_navigation) do
-  = render 'people/nav'
+  = render 'office/people/nav'
 
-= render 'people/title'
-%h2 Add Service Plan to #{@vehicle.name}
+= render 'office/people/title'
+%h2 Add Appointment for #{@person.name}
 = render 'form'

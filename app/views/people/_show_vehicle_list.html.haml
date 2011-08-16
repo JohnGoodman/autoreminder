@@ -1,0 +1,31 @@
+%ul#vehicles_list
+  - @person.vehicles.each do |vehicle|
+    %li
+      %h3
+        = vehicle.name
+        = link_to 'Add Reminder', new_store_person_vehicle_customer_service_reminder_path(@store, @person, vehicle), :class => 'right'
+      - if vehicle.customer_service_reminders.any?
+        %table.table
+          %thead
+            %tr
+              %th Service Reminder
+              %th Last Sent
+              %th Interval
+              %th Recurring
+              %th Times Sent
+              %th Max Sends
+
+          - vehicle.customer_service_reminders.each do |reminder|
+            %tbody
+              %tr
+                %td= reminder.service_reminder.name
+                %td= reminder.last_sent
+                %td= pluralize(reminder.interval, 'month')
+                %td= yes_no_helper reminder.recurring
+                %td= reminder.times_sent
+                %td= reminder.max_send
+      - if vehicle.customer_service_reminders.empty?
+        %p No reminders for this #{@company.sub_s} yet.
+
+  - if @person.vehicles.empty?
+    %li No #{@company.sub_p} yet.

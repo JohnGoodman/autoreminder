@@ -1,15 +1,25 @@
+- content_for(:stylesheets) do
+  = stylesheet_link_tag 'customer.css'
+
+- content_for(:javascripts) do
+  = javascript_include_tag 'customer.js'
+
 - semantic_form_for [@store, @person, @vehicle, @customer_service_reminder] do |form|
   = render "shared/form_errors", :errors => @customer_service_reminder.errors
 
-  - form.inputs "General Information", :class => "" do
-    = form.input :service_reminder, :collection => @service_reminders
-    = form.input :custom_name
-    = form.input :custom_description
-    = form.input :custom_email_subject
-    = form.input :custom_email_body
-    = form.input :interval, :as => :select, :collection => months_list
-    = form.input :recurring, :as => :normal_boolean
-    = form.input :max_send, :as => :select, :collection => months_list(20, 'times')
+  - form.inputs "General Information", :class => "hide_custom" do
+    = form.input :service_reminder, :collection => @service_reminders, :label => 'Reminder', :input_html => {:onchange => 'select_reminder(this)'}
+    = form.input :custom_name, :wrapper_html => {:class => 'custom'}
+    = form.input :custom_email_subject, :wrapper_html => {:class => 'custom'}
+    = form.input :custom_email_body, :wrapper_html => {:class => 'custom'}
+
+    - if @company.use_set_dates?
+      = form.input :appointment_date, :as => :string, :input_html => {:class => 'datetimepicker', :title => 'Set Date and Time'}
+    - else
+      = form.input :interval, :as => :select, :collection => months_list
+      = form.input :recurring, :as => :normal_boolean
+      = form.input :max_send, :as => :select, :collection => months_list(20, 'times')
     = submit_button 'Service Reminder'
+    = hidden_field_tag 'customer_service_reminder[vehicle_id]', params[:vehicle_id]
     .or-cancel
       or #{link_to 'Cancel', store_person_path(@store, @person)}

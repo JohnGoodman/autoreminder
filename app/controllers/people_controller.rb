@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_filter :authenticate_person!
 
   set_tab :person_show, :subnav, :only => :show
-  set_tab :person_new, :subnav, :only => :new
+  set_tab :person_new, :subnav, :only => [:new, :create]
   set_tab :person_edit, :subnav, :only => [:edit, :update]
 
   def index
@@ -17,10 +17,17 @@ class PeopleController < ApplicationController
   def new
     @person = @store.people.new
     @service_reminders = @store.all_service_reminders
-    1.times do
+
+    if @company.use_sub_item?
+      1.times do
         vehicle = @person.vehicles.build
         2.times { vehicle.customer_service_reminders.build }
       end
+    else
+      1.times do
+        appointment = @person.appointments.build
+      end
+    end
 
     respond_to do |format|
       format.html # new.html.erb

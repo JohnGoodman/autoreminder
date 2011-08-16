@@ -1,7 +1,7 @@
 class CustomerServiceRemindersController < ApplicationController
   before_filter :authenticate_person!
   before_filter :get_person
-  before_filter :get_vehicle
+  # before_filter :get_vehicle, :only => [:create, :update]
 
   set_tab :customer_service_reminder_new, :subnav
 
@@ -10,7 +10,6 @@ class CustomerServiceRemindersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @customer_service_reminders }
     end
   end
 
@@ -19,35 +18,32 @@ class CustomerServiceRemindersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @customer_service_reminder }
     end
   end
 
   def new
-    @customer_service_reminder = @vehicle.customer_service_reminders.new
+    @customer_service_reminder = CustomerServiceReminder.new
     @service_reminders = @store.all_service_reminders
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @customer_service_reminder }
     end
   end
 
   def edit
-    @customer_service_reminder = @vehicle.customer_service_reminders.find(params[:id])
+    @customer_service_reminder = CustomerServiceReminders.find(params[:id])
     @service_reminders = @store.all_service_reminders
   end
 
   def create
-    @customer_service_reminder = @vehicle.customer_service_reminders.new(params[:customer_service_reminder])
+    @customer_service_reminder = CustomerServiceReminder.new(params[:customer_service_reminder])
+    @customer_service_reminder.person = @person unless params[:customer_service_reminder][:vehicle_id]
 
     respond_to do |format|
       if @customer_service_reminder.save
         format.html { redirect_to(store_person_path(@store,@person), :notice => 'Customer service reminder was successfully created.') }
-        format.xml  { render :xml => @customer_service_reminder, :status => :created, :location => @customer_service_reminder }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @customer_service_reminder.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -58,10 +54,8 @@ class CustomerServiceRemindersController < ApplicationController
     respond_to do |format|
       if @customer_service_reminder.update_attributes(params[:customer_service_reminder])
         format.html { redirect_to(store_person_path(@store,@person), :notice => 'Customer service reminder was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @customer_service_reminder.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -79,7 +73,11 @@ class CustomerServiceRemindersController < ApplicationController
     @person = Person.find(params[:person_id])
   end
 
-  def get_vehicle
-    params[:vehicle_id] ? @vehicle = Vehicle.find(params[:vehicle_id]) : @vehicle = Vehicle.find(CustomerServiceReminder.find(params[:id]).vehicle_id)
-  end
+  # def get_vehicle
+  #     if params[:vehicle_id]
+  #       @vehicle = Vehicle.find(params[:vehicle_id])
+  #     elsif params[:id] && CustomerServiceReminder.find(params[:id]).vehicle_id.present?
+  #       Vehicle.find(CustomerServiceReminder.find(params[:id]).vehicle_id)
+  #     end
+  #   end
 end

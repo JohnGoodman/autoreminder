@@ -15,12 +15,16 @@ class Store < ActiveRecord::Base
     people.where(:role_id => Role.find_by_name('customer'))
   end
 
-  def office?
-    company.office
-  end
+  # def use_set_dates?
+  #     company.reminder_type_id == 2 # 2 for dates
+  #   end
+  #
+  #   def use_sub_item?
+  #     company.sub_item_title.present?
+  #   end
 
-  def type
-    company.office ? 'Office' : 'Store'
-  end
+  # def type
+  #     company.office ? 'Office' : 'Store'
+  #   end
 
 end

@@ -4,8 +4,8 @@
     - if @store
       = " :: "
       - if controller.action_name == 'new'
-        %small New Store/Office
+        %small New #{@company.heading_s}
       - if controller.action_name == 'edit'
-        %small= 'Edit ' + @store.type
+        %small Edit #{@company.heading_s}
       - else
         %small= @store.name

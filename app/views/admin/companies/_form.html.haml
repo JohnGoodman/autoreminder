@@ -14,7 +14,10 @@
     = form.input :fax
     = form.input :email
   - form.inputs "Company Type", :class => "" do
-    = form.inputs :office, :as => :normal_boolean
+    / = form.inputs :office, :as => :select, :label => 'Service Reminder Type', :collection => [['Sub Items with recurring reminders',0]]
+    = form.input :reminder_type_id, :as => :select, :collection => [['Intervals',1], ['Dates', 2]], :prompt => true
+    = form.input :store_title, :hint => '"Store" for a tire dealer, "Office" for a doctors office, etc.'
+    = form.input :sub_item_title, :hint => 'Vehicle, pets, etc. If you do not define this, sub items will not be used.'
   - form.buttons do
     = submit_button 'Company'
     .or-cancel

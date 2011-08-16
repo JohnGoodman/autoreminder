@@ -48,7 +48,7 @@ class Admin::PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        format.html { redirect_to(admin_person_path(@person), :notice => 'Person was successfully updated.') }
+        format.html { redirect_to(admin_people_path, :notice => 'Person was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

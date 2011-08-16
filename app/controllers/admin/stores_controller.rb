@@ -18,7 +18,7 @@ class Admin::StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
-    @service_reminders = @store.office? ? nil : @store.service_reminders
+    @service_reminders = @store.service_reminders
 
     respond_to do |format|
       format.html # show.html.erb

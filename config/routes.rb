@@ -11,6 +11,7 @@ Ylc::Application.routes.draw do
 
   resources :stores, :except => [:index, :new, :create] do
     resources :people do
+      resources :customer_service_reminders
       resources :vehicles, :except => [:index, :show] do
         resources :customer_service_reminders
       end
@@ -22,6 +23,8 @@ Ylc::Application.routes.draw do
     resources :people do
       resources :customer_service_reminders
     end
+    # resources :store, :only => [:edit, :update]
+    match ":id/edit" => "stores#edit", :as => :edit
   end
 
   # Company routes

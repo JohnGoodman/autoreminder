@@ -39,6 +39,15 @@ $(function() {
     maxDate: 'today'
   });
 
+  $('.datetimepicker').datetimepicker({
+    changeMonth: true,
+    changeYear: true,
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    dateFormat: 'yy-mm-dd',
+    minDate: new Date(y, m, d, 8, 30)
+  });
+
   // Select all
   $('#select_all_checkboxes').click(function(){
     if( $(this).is(':checked') ){
@@ -49,6 +58,12 @@ $(function() {
     // $.uniform.update();
   });
 });
+
+// Date time picker
+var date = new Date();
+var y = date.getFullYear();
+var m = date.getMonth() + 1;
+var d = date.getDate() + 1;
 
 function randomString() {
   var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";

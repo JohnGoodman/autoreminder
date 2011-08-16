@@ -1,0 +1,19 @@
+- top = @i == 1 ? 'top' : ''
+%div{:class => "office fields_holder #{top}"}
+  - @i += 1
+  - f.inputs "", :class => "fields reminder hide_custom" do
+    / = f.input :appointment_description, :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Appointment Description'}, :label => false
+    = f.input :service_reminder, :collection => @service_reminders, :prompt => 'Select Appointment Type', :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Select Appointment Type', :onchange => 'select_reminder(this)'}, :label => false
+    = f.input :appointment_date, :as => :string, :wrapper_html => {:class => 'float_left'}, :input_html => {:class => 'datetimepicker', :title => 'Set Date and Time'}, :label => false
+
+    %li.left= link_to_function "Remove Appointment", "remove_fields(this)", :class => 'remove_button'
+
+    %li &nbsp;
+    = f.input :custom_name, :wrapper_html => {:class => 'custom'}, :input_html => {:title => ''}
+    = f.input :custom_email_subject, :wrapper_html => {:class => 'custom'}, :input_html => {:title => ''}
+    = f.input :custom_email_body, :wrapper_html => {:class => 'custom'}, :input_html => {:title => ''}
+
+    = f.hidden_field :_destroy
+
+:javascript
+  $('fieldset.fields input[type=text]').watermark();
