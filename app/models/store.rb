@@ -7,6 +7,8 @@ class Store < ActiveRecord::Base
 
   attr_accessible :company_id, :name, :address, :address_two, :phone, :phone_two, :email, :fax, :city, :state, :zip
 
+  validates_presence_of :name
+
   def all_service_reminders
     ServiceReminder.where(:id => 1) + service_reminders
   end

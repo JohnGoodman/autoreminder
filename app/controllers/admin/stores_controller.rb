@@ -44,7 +44,7 @@ class Admin::StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => @store.type + ' was successfully created.') }
+        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => @company.heading_s + ' was successfully created.') }
         format.xml  { render :xml => @store, :status => :created, :location => @store }
       else
         format.html { render :action => "new" }

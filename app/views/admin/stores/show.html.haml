@@ -61,4 +61,4 @@
 
 
 %hr
-= link_to 'Delete ' + @store.type, admin_company_store_path(@company, @store), :confirm => 'Delete this store?', :method => :delete
+= link_to 'Delete ' + @company.heading_s, admin_company_store_path(@company, @store), :confirm => 'Delete this store?', :method => :delete
