@@ -1,0 +1,47 @@
+%html
+  %head
+    :css
+      body { margin:0px; padding:0px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+      #header { background:#360000; height:120px; padding:10px; color:#f3f3f3; }
+      #logo { width:120px; height:100px; border:10px solid white; float:left; margin-right:15px; background:#ccc; }
+      #title { float:left; }
+      #title_main { margin-top:15px; font-size:20px; }
+      #title_second { font-size:30px; }
+      #title_address { margin-top:7px; font-size:13px; }
+      #title_address span { padding-right:15px; }
+      #text { padding:0 15px; }
+      #reminder { margin:10px 0;  }
+      #footer { background:#360000; padding:10px; color:#f3f3f3; font-size:12px; }
+  %body
+    #header
+      #logo
+      #title
+        #title_main A Friendly Reminder From
+        #title_second Some Store Name
+        #title_address
+          %span 1234 Some Street
+          %span Jackson
+          %span MS
+          %span 39759
+
+    #text
+      %p
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sem dui, auctor sit amet venenatis sit amet, posuere quis quam. Fusce a dolor in felis hendrerit fermentum. In eleifend mattis mi, eu commodo nulla varius eu. Ut quis nunc mi. Vestibulum mi felis, consequat et laoreet id, venenatis non velit. Vivamus et tortor et mi condimentum pharetra eget eu lorem.
+
+      %p
+        Donec mattis dignissim nisl, vitae dapibus leo rutrum sed. Nam dolor arcu, tempor non ornare a, vulputate ut augue. Aenean id neque ac odio tristique consectetur id a arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla mauris, facilisis non feugiat non, vehicula in neque. Quisque viverra mi magna, eu sodales magna. Nam facilisis, mi suscipit sagittis placerat, leo ligula tincidunt metus, nec dictum.
+
+      #reminder
+        Reminder goes here
+
+      %p Thank You,
+
+      %p
+        %strong Some Store Name
+        %br
+        %small 1234 Some Street
+        %br
+        %small Jackson, MS 39759
+
+    #footer
+      Unsubscribe

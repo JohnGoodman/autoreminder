@@ -1,5 +1,43 @@
-- @reminders.each do |reminder|
-  = debug reminder
-  %br
-  %br
-  %br
+:css
+  tr.even { background:#f3f3f3; }
+  td { padding:3px; margin:0; }
+
+%table
+  %thead
+    %tr
+      %th ID
+      %th Person
+      %th Vehicle
+      %th Reminder
+      %th Sent On
+      %th Interval
+      %th Recurring
+      %th Times Sent
+      %th Max Sends
+      %th A Date
+
+  %tbody
+    - @reminders.each do |r|
+      %tr{ :class => cycle(:odd, :even) }
+        %td= r.id
+        %td= r.person.name if r.person
+        %td= (r.vehicle.year.to_s + " " + r.vehicle.model.to_s + " " + r.vehicle.make.to_s) if r.vehicle
+        %td= r.service_reminder.name
+        %td= r.sent_on.to_s
+        %td= r.interval.to_s
+        %td= r.recurring.to_s
+        %td= r.times_sent.to_s
+        %td= r.max_send.to_s
+        %td= r.appointment_date.to_s
+    - @a_reminders.each do |r|
+      %tr{ :class => cycle(:odd, :even) }
+        %td= r.id
+        %td= r.person.name if r.person
+        %td= (r.vehicle.year.to_s + " " + r.vehicle.model.to_s + " " + r.vehicle.make.to_s) if r.vehicle
+        %td= r.service_reminder.name
+        %td= r.sent_on.to_s
+        %td= r.interval.to_s
+        %td= r.recurring.to_s
+        %td= r.times_sent.to_s
+        %td= r.max_send.to_s
+        %td= r.appointment_date.to_s

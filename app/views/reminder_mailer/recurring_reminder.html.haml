@@ -1,0 +1,51 @@
+%html
+  %head
+    :css
+      body { margin:0px; padding:0px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+      #header { background:#360000; height:120px; padding:10px; color:#f3f3f3; }
+      #logo { width:120px; height:100px; border:10px solid white; float:left; margin-right:15px; background:#ccc; }
+      #title { float:left; }
+      #title_main { margin-top:15px; font-size:20px; }
+      #title_second { font-size:30px; }
+      #title_address { margin-top:7px; font-size:13px; }
+      #title_address span { padding-right:15px; }
+      #text { padding:0 15px; }
+      #reminder { margin:10px 0;  }
+      #footer { background:#360000; padding:10px; color:#f3f3f3; font-size:12px; }
+  %body
+    #header
+      #logo
+      #title
+        #title_main A Friendly Reminder From
+        #title_second= @store.name
+        #title_address
+          %span= @store.address
+          - unless @store.address_two.blank?
+            %span= @store.address_two
+          %span= @store.city
+          %span= @store.state
+          %span= @store.zip
+
+    #text
+      %p Dear #{@person.name},
+
+      = @reminder.service_reminder.name == 'Custom Reminder' ? @reminder.custom_email_body : @reminder.service_reminder.email_body
+
+      %p Thank You,
+
+      %p
+        %strong= @store.name
+        %br
+        %small= @store.address
+        %br
+        - unless @store.address_two.blank?
+          %small= @store.address_two
+          %br
+        %small
+          = @store.city
+          ,
+          = @store.state
+          = @store.zip
+
+    #footer
+      Unsubscribe

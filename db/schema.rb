@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815015745) do
+ActiveRecord::Schema.define(:version => 20110817024635) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20110815015745) do
     t.date     "sent_on"
     t.integer  "interval"
     t.boolean  "recurring"
-    t.integer  "times_sent"
-    t.integer  "max_send"
+    t.integer  "times_sent",              :default => 0
+    t.integer  "max_send",                :default => 1
     t.string   "custom_name"
     t.text     "custom_description"
     t.string   "custom_email_subject"
