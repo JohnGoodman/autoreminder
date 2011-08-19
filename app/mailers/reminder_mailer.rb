@@ -9,6 +9,7 @@ class ReminderMailer < ActionMailer::Base
 
     bcc = 'john@poeticsystems.com'
     # to = person.email
+    # to = @person.name + "<" + @person.email + ">"
     to = 'jgoodman09@gmail.com'
 
     # attach files
@@ -17,7 +18,7 @@ class ReminderMailer < ActionMailer::Base
     # end
 
     mail(
-      :to => @person.name + "<" + @person.email + ">",
+      :to => to,
       :subject => subject,
       :from => "#{@store.name} <#{@store.email}>",
       :bcc => bcc
@@ -33,10 +34,11 @@ class ReminderMailer < ActionMailer::Base
 
     bcc = 'john@poeticsystems.com'
     # to = person.email
+    # to = @person.name + "<" + @person.email + ">"
     to = 'jgoodman09@gmail.com'
 
     mail(
-      :to => @person.name + "<" + @person.email + ">",
+      :to => to,
       :subject => @reminder.service_reminder.email_subject,
       :from => "#{@store.name} <#{@store.email}>",
       :bcc => bcc
