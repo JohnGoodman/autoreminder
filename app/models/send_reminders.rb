@@ -5,7 +5,7 @@ class SendReminders
     today = Date.today
 
     # turn off if need be
-    SendReminders.test
+    # SendReminders.test
 
     # Loop the reminders to see if an email needs to be sent
     # Only select reminders that have not reached thier limit
@@ -66,8 +66,7 @@ class SendReminders
       r.update_attribute(:times_sent, 0)
     end
 
-    # CustomerServiceReminder.where(:appointment_date.ne => '').update_all(:appointment_date => ((Time.now - 2.days) - 12000))
-    CustomerServiceReminder.where(:appointment_date.ne => '').update_all(:appointment_date => ((Time.now - 2.days)))
+    CustomerServiceReminder.where(:appointment_date.ne => '').update_all(:appointment_date => ((Time.now - 2.days) - 12000))
     CustomerServiceReminder.where(:appointment_date.ne => '').update_all(:times_sent => nil)
   end
 
