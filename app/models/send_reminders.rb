@@ -2,6 +2,7 @@ class SendReminders
 
   # Find all service reminders for today
   def self.find_recurring_reminders
+    # CustomerMailer.deliver_welcome_message(self)
     today = Date.today
 
     # turn off if need be
@@ -13,10 +14,15 @@ class SendReminders
     recurring_reminders_for_today = recurring_reminders.reject{|c| self.check_reminder(c, today)}
 
     # Send emails
+    count = 0
     recurring_reminders_for_today.each do |reminder|
+      ReminderMailer.recurring_reminder( reminder ).deliver
       reminder.update_attribute(:times_sent, (reminder.times_sent.to_i + 1))
       reminder.update_attribute(:sent_on, Date.today)
+      count += 1
     end
+
+    count
   end
 
   def self.find_appointment_reminders
@@ -26,10 +32,16 @@ class SendReminders
     end_datetime = ((Date.today - 2.days).to_s + " 23:59:59").to_datetime
 
     appointment_reminders = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 0)
+
+    count = 0
     appointment_reminders.each do |reminder|
+      ReminderMailer.appointment_reminder( reminder ).deliver
       reminder.update_attribute(:times_sent, (reminder.times_sent.to_i + 1))
       reminder.update_attribute(:sent_on, Date.today)
+      count += 1
     end
+
+    count
   end
 
   # Reject reminders that do not fit the citeria
