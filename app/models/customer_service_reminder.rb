@@ -3,7 +3,7 @@ class CustomerServiceReminder < ActiveRecord::Base
   belongs_to :service_reminder
   belongs_to :person
 
-  attr_accessible :vehicle_id, :service_reminder_id, :sent_on, :interval, :recurring, :times_sent, :max_send, :custom_name, :custom_description, :custom_email_subject, :custom_email_body, :person_id, :appointment_date, :appointment_description, :created_at
+  attr_accessible :vehicle_id, :service_reminder_id, :sent_on, :interval, :recurring, :times_sent, :max_send, :custom_name, :custom_description, :custom_email_subject, :custom_email_body, :person_id, :appointment_date, :appointment_description, :created_ata
 
   validates_presence_of     :interval,              :unless => :person_present?
   validates_presence_of     :service_reminder_id,   :unless => :person_present?
@@ -16,7 +16,7 @@ class CustomerServiceReminder < ActiveRecord::Base
   validates_presence_of     :custom_email_body,     :if => :validate_custom?
 
   def last_sent
-    times_sent ? updated_at : "Not sent yet"
+    times_sent && times_sent > 0 ? updated_at.strftime( '%b %d, %Y') : "Not sent yet"
   end
 
   protected

@@ -9,6 +9,7 @@
           %thead
             %tr
               %th Service Reminder
+              %th Created
               %th Last Sent
               %th Interval
               %th Recurring
@@ -19,6 +20,7 @@
             %tbody
               %tr
                 %td= reminder.service_reminder.name
+                %td= short_date reminder.created_at
                 %td= reminder.last_sent
                 %td= pluralize(reminder.interval, 'month')
                 %td= yes_no_helper reminder.recurring
