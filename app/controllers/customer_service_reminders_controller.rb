@@ -37,7 +37,7 @@ class CustomerServiceRemindersController < ApplicationController
 
   def create
     @customer_service_reminder = CustomerServiceReminder.new(params[:customer_service_reminder])
-    @customer_service_reminder.person = @person unless params[:customer_service_reminder][:vehicle_id]
+    @customer_service_reminder.person = @person unless params[:customer_service_reminder][:vehicle_id].present?
 
     respond_to do |format|
       if @customer_service_reminder.save

@@ -3,7 +3,7 @@ class CustomerServiceReminder < ActiveRecord::Base
   belongs_to :service_reminder
   belongs_to :person
 
-  attr_accessible :vehicle_id, :service_reminder_id, :sent_on, :interval, :recurring, :times_sent, :max_send, :custom_name, :custom_description, :custom_email_subject, :custom_email_body, :person_id, :appointment_date, :appointment_description, :created_ata
+  attr_accessible :vehicle_id, :service_reminder_id, :sent_on, :interval, :recurring, :times_sent, :max_send, :custom_name, :custom_description, :custom_email_subject, :custom_email_body, :person_id, :appointment_date, :appointment_description, :created_at
 
   validates_presence_of     :interval,              :unless => :person_present?
   validates_presence_of     :service_reminder_id,   :unless => :person_present?

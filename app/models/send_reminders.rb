@@ -25,7 +25,7 @@ class SendReminders
     start_datetime = ((Date.today - 2.days).to_s + " 00:00:00").to_datetime
     end_datetime = ((Date.today - 2.days).to_s + " 23:59:59").to_datetime
 
-    appointment_reminders = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => nil)
+    appointment_reminders = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 0)
     appointment_reminders.each do |reminder|
       reminder.update_attribute(:times_sent, (reminder.times_sent.to_i + 1))
       reminder.update_attribute(:sent_on, Date.today)

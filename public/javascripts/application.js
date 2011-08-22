@@ -62,8 +62,8 @@ $(function() {
 // Date time picker
 var date = new Date();
 var y = date.getFullYear();
-var m = date.getMonth() + 1;
-var d = date.getDate() + 1;
+var m = date.getMonth();
+var d = date.getDate();
 
 function randomString() {
   var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
