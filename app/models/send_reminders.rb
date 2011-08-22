@@ -57,17 +57,17 @@ class SendReminders
   end
 
   # test
-  def self.test
-    recurring = CustomerServiceReminder.where(:appointment_date => nil)
-    recurring.each do |r|
-      interval = r.interval
-      reset_date = Date.today << interval
-      r.update_attribute(:created_at, reset_date)
-      r.update_attribute(:times_sent, 0)
-    end
-
-    CustomerServiceReminder.where(:appointment_date.ne => '').update_all(:appointment_date => ((Time.now - 2.days) - 12000))
-    CustomerServiceReminder.where(:appointment_date.ne => '').update_all(:times_sent => nil)
-  end
+  # def self.test
+  #     recurring = CustomerServiceReminder.where(:appointment_date => nil)
+  #     recurring.each do |r|
+  #       interval = r.interval
+  #       reset_date = Date.today << interval
+  #       r.update_attribute(:created_at, reset_date)
+  #       r.update_attribute(:times_sent, 0)
+  #     end
+  #
+  #     CustomerServiceReminder.where(:appointment_date.ne => '').update_all(:appointment_date => ((Time.now - 2.days) - 12000))
+  #     CustomerServiceReminder.where(:appointment_date.ne => '').update_all(:times_sent => nil)
+  #   end
 
 end
