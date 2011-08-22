@@ -1,1 +1,1 @@
-ActionMailer::Base.register_interceptor( DevelopmentMailInterceptor ) if Rails.env.development? || request.url.include?('autoreminder-staging.heroku.com')
+ActionMailer::Base.register_interceptor( DevelopmentMailInterceptor ) if Rails.env.development? || ::Rails.root.to_s.include?('autoreminder-staging.heroku.com')
