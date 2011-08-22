@@ -7,11 +7,6 @@ class PeopleController < ApplicationController
 
   def index
     @people = @store.customers
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @people }
-    end
   end
 
   def new
@@ -27,11 +22,6 @@ class PeopleController < ApplicationController
       1.times do
         appointment = @person.appointments.build
       end
-    end
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @person }
     end
   end
 
@@ -50,10 +40,8 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.save
         format.html { redirect_to(store_person_path(@store, @person), :notice => 'Person was successfully created.') }
-        format.xml  { render :xml => @person, :status => :created, :location => @person }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -64,10 +52,8 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.update_attributes(params[:person])
         format.html { redirect_to(person_path(@person), :notice => 'Person was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -77,7 +63,6 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(store_people_path(@store)) }
-      format.xml  { head :ok }
     end
   end
 end

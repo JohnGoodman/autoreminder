@@ -6,7 +6,7 @@
 
 = render 'title'
 
-= if @company.use_sub_item?
+- if @company.use_sub_item?
   = render 'show_vehicle_list'
 - else
   = render 'show_appointment_list'
