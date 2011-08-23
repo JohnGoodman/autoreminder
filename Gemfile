@@ -16,6 +16,12 @@ gem 'meta_where'
 gem 'high_voltage'
 gem 'cancan'
 gem "tabs_on_rails"
+gem 'delayed_job'
+gem 'carrierwave', '0.5.4'
+gem 'fog', '0.7.1'
+gem 'flash_cookie_session'
+gem 'mini_magick'
+gem 'mime-types', :require => 'mime/types'
 
 group :development, :test do
   gem 'rspec-rails'

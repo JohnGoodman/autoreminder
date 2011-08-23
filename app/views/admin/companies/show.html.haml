@@ -3,6 +3,10 @@
 
 = render 'title'
 
+- if @company.avatar.present?
+  %p
+    = image_tag @company.avatar.url(:thumb)
+  %p &nbsp;
 %p
   %b Address:
   = @company.address

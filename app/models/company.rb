@@ -5,6 +5,7 @@ class Company < ActiveRecord::Base
   validates_presence_of :store_title
   validates_presence_of :reminder_type_id
 
+  mount_uploader :avatar, AvatarUploader
   # def store_type
   #   # office ? 'Office' : 'Store'
   #   reminder_type_id == '2' ? 'Office' : 'Store'

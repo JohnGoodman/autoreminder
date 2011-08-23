@@ -16,11 +16,15 @@ class SendReminders
     # Send emails
     count = 0
     recurring_reminders_for_today.each do |reminder|
-      ReminderMailer.recurring_reminder( reminder ).deliver
-      reminder.update_attribute(:times_sent, (reminder.times_sent.to_i + 1))
-      reminder.update_attribute(:sent_on, Date.today)
-      count += 1
+      if ReminderMailer.recurring_reminder( reminder ).deliver
+        reminder.update_attribute(:times_sent, (reminder.times_sent.to_i + 1))
+        reminder.update_attribute(:sent_on, Date.today)
+        count += 1
+      end
     end
+
+    # Send email about cron
+    CronMailer.report(count, true).deliver
 
     count
   end
@@ -35,11 +39,15 @@ class SendReminders
 
     count = 0
     appointment_reminders.each do |reminder|
-      ReminderMailer.appointment_reminder( reminder ).deliver
-      reminder.update_attribute(:times_sent, (reminder.times_sent.to_i + 1))
-      reminder.update_attribute(:sent_on, Date.today)
-      count += 1
+      if ReminderMailer.appointment_reminder( reminder ).deliver
+        reminder.update_attribute(:times_sent, (reminder.times_sent.to_i + 1))
+        reminder.update_attribute(:sent_on, Date.today)
+        count += 1
+      end
     end
+
+    # Send email about cron
+    CronMailer.report(count).deliver
 
     count
   end

@@ -1,4 +1,4 @@
-- semantic_form_for [:admin, @company] do |form|
+- semantic_form_for [:admin, @company], :html => { :multipart => true } do |form|
   = render "shared/form_errors", :errors => @company.errors
 
   - form.inputs "General Information", :class => "" do
@@ -18,6 +18,12 @@
     = form.input :reminder_type_id, :as => :select, :collection => [['Intervals',1], ['Dates', 2]], :prompt => true
     = form.input :store_title, :hint => '"Store" for a tire dealer, "Office" for a doctors office, etc.'
     = form.input :sub_item_title, :hint => 'Vehicle, pets, etc. If you do not define this, sub items will not be used.'
+  - form.inputs "Logo", :class => "" do
+    - if @company.avatar.present?
+      %li
+        %label Current Logo
+        = image_tag @company.avatar.url(:thumb)
+    = form.input :avatar, :as => :file, :label => 'Logo', :hint => 'Only JPG or PNG files'
   - form.buttons do
     = submit_button 'Company'
     .or-cancel
