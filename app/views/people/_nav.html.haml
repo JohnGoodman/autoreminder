@@ -5,7 +5,7 @@
       = tab.person_edit  'Edit Person', edit_store_person_path(@store, @person)
 
 
-    = tab.person_new   'Add Customer', new_store_person_path(@store), :class => "right last" if ['index','new','create'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+    = tab.person_new   'Add Customer', new_store_person_path(@store), :class => "right last" if ['index','new','create', 'search'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
 
     - if @company.use_set_dates?
       = tab.vehicle_new   "Add #{@company.sub_s}", new_store_person_customer_service_reminder_path(@store, @person), :class => "right last" if ['show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
