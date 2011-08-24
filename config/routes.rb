@@ -11,6 +11,8 @@ Ylc::Application.routes.draw do
 
   resources :stores, :except => [:index, :new, :create] do
     resources :people do
+      post 'search', :on => :collection
+      get 'search', :on => :collection
       resources :customer_service_reminders
       resources :vehicles, :except => [:index, :show] do
         resources :customer_service_reminders

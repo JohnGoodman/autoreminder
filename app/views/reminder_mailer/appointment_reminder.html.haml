@@ -6,7 +6,7 @@
       %tr{:style => 'background:#360000; height:140px; color:#f3f3f3;' }
         %td{:style => 'height:120px; border:5px solid white; margin:10px 15px 10px 10px; background:#ccc;' }
           - if @store.company.avatar.present?
-            = image_tag @store.company.avatar.url(:thumb)
+            = image_tag @store.company.avatar.url(:thumb), :alt => "#{@store.name}"
         %td{:style => 'margin:10px;' }
           %table
             %tr

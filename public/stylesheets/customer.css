@@ -82,6 +82,8 @@ form.formtastic fieldset > ol > li.float_left {
 form.formtastic fieldset > ol > li.float_left label {
   text-align:left;
   width:200px;
+  color:#333;
+  padding-bottom:5px;
 }
 
 form.formtastic fieldset > ol > li.float_left.recurring label {

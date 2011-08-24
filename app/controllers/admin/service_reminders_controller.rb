@@ -74,7 +74,7 @@ class Admin::ServiceRemindersController < ApplicationController
     @service_reminder = ServiceReminder.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to(service_reminders_url) }
+      format.html { redirect_to([:admin, :service_reminders]) }
       format.xml  { head :ok }
     end
   end

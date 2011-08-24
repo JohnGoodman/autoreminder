@@ -30,3 +30,5 @@ CustomerServiceReminder.create(:person_id => 21, :vehicle_id => nil, :service_re
 CustomerServiceReminder.create(:person_id => 21, :vehicle_id => nil, :service_reminder_id => 15, :interval => nil, :recurring => nil, :max_send => 1, :appointment_date => "2011-08-28 04:00:00")
 CustomerServiceReminder.create(:person_id => 21, :vehicle_id => nil, :service_reminder_id => 15, :interval => nil, :recurring => nil, :max_send => 1, :appointment_date => "2011-08-29 04:00:00")
 CustomerServiceReminder.create(:person_id => 21, :vehicle_id => nil, :service_reminder_id => 15, :interval => nil, :recurring => nil, :max_send => 1, :appointment_date => "2011-08-30 04:00:00")
+
+CustomerServiceReminder.create(:person_id => 21, :vehicle_id => nil, :service_reminder_id => 15, :interval => nil, :recurring => nil, :max_send => 1, :appointment_date => "2011-08-20 04:00:00")

@@ -56,4 +56,8 @@ module ApplicationHelper
     return 0 unless number
     number_to_currency(number)
   end
+
+  def max_send_helper( num )
+    num == 1000000 ? 'Unlimited' : num
+  end
 end

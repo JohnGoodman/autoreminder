@@ -1,7 +1,7 @@
 $(function() {
   // Setup jQuery watermark on all .search_box inputs
   $.watermarker.setDefaults({color: '#7B7B7B', left: -3});
-  $('input.search_box').watermark();
+  $('input.search_box, #search_cusomters').watermark();
 
   // jQuery uniform controls (http://pixelmatrixdesign.com/uniform)
   // $("select:not(.ignore_uniform),input:checkbox, input:radio, input:file").uniform();

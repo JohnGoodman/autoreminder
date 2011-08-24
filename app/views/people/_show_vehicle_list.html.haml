@@ -3,6 +3,8 @@
     %li
       %h3
         = vehicle.name
+        - if vehicle.email
+          = " - " + vehicle.email
         = link_to 'Add Reminder', new_store_person_vehicle_customer_service_reminder_path(@store, @person, vehicle), :class => 'right'
       - if vehicle.customer_service_reminders.any?
         %table.table
@@ -25,7 +27,7 @@
                 %td= pluralize(reminder.interval, 'month')
                 %td= yes_no_helper reminder.recurring
                 %td= reminder.times_sent
-                %td= reminder.max_send
+                %td= max_send_helper reminder.max_send
       - if vehicle.customer_service_reminders.empty?
         %p No reminders for this #{@company.sub_s} yet.
 

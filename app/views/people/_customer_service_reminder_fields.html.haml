@@ -2,7 +2,7 @@
   = f.input :service_reminder, :collection => @service_reminders, :prompt => 'Select Reminder', :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Select Reminder', :onchange => 'select_reminder(this)'}, :label => false
   = f.input :interval, :as => :select, :collection => months_list, :prompt => 'Set Interval', :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Set Interval'}, :label => false
   = f.input :recurring, :as => :boolean, :wrapper_html => {:class => 'float_left recurring'}, :input_html => {:title => 'Recurring?'}
-  = f.input :max_send, :as => :select, :collection => months_list(20, 'times'), :prompt => 'Max Sends', :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Set Max Sends'}, :label => false
+  = f.input :max_send, :as => :select, :collection => [['Unlimited','']] + months_list(15, 'times'), :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Set Max Sends'}, :label => false
 
   %li.left= link_to_function "Remove Reminder", "remove_fields(this)", :class => 'remove_button'
 

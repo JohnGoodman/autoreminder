@@ -6,7 +6,12 @@ class PeopleController < ApplicationController
   set_tab :person_edit, :subnav, :only => [:edit, :update]
 
   def index
-    @people = @store.customers
+    @people = params[:search] ? @store.search(params[:search]) : []
+  end
+
+  def search
+    @people = params[:search] ? @store.search(params[:search]) : []
+    render :index
   end
 
   def new

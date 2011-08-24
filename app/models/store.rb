@@ -15,6 +15,15 @@ class Store < ActiveRecord::Base
   validates_presence_of :phone
   validates_presence_of :email
 
+  def search( search )
+    search = search.split(/\s/).map { |t| "%#{t}%" }
+    customers.where(
+      { :first_name.matches_any => search } |
+      { :last_name.matches_any => search } |
+      { :email.matches_any => search }
+    ).order('last_name')
+  end
+
   def all_service_reminders
     ServiceReminder.where(:id => 1) + service_reminders
   end

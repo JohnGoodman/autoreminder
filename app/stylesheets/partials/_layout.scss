@@ -55,6 +55,25 @@ header#header {
       color: white;
       text-decoration: none;
     }
+
+    #image_holder {
+      margin:10px 0;
+      border:1px solid #444444;
+      background:#f3f3f3;
+      line-height:0px;
+
+      img {
+        margin:0px;
+        padding:0px;
+        line-height:0px;
+      }
+
+      a {
+        margin:0px;
+        padding:0px;
+        line-height:0px;
+      }
+    }
   }
 
   nav {

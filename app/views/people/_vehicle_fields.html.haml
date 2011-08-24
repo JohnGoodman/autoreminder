@@ -2,12 +2,14 @@
 %div{:class => "fields_holder #{top}"}
   - @i += 1
   - f.inputs "#{@company.sub_s} Information", :class => "fields vehicle" do
-    = f.input :year, :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Year'}, :label => false
-    = f.input :make, :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Make'}, :label => false
-    = f.input :model, :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Model'}, :label => false
-    = f.input :email, :wrapper_html => {:class => 'float_left'}, :input_html => {:title => 'Email'}, :label => false
+    = f.input :year, :wrapper_html => {:class => 'float_left'}
+    = f.input :make, :wrapper_html => {:class => 'float_left'}
+    = f.input :model, :wrapper_html => {:class => 'float_left'}
+    = f.input :email, :wrapper_html => {:class => 'float_left'}, :label => "Email for this #{@company.sub_s}"
 
-    %li.left= link_to_function "Remove #{@company.sub_s}", "remove_fields(this)", :class => 'remove_button'
+    %li.left
+      %p &nbsp;
+      = link_to_function "Remove #{@company.sub_s}", "remove_fields(this)", :class => 'remove_button'
     = f.hidden_field :_destroy
 
     %li &nbsp;
@@ -16,6 +18,3 @@
       = render "customer_service_reminder_fields", :f => builder
 
     %li.add_reminder= link_to_add_fields("Add Reminder", f, :customer_service_reminders)
-
-:javascript
-  $('fieldset.fields input[type=text]').watermark();

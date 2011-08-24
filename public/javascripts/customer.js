@@ -18,7 +18,3 @@ function select_reminder( select_box ){
     $(select_box).closest(".custom").slideDown();
   }
 }
-
-$(function(){
-  $('fieldset.fields input[type=text]').watermark();
-});

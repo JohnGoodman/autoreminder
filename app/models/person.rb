@@ -33,6 +33,10 @@ class Person < ActiveRecord::Base
     [first_name, last_name].join ' '
   end
 
+  def reverse_name
+    [last_name, first_name].join ', '
+  end
+
   def role_name
     role.name
   end

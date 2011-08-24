@@ -1,0 +1,9 @@
+form#search_customers_form {
+  width:800px;
+  margin-bottom:25px;
+}
+
+form#search_customers_form input#search_cusomters{
+  width:800px;
+  padding:10px;
+}

@@ -1,6 +1,6 @@
 .secondary-navigation.clearfix
   = tabs_tag :namespace => :subnav do |tab|
-    - if ['index', 'new', 'create'].exclude?(controller.action_name)
+    - if ['index', 'new', 'create', 'search'].exclude?(controller.action_name)
       = tab.person_show  'Person Overview', store_person_path(@store, @person), :class => 'first'
       = tab.person_edit  'Edit Person', edit_store_person_path(@store, @person)
 

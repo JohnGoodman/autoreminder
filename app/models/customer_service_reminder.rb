@@ -5,6 +5,10 @@ class CustomerServiceReminder < ActiveRecord::Base
 
   attr_accessible :vehicle_id, :service_reminder_id, :sent_on, :interval, :recurring, :times_sent, :max_send, :custom_name, :custom_description, :custom_email_subject, :custom_email_body, :person_id, :appointment_date, :appointment_description, :created_at
 
+  before_validation do
+    self.max_send = 1000000 if !attribute_present?("max_send") && !attribute_present?("appointment_date")
+  end
+
   validates_presence_of     :interval,              :unless => :person_present?
   validates_presence_of     :service_reminder_id,   :unless => :person_present?
   validates_presence_of     :max_send,              :unless => :person_present?

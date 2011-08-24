@@ -1,16 +1,31 @@
+- content_for(:stylesheets) do
+  = stylesheet_link_tag 'search_customer.css'
+
 - content_for(:secondary_navigation) do
   = render 'nav'
 
-%h1.left Customers
+%h1 Customers
 
-= form_tag admin_people_path, :method => 'get', :id => 'search-form' do
+= form_tag [:search, @store, :people], :id => 'search_customers_form' do
   = hidden_field_tag :direction, params[:direction]
   = hidden_field_tag :sort, params[:sort]
-  .search
-    %a{:class => 'clear-search', :title => 'clear search'}
-    = text_field_tag :search, params[:search], :class => 'search_box', :title => 'name', :tabindex => 1
+  = text_field_tag :search, params[:search], :id => 'search_cusomters', :title => 'Search Name or Email', :tabindex => 1
 
 
 .clearfix
 #search-results
-  = render 'people'
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Email
+
+    %tbody
+      - @people.each do |person|
+        %tr
+          %td= link_to highlighter(person, :reverse_name), store_person_path(@store, person)
+          %td= person.email
+
+      - if @people.empty?
+        %tr
+          %td{ :colspan => 4 } No Customers found.
