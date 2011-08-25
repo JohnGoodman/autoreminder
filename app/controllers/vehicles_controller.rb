@@ -15,7 +15,6 @@ class VehiclesController < ApplicationController
 
   def new
     @vehicle = @person.vehicles.new
-    @default_email = @person.email
 
     respond_to do |format|
       format.html # new.html.erb

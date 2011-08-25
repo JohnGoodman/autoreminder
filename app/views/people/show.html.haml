@@ -6,7 +6,9 @@
 
 = render 'title'
 
-- if @company.use_sub_item?
+- if @company.company_type_id == 1
   = render 'show_vehicle_list'
-- else
+- elsif @company.company_type_id == 2
+
+- elsif @company.company_type_id == 3
   = render 'show_appointment_list'

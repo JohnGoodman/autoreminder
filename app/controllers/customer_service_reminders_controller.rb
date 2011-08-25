@@ -24,6 +24,9 @@ class CustomerServiceRemindersController < ApplicationController
   def new
     @customer_service_reminder = CustomerServiceReminder.new
     @service_reminders = @store.all_service_reminders
+    if @company.company_type_id == 1
+      @vehicle = Vehicle.find(params[:vehicle_id])
+    end
 
     respond_to do |format|
       format.html # new.html.erb

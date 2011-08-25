@@ -12,7 +12,6 @@ class Admin::StoresController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @stores }
     end
   end
 
@@ -22,7 +21,6 @@ class Admin::StoresController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @store }
     end
   end
 
@@ -31,7 +29,6 @@ class Admin::StoresController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @store }
     end
   end
 
@@ -45,10 +42,8 @@ class Admin::StoresController < ApplicationController
     respond_to do |format|
       if @store.save
         format.html { redirect_to(admin_company_store_path(@company, @store), :notice => @company.heading_s + ' was successfully created.') }
-        format.xml  { render :xml => @store, :status => :created, :location => @store }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @store.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -70,7 +65,6 @@ class Admin::StoresController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(admin_company_stores_path(@company)) }
-      format.xml  { head :ok }
     end
   end
 

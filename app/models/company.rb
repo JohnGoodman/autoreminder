@@ -1,9 +1,10 @@
 class Company < ActiveRecord::Base
   has_many :stores, :dependent => :destroy
+  has_many :people, :through => :stores
 
   validates_presence_of :name
   validates_presence_of :store_title
-  validates_presence_of :reminder_type_id
+  validates_presence_of :company_type_id
 
   mount_uploader :avatar, AvatarUploader
   # def store_type
@@ -11,38 +12,72 @@ class Company < ActiveRecord::Base
   #   reminder_type_id == '2' ? 'Office' : 'Store'
   # end
 
+  # Company Types
+  # 1 - Automotive
+  # 2 - Vet Office
+  # 3 - Doctor Office
+
   # Singular and Plural heading helper methods
+  def type
+    h = case company_type_id
+      when 1 then 'Autmotive'
+      when 2 then 'Vets Office'
+      when 3 then 'Doctors Office'
+    end
+    h
+  end
+
   def heading_s
-    store_title.singularize.capitalize
+    h = case company_type_id
+      when 1 then 'Store'
+      when 2 then 'Office'
+      when 3 then 'Office'
+    end
+    h
   end
 
   def heading_p
-    store_title.pluralize.capitalize
+    h = case company_type_id
+      when 1 then 'Stores'
+      when 2 then 'Offices'
+      when 3 then 'Offices'
+    end
+    h
   end
 
   def sub_s
-    sub_item_title.present? ? sub_item_title.singularize.capitalize : 'Reminder'
+    h = case company_type_id
+      when 1 then 'Vehicle'
+      when 2 then 'Pet'
+      when 3 then 'Reminder'
+    end
+    h
   end
 
   def sub_p
-    sub_item_title.present? ? sub_item_title.pluralize.capitalize : 'Reminders'
-  end
-
-  def use_sub_item?
-    sub_item_title.present?
-  end
-
-  def use_set_dates?
-    reminder_type_id == 2 # 2 for dates
-  end
-
-  def reminder_type
-    if reminder_type_id == 1
-      type = 'Intervals'
-    elsif reminder_type_id == 2
-      type = 'Dates'
+    h = case company_type_id
+      when 1 then 'Vehicles'
+      when 2 then 'Pets'
+      when 3 then 'Reminders'
     end
-
-    type
+    h
   end
+
+  # def use_sub_item?
+  #     sub_item_title.present?
+  #   end
+  #
+  #   def use_set_dates?
+  #     reminder_type_id == 2 # 2 for dates
+  #   end
+  #
+  #   def reminder_type
+  #     if reminder_type_id == 1
+  #       type = 'Intervals'
+  #     elsif reminder_type_id == 2
+  #       type = 'Dates'
+  #     end
+  #
+  #     type
+  #   end
 end

@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
   # Validations
   validates_presence_of     :first_name
   validates_presence_of     :last_name
-  validates_presence_of     :role_id
+  validates_presence_of     :role
   validates_presence_of     :email,                   :if => :email_required?
   validates_uniqueness_of   :email,                   :if => :email_required?
   validates_presence_of     :password,                :if => :password_required?

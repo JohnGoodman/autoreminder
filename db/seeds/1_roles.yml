@@ -1,5 +1,4 @@
 - name: admin
-- name: company
+- name: general_manager
 - name: store
 - name: customer
-- name: office

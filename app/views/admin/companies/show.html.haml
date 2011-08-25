@@ -8,44 +8,8 @@
     = image_tag @company.avatar.url(:thumb)
   %p &nbsp;
 %p
-  %b Address:
-  = @company.address
-%p
-  %b Address two:
-  = @company.address_two
-%p
-  %b Phone:
-  = @company.phone
-%p
-  %b Phone two:
-  = @company.phone_two
-%p
-  %b Email:
-  = @company.email
-%p
-  %b Fax:
-  = @company.fax
-%p
-  %b City:
-  = @company.city
-%p
-  %b State:
-  = @company.state
-%p
-  %b Zip:
-  = @company.zip
-%p
-  %b Reminder Type:
-  = @company.reminder_type
-
-%p
-  %b Store Title:
-  = @company.store_title
-
-%p
-  %b Sub Item Title:
-  = @company.sub_item_title
-
+  %b Type:
+  = @company.type
 
 %hr
 = link_to 'Delete Company', admin_company_path(@company), :confirm => 'Delete this company?', :method => :delete

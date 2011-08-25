@@ -14,15 +14,26 @@
 
   - @i = 1
 
-  - if @company.use_sub_item?
+  / - if @company.use_sub_item?
+  /   -form.semantic_fields_for :vehicles do |builder|
+  /     = render "vehicle_fields", :f => builder
+  /   %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :vehicles)
+  / - else
+  /   -form.semantic_fields_for :appointments do |builder|
+  /     = render "appointment_fields", :f => builder
+  /   %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
+
+  - if @company.company_type_id == 1
     -form.semantic_fields_for :vehicles do |builder|
       = render "vehicle_fields", :f => builder
     %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :vehicles)
-  - else
+
+  - elsif @company.company_type_id == 2
+
+  - elsif @company.company_type_id == 3
     -form.semantic_fields_for :appointments do |builder|
       = render "appointment_fields", :f => builder
     %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
-
 
   - form.buttons do
     = submit_button 'Customer'

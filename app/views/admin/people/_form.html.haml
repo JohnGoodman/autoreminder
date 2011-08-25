@@ -1,18 +1,17 @@
-- semantic_form_for [:admin, @person] do |form|
+- semantic_form_for [:admin, @company, @person] do |form|
   = render "shared/form_errors", :errors => @person.errors
 
   - form.inputs "General Information", :class => "" do
-    = form.input :prefix
     = form.input :first_name
     = form.input :last_name
-    = form.input :email
-    = form.input :store, :label => 'Store/Office'
+    = form.input :email, :required => true
+    = form.input :store, :collection => @stores, :label => @company.heading_s, :prompt => true, :required => true
   - form.inputs "Online Access", :class => "" do
-    = form.input :online_access, :as => :normal_boolean
-    = form.input :role, :prompt => true
-    = form.input :password
-    = form.input :password_confirmation
+    = form.input :online_access, :as => :normal_boolean, :hint => "Uncheck to revoke the person's ability to login." if ['edit','update'].include?(controller.action_name)
+    = form.input :role, :collection => @roles, :prompt => true
+    = form.input :password, :required => true
+    = form.input :password_confirmation, :required => true
   - form.buttons do
     = submit_button 'Person'
     .or-cancel
-      or #{link_to 'Cancel', admin_people_path}
+      or #{link_to 'Cancel', admin_company_people_path(@company) }

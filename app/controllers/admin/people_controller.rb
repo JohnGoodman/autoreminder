@@ -1,26 +1,21 @@
 class Admin::PeopleController < ApplicationController
   before_filter :authenticate_person!
+  before_filter :get_company
   layout 'admin'
 
-  set_tab :person_new, :subnav, :only => :new
+  set_tab :people, :subnav, :only => :index
+  set_tab :person_new, :subnav, :only => [:new, :create]
   set_tab :person_edit, :subnav, :only => [:edit, :update]
 
   def index
-    @people = Person.not_customers
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @people }
-    end
+    # @people = Person.not_customers
+    @people = @company.people.not_customers
   end
 
   def new
     @person = Person.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @person }
-    end
+    @stores = @company.stores
+    @roles = Role.where(:id => [2,3])
   end
 
   def edit
@@ -29,6 +24,7 @@ class Admin::PeopleController < ApplicationController
 
   def create
     @person = Person.new(params[:person])
+    @person.online_access = true
 
     respond_to do |format|
       if @person.save
@@ -41,31 +37,27 @@ class Admin::PeopleController < ApplicationController
     end
   end
 
-  # PUT /people/1
-  # PUT /people/1.xml
   def update
     @person = Person.find(params[:id])
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
         format.html { redirect_to(admin_people_path, :notice => 'Person was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /people/1
-  # DELETE /people/1.xml
   def destroy
-    @person = Person.find(params[:id])
-    @person.destroy
+    @person = Person.find(params[:id]).destroy
 
     respond_to do |format|
       format.html { redirect_to(admin_people_path) }
-      format.xml  { head :ok }
     end
+  end
+
+  def get_company
+    params[:company_id] ? @company = Company.find(params[:company_id]) : @company = Company.find(Store.find(params[:id]).company_id)
   end
 end

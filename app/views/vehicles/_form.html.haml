@@ -5,7 +5,7 @@
     = form.input :year
     = form.input :make
     = form.input :model
-    = form.input :email, :input_html => {:value => @default_email}
+    = form.input :email
     = form.input :unsubscribe, :as => :normal_boolean, :label => 'Unsubscribe', :hint => 'Do not send any email reminders.'
     = submit_button 'Vehicle'
     .or-cancel

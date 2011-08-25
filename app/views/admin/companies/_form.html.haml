@@ -1,29 +1,15 @@
 - semantic_form_for [:admin, @company], :html => { :multipart => true } do |form|
   = render "shared/form_errors", :errors => @company.errors
 
-  - form.inputs "General Information", :class => "" do
-    = form.input :name
-    = form.input :address
-    = form.input :address_two
-    = form.input :city
-    = form.input :state, :as => :select, :collection => Carmen::states, :prompt => true
-    = form.input :zip
-  - form.inputs "Contact Information", :class => "" do
-    = form.input :phone
-    = form.input :phone_two, :as => :phone
-    = form.input :fax
-    = form.input :email
-  - form.inputs "Company Type", :class => "" do
-    / = form.inputs :office, :as => :select, :label => 'Service Reminder Type', :collection => [['Sub Items with recurring reminders',0]]
-    = form.input :reminder_type_id, :as => :select, :collection => [['Intervals',1], ['Dates', 2]], :prompt => true
-    = form.input :store_title, :hint => '"Store" for a tire dealer, "Office" for a doctors office, etc.'
-    = form.input :sub_item_title, :hint => 'Vehicle, pets, etc. If you do not define this, sub items will not be used.'
-  - form.inputs "Logo", :class => "" do
+  - form.inputs "", :class => "" do
     - if @company.avatar.present?
       %li
         %label Current Logo
         = image_tag @company.avatar.url(:thumb)
     = form.input :avatar, :as => :file, :label => 'Logo', :hint => 'Only JPG or PNG files'
+    = form.input :name
+    = form.input :company_type_id, :as => :select, :collection => [['Automotive',1],['Vets Office', 2],['Doctors Office',3]], :prompt => true, :required => true
+
   - form.buttons do
     = submit_button 'Company'
     .or-cancel

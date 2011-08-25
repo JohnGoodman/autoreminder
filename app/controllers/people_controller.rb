@@ -11,6 +11,7 @@ class PeopleController < ApplicationController
 
   def search
     @people = params[:search] ? @store.search(params[:search]) : []
+    @searching = true
     render :index
   end
 
@@ -18,16 +19,20 @@ class PeopleController < ApplicationController
     @person = @store.people.new
     @service_reminders = @store.all_service_reminders
 
-    if @company.use_sub_item?
+    if @company.company_type_id == 1
       1.times do
         vehicle = @person.vehicles.build
-        2.times { vehicle.customer_service_reminders.build }
+        @store.service_reminders.count.times { vehicle.customer_service_reminders.build }
       end
-    else
+
+    elsif @company.company_type_id == 2
+
+    elsif @company.company_type_id == 3
       1.times do
         appointment = @person.appointments.build
       end
     end
+
   end
 
   def show
@@ -56,7 +61,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        format.html { redirect_to(person_path(@person), :notice => 'Person was successfully updated.') }
+        format.html { redirect_to(store_person_path(@store, @person), :notice => 'Person was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end

@@ -1,5 +1,5 @@
 - content_for(:secondary_navigation) do
-  = render 'nav'
+  = render 'admin/companies/nav'
 
 %h1 People
 
@@ -13,6 +13,6 @@
   %tbody
     - @people.each do |person|
       %tr
-        %td= link_to person.name, edit_admin_person_path(person)
+        %td= link_to person.name, edit_admin_company_person_path(@company, person)
         %td= person.email
         %td= person.role.name

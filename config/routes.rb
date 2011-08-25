@@ -37,8 +37,8 @@ Ylc::Application.routes.draw do
   # Admin routes
   namespace :admin do
     root :to => 'companies#index'
-    resources :people
     resources :companies do
+      resources :people
       resources :stores do
         get 'mass_assign_service_reminders', :on => :member
         # get 'assign_service_reminders', :on => :member
