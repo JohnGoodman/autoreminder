@@ -28,11 +28,9 @@ class Admin::PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to(admin_people_path, :notice => 'Person was successfully created.') }
-        format.xml  { render :xml => @person, :status => :created, :location => @person }
+        format.html { redirect_to(admin_company_people_path(@company), :notice => 'Person was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -42,7 +40,7 @@ class Admin::PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        format.html { redirect_to(admin_people_path, :notice => 'Person was successfully updated.') }
+        format.html { redirect_to(admin_company_people_path(@company), :notice => 'Person was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
@@ -53,7 +51,7 @@ class Admin::PeopleController < ApplicationController
     @person = Person.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_people_path) }
+      format.html { redirect_to(admin_company_people_path(@company)) }
     end
   end
 

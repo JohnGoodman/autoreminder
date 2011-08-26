@@ -2,8 +2,9 @@ class CustomerServiceReminder < ActiveRecord::Base
   belongs_to :vehicle
   belongs_to :service_reminder
   belongs_to :person
+  belongs_to :pet
 
-  attr_accessible :vehicle_id, :service_reminder_id, :sent_on, :interval, :recurring, :times_sent, :max_send, :custom_name, :custom_description, :custom_email_subject, :custom_email_body, :person_id, :appointment_date, :appointment_description, :created_at
+  attr_accessible :vehicle_id, :service_reminder_id, :sent_on, :interval, :recurring, :times_sent, :max_send, :custom_name, :custom_description, :custom_email_subject, :custom_email_body, :person_id, :appointment_date, :appointment_description, :created_at, :pet_id
 
   before_validation do
     self.max_send = 1000000 if !attribute_present?("max_send") && !attribute_present?("appointment_date")

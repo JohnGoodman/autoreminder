@@ -3,7 +3,6 @@ class Company < ActiveRecord::Base
   has_many :people, :through => :stores
 
   validates_presence_of :name
-  validates_presence_of :store_title
   validates_presence_of :company_type_id
 
   mount_uploader :avatar, AvatarUploader
@@ -49,7 +48,7 @@ class Company < ActiveRecord::Base
     h = case company_type_id
       when 1 then 'Vehicle'
       when 2 then 'Pet'
-      when 3 then 'Reminder'
+      when 3 then 'Appointment'
     end
     h
   end
@@ -58,7 +57,25 @@ class Company < ActiveRecord::Base
     h = case company_type_id
       when 1 then 'Vehicles'
       when 2 then 'Pets'
-      when 3 then 'Reminders'
+      when 3 then 'Appointments'
+    end
+    h
+  end
+
+  def reminder_title
+    h = case company_type_id
+      when 1 then 'Reminder'
+      when 2 then 'Reminder'
+      when 3 then 'Appointment'
+    end
+    h
+  end
+
+  def reminder_title_s
+    h = case company_type_id
+      when 1 then 'Reminders'
+      when 2 then 'Reminders'
+      when 3 then 'Appointments'
     end
     h
   end

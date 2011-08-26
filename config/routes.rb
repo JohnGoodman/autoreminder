@@ -17,16 +17,10 @@ Ylc::Application.routes.draw do
       resources :vehicles, :except => [:index, :show] do
         resources :customer_service_reminders
       end
+      resources :pets, :except => [:index, :show] do
+        resources :customer_service_reminders
+      end
     end
-  end
-
-  # Office routes
-  namespace :office do
-    resources :people do
-      resources :customer_service_reminders
-    end
-    # resources :store, :only => [:edit, :update]
-    match ":id/edit" => "stores#edit", :as => :edit
   end
 
   # Company routes

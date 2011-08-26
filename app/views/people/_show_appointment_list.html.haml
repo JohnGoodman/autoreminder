@@ -5,6 +5,7 @@
         %th= @company.sub_p
         %th Date and Time
         %th Sent
+        %th
 
     - @person.appointments.each do |reminder|
       %tbody
@@ -12,6 +13,7 @@
           %td= reminder.service_reminder.name
           %td= detail_date reminder.appointment_date
           %td= yes_no_helper(reminder.times_sent.to_i > 0)
+          %td= link_to 'Remove', store_person_customer_service_reminder_path(@store, @person, reminder), :confirm => "Delete this #{@company.sub_s}?", :method => :delete
 - if @person.appointments.empty?
   %p No #{@company.sub_p} yet
 

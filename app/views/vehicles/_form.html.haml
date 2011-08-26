@@ -1,7 +1,7 @@
 - semantic_form_for [@store, @person, @vehicle] do |form|
   = render "shared/form_errors", :errors => @vehicle.errors
 
-  - form.inputs "General Information", :class => "" do
+  - form.inputs "", :class => "" do
     = form.input :year
     = form.input :make
     = form.input :model

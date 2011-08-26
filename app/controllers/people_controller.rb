@@ -26,6 +26,10 @@ class PeopleController < ApplicationController
       end
 
     elsif @company.company_type_id == 2
+      1.times do
+        pet = @person.pets.build
+        @store.service_reminders.count.times { pet.customer_service_reminders.build }
+      end
 
     elsif @company.company_type_id == 3
       1.times do
@@ -41,6 +45,7 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find(params[:id])
+    @service_reminders = @store.all_service_reminders
   end
 
   def create
@@ -49,7 +54,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to(store_person_path(@store, @person), :notice => 'Person was successfully created.') }
+        format.html { redirect_to(store_people_path(@store), :notice => 'Person was successfully created.') }
       else
         format.html { render :action => "new" }
       end

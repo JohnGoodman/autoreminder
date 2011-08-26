@@ -26,6 +26,8 @@ class CustomerServiceRemindersController < ApplicationController
     @service_reminders = @store.all_service_reminders
     if @company.company_type_id == 1
       @vehicle = Vehicle.find(params[:vehicle_id])
+    elsif @company.company_type_id == 2
+      @pet = Pet.find(params[:pet_id])
     end
 
     respond_to do |format|
@@ -44,7 +46,7 @@ class CustomerServiceRemindersController < ApplicationController
 
     respond_to do |format|
       if @customer_service_reminder.save
-        format.html { redirect_to(store_person_path(@store,@person), :notice => 'Customer service reminder was successfully created.') }
+        format.html { redirect_to(store_person_path(@store,@person), :notice => "#{@company.reminder_title} was successfully created.") }
       else
         format.html { render :action => "new" }
       end
@@ -56,7 +58,7 @@ class CustomerServiceRemindersController < ApplicationController
 
     respond_to do |format|
       if @customer_service_reminder.update_attributes(params[:customer_service_reminder])
-        format.html { redirect_to(store_person_path(@store,@person), :notice => 'Customer service reminder was successfully updated.') }
+        format.html { redirect_to(store_person_path(@store,@person), :notice => "#{@company.reminder_title} was successfully updated.") }
       else
         format.html { render :action => "edit" }
       end
@@ -67,7 +69,7 @@ class CustomerServiceRemindersController < ApplicationController
     @customer_service_reminder = CustomerServiceReminder.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to(store_person_path(@store,@person)) }
+      format.html { redirect_to(store_person_path(@store,@person), :notice => "#{@company.reminder_title} was successfully removed.") }
       format.xml  { head :ok }
     end
   end

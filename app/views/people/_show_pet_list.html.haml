@@ -1,12 +1,10 @@
 %ul#vehicles_list
-  - @person.vehicles.each do |vehicle|
+  - @person.pets.each do |pet|
     %li
       %h3
-        = vehicle.name
-        - if vehicle.email
-          = " - " + vehicle.email if vehicle.email.present?
-        = link_to "Add #{@company.reminder_title_s}", new_store_person_vehicle_customer_service_reminder_path(@store, @person, vehicle), :class => 'right'
-      - if vehicle.customer_service_reminders.any?
+        = pet.name
+        = link_to "Add #{@company.reminder_title}", new_store_person_pet_customer_service_reminder_path(@store, @person, pet), :class => 'right'
+      - if pet.customer_service_reminders.any?
         %table.table
           %thead
             %tr
@@ -19,7 +17,7 @@
               %th Max Sends
               %th
 
-          - vehicle.customer_service_reminders.each do |reminder|
+          - pet.customer_service_reminders.each do |reminder|
             %tbody
               %tr
                 %td= reminder.service_reminder.name
@@ -29,9 +27,9 @@
                 %td= yes_no_helper reminder.recurring
                 %td= reminder.times_sent
                 %td= max_send_helper reminder.max_send
-                %td= link_to 'Remove', store_person_vehicle_customer_service_reminder_path(@store, @person, vehicle, reminder), :confirm => "Delete this #{@company.sub_s}?", :method => :delete
-      - if vehicle.customer_service_reminders.empty?
+                %td= link_to 'Remove', store_person_pet_customer_service_reminder_path(@store, @person, pet, reminder), :confirm => "Delete this #{@company.sub_s}?", :method => :delete
+      - if pet.customer_service_reminders.empty?
         %p No reminders for this #{@company.sub_s} yet.
 
-  - if @person.vehicles.empty?
+  - if @person.pets.empty?
     %li No #{@company.sub_p} yet.

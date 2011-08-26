@@ -1,0 +1,9 @@
+- semantic_form_for [@store, @person, @pet] do |form|
+  = render "shared/form_errors", :errors => @pet.errors
+
+  - form.inputs "", :class => "" do
+    = form.input :name
+    = form.input :unsubscribe, :as => :normal_boolean, :label => 'Unsubscribe', :hint => 'Do not send any email reminders.'
+    = submit_button 'Pet'
+    .or-cancel
+      or #{link_to 'Cancel', store_person_path(@store, @person)}
