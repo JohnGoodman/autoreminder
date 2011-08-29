@@ -22,6 +22,7 @@ gem 'fog', '0.7.1'
 gem 'flash_cookie_session'
 gem 'mini_magick'
 gem 'mime-types', :require => 'mime/types'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'rspec-rails'
