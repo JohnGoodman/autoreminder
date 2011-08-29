@@ -6,6 +6,7 @@
 %table.table
   %thead
     %tr
+      %th Username
       %th Name
       %th Email
       %th Role
@@ -13,6 +14,7 @@
   %tbody
     - @people.each do |person|
       %tr
-        %td= link_to person.name, edit_admin_company_person_path(@company, person)
+        %td= link_to person.username, edit_admin_company_person_path(@company, person)
+        %td= person.name
         %td= person.email
         %td= person.role.name

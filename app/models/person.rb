@@ -15,17 +15,18 @@ class Person < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes
+  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes
 
   # Validations
   validates_presence_of     :first_name
   validates_presence_of     :last_name
   validates_presence_of     :role
-  validates_presence_of     :email,                   :if => :email_required?
-  validates_uniqueness_of   :email,                   :if => :email_required?
+  validates_presence_of     :username,                   :if => :email_required?
+  validates_uniqueness_of   :username,                   :if => :email_required?
   validates_presence_of     :password,                :if => :password_required?
   validates_presence_of     :password_confirmation,   :if => :password_required?
   validate                  :password_valid?,         :if => :password_required?
+  validates_presence_of     :email
   validates_presence_of     :store,                   :if => :store_required?
 
   def role?(check_role)

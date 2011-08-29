@@ -1,9 +1,9 @@
 %ul#vehicles_list
   - @person.pets.each do |pet|
     %li
-      %h3
+      %h2
         = pet.name
-        = link_to "Add #{@company.reminder_title}", new_store_person_pet_customer_service_reminder_path(@store, @person, pet), :class => 'right'
+        = link_to "Add #{@company.reminder_title}", new_store_person_pet_customer_service_reminder_path(@store, @person, pet), :class => 'right button'
       - if pet.customer_service_reminders.any?
         %table.table
           %thead

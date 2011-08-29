@@ -1,5 +1,6 @@
 - first_name: John
   last_name: Goodman
+  username: john
   email: john@poeticsystems.com
   password: Jgpass538
   password_confirmation: Jgpass538
@@ -8,6 +9,7 @@
 
 - first_name: Joe
   last_name: Peele
+  username: joe
   email: joe@example.com
   password: Password1
   password_confirmation: Password1
@@ -16,6 +18,7 @@
 
 - first_name: Store
   last_name: Manager
+  username: store
   email: store@example.com
   password: Password1
   password_confirmation: Password1
@@ -26,12 +29,14 @@
 
 - first_name: Jane
   last_name: Doe
+  username: jane
   email: janedoe@example.com
   role_id: 4
   store_id: 1
 
 - first_name: John
   last_name: Smith
+  username: johnsmith
   email: johnsmith@example.com
   role_id: 4
   store_id: 1
