@@ -1,7 +1,15 @@
 class ReminderMailer < ActionMailer::Base
   def recurring_reminder( reminder )
     @reminder = reminder
-    @person = reminder.vehicle.person
+    if reminder.vehicle.present?
+      @vehicle = reminder.vehicle
+      @person = @vehicle.person
+      @pet = nil
+    else
+      @pet= reminder.pet
+      @person = @pet.person
+      @vehicle = nil
+    end
     @store = reminder.service_reminder.store
     # @body = reminder.service_reminder.name == 'Custom Reminder' ? reminder.custom_email_body : reminder.service_reminder.email_body
 

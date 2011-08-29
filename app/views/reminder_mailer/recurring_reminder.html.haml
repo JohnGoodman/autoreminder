@@ -30,6 +30,15 @@
           %p Dear #{@person.name},
           = @reminder.service_reminder.name == 'Custom Reminder' ? @reminder.custom_email_body : @reminder.service_reminder.email_body
 
+          - if @vehicle
+            %p
+              %strong Vehicle
+            %p= @vehicle.name
+          - else
+            %p
+              %strong Vehicle
+            %p= @pet.name
+
           %p Thank You,
 
           %p
