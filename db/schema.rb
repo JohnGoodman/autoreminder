@@ -10,17 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110829003333) do
+ActiveRecord::Schema.define(:version => 20110831025603) do
 
   create_table "ckeditor_assets", :force => true do |t|
-    t.string   "data_file_name",                  :null => false
-    t.string   "data_content_type"
-    t.integer  "data_file_size"
-    t.integer  "assetable_id"
-    t.string   "assetable_type",    :limit => 30
-    t.string   "type",              :limit => 30
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "data_file_name",                  :null => false
+    t.string    "data_content_type"
+    t.integer   "data_file_size"
+    t.integer   "assetable_id"
+    t.string    "assetable_type",    :limit => 30
+    t.string    "type",              :limit => 30
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(:version => 20110829003333) do
     t.timestamp "appointment_date"
     t.string    "appointment_description"
     t.integer   "pet_id"
+  end
+
+  create_table "emails", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "subject"
+    t.string   "preview_to"
+    t.text     "body"
+    t.boolean  "template"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", :force => true do |t|

@@ -21,10 +21,12 @@ Ylc::Application.routes.draw do
         resources :customer_service_reminders
       end
     end
+    resources :emails
   end
 
   # Company routes
   namespace :company do
+    root :to => 'companies#show'
     resources :companies, :only => [:show, :edit, :update]
   end
 
