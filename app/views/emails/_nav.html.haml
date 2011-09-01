@@ -1,0 +1,7 @@
+.secondary-navigation.clearfix
+  = tabs_tag :namespace => :subnav do |tab|
+    - if ['index', 'new', 'create'].exclude?(controller.action_name)
+      = tab.email_edit  'Mass Email', edit_store_email_path(@store, @email), :class => 'first'
+
+
+    = tab.email_new "New Email", new_store_email_path(@store), :class => "right last" if ['index'].include?(controller.action_name)

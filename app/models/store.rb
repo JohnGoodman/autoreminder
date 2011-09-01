@@ -4,6 +4,7 @@ class Store < ActiveRecord::Base
   has_many :service_reminders
   has_many :customer_service_reminders, :through => :service_reminders
   has_many :vehicles, :through => :customer_service_reminders
+  has_many :emails
 
   attr_accessible :company_id, :name, :address, :address_two, :phone, :phone_two, :email, :fax, :city, :state, :zip
 

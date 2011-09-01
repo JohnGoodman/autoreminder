@@ -1,0 +1,28 @@
+/ - content_for(:stylesheets) do
+/   = stylesheet_link_tag 'search_customer.css'
+
+- content_for(:secondary_navigation) do
+  = render 'nav'
+
+%h1 Saved Mass Emails
+
+.clearfix
+
+#search-results
+  %table.table
+    %thead
+      %tr
+        %th Subject
+        %th Body
+        %th Created
+
+    %tbody
+      - @emails.each do |email|
+        %tr
+          %td= link_to email.subject, edit_store_email_path(@store, email), :title => 'Use Saved Email'
+          %td= truncate(email.body, :length => 37, :separator => ' ')
+          %td= short_date email.created_at
+
+      - if @emails.empty?
+        %tr
+          %td{ :colspan => 4 } No Emails Saved.

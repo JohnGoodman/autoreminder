@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
           redirect_to company_root_path
         end
       elsif current_user.role? :store
-        unless ['people','customer_service_reminders','pets','vehicles'].include?(params[:controller])
+        unless ['people','customer_service_reminders','pets','vehicles','emails'].include?(params[:controller])
           flash[:alert] = 'Error. You are not allowed to access that page.'
           redirect_to store_people_path(current_user.store)
         end
