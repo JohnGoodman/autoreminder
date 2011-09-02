@@ -1028,14 +1028,18 @@ select:focus {
 
 /* line 137, ../../app/stylesheets/partials/_forms.scss */
 #index_add_customer_holder {
-  margin: 40px 0;
+  margin: 40px auto;
+  width:850px;
   text-align: center;
 }
 
 /* line 142, ../../app/stylesheets/partials/_forms.scss */
-a#index_add_customer {
+a#index_add_customer,
+a#index_add_email {
   font-size: 30px;
-  padding: 30px 40px;
+  padding: 30px 0px;
+  width:375px;
+  float:left;
   text-decoration: none;
   text-shadow: 0px 1px 0px #fff;
   outline: none;
@@ -1053,8 +1057,10 @@ a#index_add_customer {
   box-shadow: 1px 1px 0px #efefef;
 }
 
+a#index_add_email { float:right; }
 /* line 157, ../../app/stylesheets/partials/_forms.scss */
-a#index_add_customer:hover {
+a#index_add_customer:hover,
+a#index_add_email:hover {
   -webkit-box-shadow: 0px 0px 5px #59051A;
   -moz-box-shadow: 0px 0px 5px #59051A;
   box-shadow: 0px 0px 5px #59051A;
