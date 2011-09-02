@@ -59,12 +59,12 @@ class EmailsController < ApplicationController
     end
 
     # Setup the uploaded files
-    # uploaded_files = []
-    # if params[:email][:attachments]
-    #   params[:email][:attachments].each do |attachment|
-    #     uploaded_files << attachment
-    #   end
-    # end
+    uploaded_files = []
+    if params[:email][:attachments]
+      params[:email][:attachments].each do |attachment|
+        uploaded_files << attachment
+      end
+    end
 
     if success && ( params[:send] || params[:save_send] )
       bcc = nil
@@ -73,7 +73,7 @@ class EmailsController < ApplicationController
       # loop store customers
       @store.customers.each do |customer|
         # Send the email
-        email_count += 1 if MassMailer.mass_email( @store, @email, customer, bcc ).deliver
+        email_count += 1 if MassMailer.mass_email( @store, @email, customer, bcc, uploaded_files ).deliver
       end
       success = true
       notice = email_count.to_s + " Emails successfully sent."

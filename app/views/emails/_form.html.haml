@@ -9,6 +9,13 @@
       %label Email Body
     %li
       = form.cktext_area :body, :toolbar => 'Easy', :width => 800, :height => 400
+    
+     %li
+        %label
+        %strong Attachments
+      = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
+      = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
+      = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
 
     = form.input :preview_to, :input_html => {:value => current_person.email}, :hint => 'Email address to send a preview to'
   - form.buttons do
