@@ -1,6 +1,6 @@
 = javascript_include_tag :ckeditor
 
-- semantic_form_for [@store, @email] do |form|
+- semantic_form_for [@store, @email], :html => { :multipart => true} do |form|
   = render "shared/form_errors", :errors => @email.errors
 
   - form.inputs "", :class => "" do
