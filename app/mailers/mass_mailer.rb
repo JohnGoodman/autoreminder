@@ -12,7 +12,7 @@ class MassMailer < ActionMailer::Base
     mail(
       :to => @person.name + "<" + @person.email + ">",
       :subject => email.subject,
-      :from => from,
+      :from => "#{@store.name} <#{@store.email}>",
       :bcc => bcc
     )
   end

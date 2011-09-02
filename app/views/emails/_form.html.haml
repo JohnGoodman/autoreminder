@@ -1,9 +1,15 @@
+= javascript_include_tag :ckeditor
+
 - semantic_form_for [@store, @email] do |form|
   = render "shared/form_errors", :errors => @email.errors
 
   - form.inputs "", :class => "" do
     = form.input :subject
-    = form.input :body
+    %li
+      %label Email Body
+    %li
+      = form.cktext_area :body, :toolbar => 'Easy', :width => 800, :height => 400
+
     = form.input :preview_to, :input_html => {:value => current_person.email}, :hint => 'Email address to send a preview to'
   - form.buttons do
     = content_tag :button, 'Save', {:type => :submit, :class => 'positive', :name => 'save', :value => true}
