@@ -9,10 +9,10 @@
       %label Email Body
     %li
       = form.cktext_area :body, :toolbar => 'Easy', :width => 800, :height => 400
-    
-     %li
-        %label
-        %strong Attachments
+
+    %li
+      %label
+      %strong Attachments
       = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
       = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
       = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
