@@ -1,3 +1,7 @@
+- body = @email.body.gsub("~EMAIL~",@person.email.to_s)
+- body = body.gsub("~FIRST_NAME~",@person.first_name.to_s)
+- body = body.gsub("~LAST_NAME~",@person.last_name.to_s)
+
 %html
   %head
   %body{:style => 'margin:0px; padding:0px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background:#f3f3f3;' }
@@ -25,39 +29,28 @@
       %tr
         %td &nbsp;
 
-      %tr
-        %td{:colspan => 3, :style => 'padding:0 15px;' }
-          %p Dear #{@person.name},
-          = @reminder.service_reminder.name == 'Custom Reminder' ? @reminder.custom_email_body : @reminder.service_reminder.email_body
+        %tr
+          %td= body.html_safe
 
-          - if @vehicle
-            %p
-              %strong Vehicle
-            %p= @vehicle.name
-          - else
-            %p
-              %strong Pet
-            %p= @pet.name
+        %p Thank You,
 
-          %p Thank You,
-
-          %p
-            %strong= @store.name
+        %p
+          %strong= @store.name
+          %br
+          %small= @store.address
+          %br
+          - unless @store.address_two.blank?
+            %small= @store.address_two
             %br
-            %small= @store.address
-            %br
-            - unless @store.address_two.blank?
-              %small= @store.address_two
-              %br
-            %small= @store.city
-            ,
-            %small= @store.state
-            %small= @store.zip
+          %small= @store.city
+          ,
+          %small= @store.state
+          %small= @store.zip
 
-      %tr
-        %td &nbsp;
+    %tr
+      %td &nbsp;
 
-      %tr
-        %td{:colspan => 3, :style => 'background:#360000; padding:10px; color:#f3f3f3; font-size:12px;' }
-          Unsubscribe
-    %p &nbsp;
+    %tr
+      %td{:colspan => 3, :style => 'background:#360000; padding:10px; color:#f3f3f3; font-size:12px;' }
+        Unsubscribe
+  %p &nbsp;

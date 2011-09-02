@@ -51,16 +51,32 @@ class EmailsController < ApplicationController
 
     if params[:save] || params[:save_send]
       @email.template = true
-      if @email.update_attributes(params[:email])
-        success = true
-        notice = 'Email was successfully updated.'
-      end
     end
 
-    if params[:send] || (params[:save_send] && success)
-      # Send the email
-
+    if @email.update_attributes(params[:email])
       success = true
+      notice = 'Email was successfully updated.'
+    end
+
+    # Setup the uploaded files
+    # uploaded_files = []
+    # if params[:email][:attachments]
+    #   params[:email][:attachments].each do |attachment|
+    #     uploaded_files << attachment
+    #   end
+    # end
+
+    if success && ( params[:send] || params[:save_send] )
+      bcc = nil
+      email_count = 0
+
+      # loop store customers
+      @store.customers.each do |customer|
+        # Send the email
+        email_count += 1 if MassMailer.mass_email( @store, @email, customer, bcc ).deliver
+      end
+      success = true
+      notice = email_count.to_s + " Emails successfully sent."
     end
 
     respond_to do |format|

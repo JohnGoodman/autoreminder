@@ -74,3 +74,10 @@ function randomString() {
   }
   return randomstring;
 }
+
+function confirm_javascript_function(message){
+  alert = confirm(message);
+  if( !alert ){
+    return false;
+  }
+}
