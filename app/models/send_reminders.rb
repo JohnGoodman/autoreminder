@@ -31,11 +31,19 @@ class SendReminders
 
   def self.find_appointment_reminders
     # Get the appointment reminders
-    # Send 2 days in advance
-    start_datetime = ((Date.today - 2.days).to_s + " 00:00:00").to_datetime
-    end_datetime = ((Date.today - 2.days).to_s + " 23:59:59").to_datetime
+    # Send 7 days in advance
+    start_datetime = ((Date.today + 7.days).to_s + " 00:00:00").to_datetime
+    end_datetime = ((Date.today + 7.days).to_s + " 23:59:59").to_datetime
 
-    appointment_reminders = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 0)
+    appointment_reminders_7_day = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 0)
+
+    # Send 2 days in advance
+    start_datetime = ((Date.today + 2.days).to_s + " 00:00:00").to_datetime
+    end_datetime = ((Date.today + 2.days).to_s + " 23:59:59").to_datetime
+
+    appointment_reminders_2_day = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 1)
+
+    appointment_reminders = appointment_reminders_2_day + appointment_reminders_7_day
 
     count = 0
     appointment_reminders.each do |reminder|
