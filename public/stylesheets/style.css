@@ -78,7 +78,7 @@ hr {
 /* line 11, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_fonts.scss */
 body {
   font-size: 13px;
-  font-family:helvetica, arial, sans-serif;
+  font-family: helvetica, arial, sans-serif;
   line-height: 1.231;
   *font-size: small;
 }
@@ -253,18 +253,6 @@ nav ul, nav li {
   clear: both;
 }
 
-@font-face {
-  font-family: helvetica, arial, sans-serif;
-}
-
-@font-face {
-  font-family: helvetica, arial, sans-serif;
-}
-
-@font-face {
-  font-family: helvetica, arial, sans-serif;
-}
-
 /* line 8, ../../app/stylesheets/partials/_page.scss */
 body, select, input, textarea {
   color: #111111;
@@ -345,7 +333,6 @@ td.center {
 /* line 14, ../../app/stylesheets/partials/_layout.scss */
 h2 {
   padding: 10px 0;
-  font-size:18px;
 }
 
 /* line 16, ../../app/stylesheets/partials/_layout.scss */
@@ -703,7 +690,7 @@ body {
 
 /* line 1, ../../app/stylesheets/partials/_buttons.scss */
 a.button, button {
-  font-family:helvetica, arial, sans-serif;
+  font-family: helvetica, arial, sans-serif;
 }
 
 /* line 5, ../../app/stylesheets/partials/_buttons.scss */
@@ -862,7 +849,7 @@ ul.table div.td a {
 
 /* line 32, ../../app/stylesheets/partials/_forms.scss */
 button, input, select, textarea {
-  font-family:helvetica, arial, sans-serif;
+  font-family: helvetica, arial, sans-serif;
 }
 
 /* line 34, ../../app/stylesheets/partials/_forms.scss */
@@ -942,7 +929,7 @@ button, input, select, textarea {
 
 /* line 84, ../../app/stylesheets/partials/_forms.scss */
 .search_box {
-  font-family:helvetica, arial, sans-serif;
+  font-family: helvetica, arial, sans-serif;
   border: 0px;
   background-color: transparent;
   position: absolute;
@@ -1022,8 +1009,7 @@ select:focus {
 
 /* line 137, ../../app/stylesheets/partials/_forms.scss */
 #index_add_customer_holder {
-  margin: 40px auto;
-  width:850px;
+  margin: 40px 0;
   text-align: center;
 }
 
@@ -1031,9 +1017,7 @@ select:focus {
 a#index_add_customer,
 a#index_add_email {
   font-size: 30px;
-  padding: 30px 0px;
-  width:375px;
-  float:left;
+  padding: 30px 40px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #fff;
   outline: none;
@@ -1051,7 +1035,7 @@ a#index_add_email {
   box-shadow: 1px 1px 0px #efefef;
 }
 
-a#index_add_email { float:right; }
+
 /* line 157, ../../app/stylesheets/partials/_forms.scss */
 a#index_add_customer:hover,
 a#index_add_email:hover {
@@ -1363,8 +1347,7 @@ form.formtastic fieldset.buttons {
   margin: 8px;
 }
 /* line 13, ../../app/stylesheets/partials/_flash.scss */
-.flash .error, .flash .error-list,
-.flash .alert, .flash .alert-list, #flash .error, #flash .error-list, #flash .alert, #flash .alert-list {
+.flash .error, .flash .error-list, #flash .error, #flash .error-list {
   border: 1px solid #993624;
   background: #96301e url("../images/messages/error.png") no-repeat 10px center;
 }

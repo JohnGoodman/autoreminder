@@ -79,6 +79,15 @@ class EmailsController < ApplicationController
       notice = email_count.to_s + " Emails successfully sent."
     end
 
+    if params[:preview]
+      if MassMailer.mass_email( @store, @email, current_person, bcc, uploaded_files, @email.preview_to ).deliver
+        notice = 'Preview email sent to ' + @email.preview_to
+      else
+        alert = 'Error. Failed to send preview email.'
+      end
+      path = edit_store_email_path(@store, @email)
+    end
+
     respond_to do |format|
       if success
         format.html { redirect_to(path, :notice => notice, :alert => alert) }

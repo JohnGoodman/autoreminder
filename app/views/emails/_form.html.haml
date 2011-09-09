@@ -20,7 +20,7 @@
     = form.input :preview_to, :input_html => {:value => current_person.email}, :hint => 'Email address to send a preview to'
   - form.buttons do
     = content_tag :button, 'Save', {:type => :submit, :class => 'positive', :name => 'save', :value => true}
-    = content_tag :button, 'Preview', {:type => :button, :class => 'positive', :name => 'preview', :value => true}
+    = content_tag :button, 'Preview', {:type => :submit, :class => 'positive', :name => 'preview', :value => true}
     .right
       = content_tag :button, 'Save & Send', {:type => :submit, :class => 'positive', :name => 'save_send', :value => true, :onclick => "return confirm_javascript_function('Are you sure you are ready to Save & Send this email?');"}
       = content_tag :button, 'Send', {:type => :submit, :class => 'positive', :name => 'send', :value => true, :onclick => "return confirm_javascript_function('Are you sure you are ready to Save this email?');"}
