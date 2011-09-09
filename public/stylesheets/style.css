@@ -78,7 +78,7 @@ hr {
 /* line 11, ../../../../../../.rvm/gems/ruby-1.9.2-p0/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_fonts.scss */
 body {
   font-size: 13px;
-  font-family: "MuseoSans500", helvetica, arial, sans-serif;
+  font-family:helvetica, arial, sans-serif;
   line-height: 1.231;
   *font-size: small;
 }
@@ -254,21 +254,15 @@ nav ul, nav li {
 }
 
 @font-face {
-  font-family: "MuseoSans500";
-  src: url('/fonts/museosans_500-webfont.eot');
-  src: url('/fonts/museosans_500-webfont.eot?iefix') format('eot'), url('/fonts/museosans_500-webfont.woff') format('woff'), url('/fonts/museosans_500-webfont.ttf') format('truetype'), url('/fonts/museosans_500-webfont.svg') format('svg');
+  font-family: helvetica, arial, sans-serif;
 }
 
 @font-face {
-  font-family: "MuseoSans500Italic";
-  src: url('/fonts/museosans_500_italic-webfont.eot');
-  src: url('/fonts/museosans_500_italic-webfont.eot?iefix') format('eot'), url('/fonts/museosans_500_italic-webfont.woff') format('woff'), url('/fonts/museosans_500_italic-webfont.ttf') format('truetype'), url('/fonts/museosans_500_italic-webfont.svg') format('svg');
+  font-family: helvetica, arial, sans-serif;
 }
 
 @font-face {
-  font-family: "Museo700";
-  src: url('/fonts/museo700-regular-webfont.eot');
-  src: url('/fonts/museo700-regular-webfont.eot?iefix') format('eot'), url('/fonts/museo700-regular-webfont.woff') format('woff'), url('/fonts/museo700-regular-webfont.ttf') format('truetype'), url('/fonts/museo700-regular-webfont.svg') format('svg');
+  font-family: helvetica, arial, sans-serif;
 }
 
 /* line 8, ../../app/stylesheets/partials/_page.scss */
@@ -378,7 +372,7 @@ em {
 
 /* line 35, ../../app/stylesheets/partials/_layout.scss */
 h1, h2, h3, span.pid {
-  font-family: 'Museo700', helvetica, arial, sans-serif;
+  font-family: helvetica, arial, sans-serif;
   color: #360000;
 }
 
@@ -709,7 +703,7 @@ body {
 
 /* line 1, ../../app/stylesheets/partials/_buttons.scss */
 a.button, button {
-  font-family: 'MuseoSans500', helvetica, arial, sans-serif;
+  font-family:helvetica, arial, sans-serif;
 }
 
 /* line 5, ../../app/stylesheets/partials/_buttons.scss */
@@ -868,7 +862,7 @@ ul.table div.td a {
 
 /* line 32, ../../app/stylesheets/partials/_forms.scss */
 button, input, select, textarea {
-  font-family: 'Lucida Grande', 'MuseoSans500', helvetica, arial, sans-serif;
+  font-family:helvetica, arial, sans-serif;
 }
 
 /* line 34, ../../app/stylesheets/partials/_forms.scss */
@@ -948,7 +942,7 @@ button, input, select, textarea {
 
 /* line 84, ../../app/stylesheets/partials/_forms.scss */
 .search_box {
-  font-family: "MuseoSans500", helvetica, arial, sans-serif;
+  font-family:helvetica, arial, sans-serif;
   border: 0px;
   background-color: transparent;
   position: absolute;
