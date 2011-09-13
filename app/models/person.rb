@@ -12,8 +12,8 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :appointments, :reject_if => lambda { |a| a[:interval].blank? && a[:service_reminder_id].blank? }, :allow_destroy => true
 
   # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable, :validatable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes
@@ -22,12 +22,13 @@ class Person < ActiveRecord::Base
   validates_presence_of     :first_name
   validates_presence_of     :last_name
   validates_presence_of     :role
-  validates_presence_of     :username,                   :if => :email_required?
-  validates_uniqueness_of   :username,                   :if => :email_required?
+  validates_presence_of     :username,                :if => :email_required?
+  validates_uniqueness_of   :username,                :if => :email_required?
   validates_presence_of     :password,                :if => :password_required?
   validates_presence_of     :password_confirmation,   :if => :password_required?
   validate                  :password_valid?,         :if => :password_required?
   validates_presence_of     :email
+  validates_uniqueness_of   :email,                   :scope => :store, :if => :customer?
   validates_presence_of     :store,                   :if => :store_required?
 
   def role?(check_role)
@@ -78,6 +79,10 @@ class Person < ActiveRecord::Base
 
     def store_required?
       role && role?(:store)
+    end
+
+    def customer?
+      role && role?(:customer)
     end
 
 end

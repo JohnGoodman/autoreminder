@@ -11,6 +11,8 @@ Ylc::Application.routes.draw do
 
   resources :stores, :except => [:index, :new, :create] do
     resources :people do
+      get 'edit_profile', :on => :member
+      put 'update_profile', :on => :member
       post 'search', :on => :collection
       get 'search', :on => :collection
       resources :customer_service_reminders
@@ -21,20 +23,25 @@ Ylc::Application.routes.draw do
         resources :customer_service_reminders
       end
     end
-    resources :emails
   end
 
   # Company routes
   namespace :company do
     root :to => 'companies#show'
     resources :companies, :only => [:show, :edit, :update]
+    resources :emails
   end
 
   # Admin routes
   namespace :admin do
     root :to => 'companies#index'
+    resources :people, :only => [:edit_profile, :update_profile] do
+      get 'edit_profile', :on => :member
+      put 'update_profile', :on => :member
+    end
     resources :companies do
-      resources :people
+      resources :people do
+      end
       resources :stores do
         get 'mass_assign_service_reminders', :on => :member
         # get 'assign_service_reminders', :on => :member

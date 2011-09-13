@@ -1,0 +1,21 @@
+%h1
+  Edit Profile:
+  = @person.name
+
+- semantic_form_for [@store, @person], :url => update_profile_store_person_path(@store, @person) do |form|
+  = render "shared/form_errors", :errors => @person.errors
+
+  - form.inputs "", :class => "" do
+    = form.input :username
+    = form.input :email
+    %li.top-hint-li
+      %p.top-hint
+        %label> &nbsp;
+        Password must contain at least one uppercase letter, one lowercase character, one number and be at least 8 characters long.
+    = form.input :password, :required => true, :input_html => {:autocomplete => 'off'}
+    = form.input :password_confirmation, :required => true, :input_html => {:autocomplete => 'off'}
+
+  - form.buttons do
+    = content_tag :button, 'Update Profile', {:type => :submit, :class => 'positive'}
+    .or-cancel
+      or #{link_to 'Cancel', root_path }

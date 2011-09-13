@@ -1,6 +1,6 @@
 class Admin::PeopleController < ApplicationController
   before_filter :authenticate_person!
-  before_filter :get_company
+  before_filter :get_company, :except => [:edit_profile, :update_profile]
   layout 'admin'
 
   set_tab :people, :subnav, :only => :index
@@ -43,6 +43,23 @@ class Admin::PeopleController < ApplicationController
         format.html { redirect_to(admin_company_people_path(@company), :notice => 'Person was successfully updated.') }
       else
         format.html { render :action => "edit" }
+      end
+    end
+  end
+
+  def edit_profile
+    @person = Person.find(params[:id])
+  end
+
+  def update_profile
+    @person = Person.find(params[:id])
+
+    respond_to do |format|
+      if @person.update_attributes(params[:person])
+        sign_in(@person, :bypass => true)
+        format.html { redirect_to(admin_companies_path, :notice => 'Profile was successfully updated.') }
+      else
+        format.html { render :action => "edit_profile" }
       end
     end
   end

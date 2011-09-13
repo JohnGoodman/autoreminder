@@ -48,6 +48,23 @@ class PeopleController < ApplicationController
     @service_reminders = @store.all_service_reminders
   end
 
+  def edit_profile
+    @person = Person.find(params[:id])
+  end
+
+  def update_profile
+    @person = Person.find(params[:id])
+
+    respond_to do |format|
+      if @person.update_attributes(params[:person])
+        sign_in(@person, :bypass => true)
+        format.html { redirect_to(store_people_path(@store), :notice => 'Profile was successfully updated.') }
+      else
+        format.html { render :action => "edit_profile" }
+      end
+    end
+  end
+
   def create
     @person = @store.people.new(params[:person])
     @person.role = Role.find(4) unless params[:person][:role]

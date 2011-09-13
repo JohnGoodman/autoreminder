@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
 
   def get_store
     return unless current_user
-    if current_user.role?(:store) || current_user.role?(:office)
+    if current_user.role?(:store)
       @store = current_user.store
       @company = @store.company
     end

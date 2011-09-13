@@ -40,3 +40,8 @@
   email: johnsmith@example.com
   role_id: 4
   store_id: 1
+
+
+# Person.create(:first_name => "John", :last_name => "Goodman", :username => "john", :email => "john@poeticsystems.com", :password => "Jgpass538", :password_confirmation => "Jgpass538", :online_access => true, :role_id => Role.first)
+# Person.create(:first_name => "Joe", :last_name => "Peele", :username => "joe", :email => "desolutions@mail.com", :password => "Password1", :password_confirmation => "Password1", :online_access => true, :role_id => Role.first)
+# Person.create(:first_name => "Mike", :last_name => "Murphy", :username => "mike", :email => "murphygo@gmail.com", :password => "Password1", :password_confirmation => "Password1", :online_access => true, :role_id => Role.first)

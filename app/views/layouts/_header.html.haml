@@ -7,7 +7,8 @@
 
 %nav.right
   %ul
-    %li= link_to image_tag("icons/config.png", :title => "Edit Information"), edit_store_path(@store)
+    / %li= link_to image_tag("icons/config.png", :title => "Edit Information"), edit_store_path(@store)
+    %li= link_to image_tag("icons/account.png", :title => "Edit My Profile"), edit_profile_store_person_path(@store, current_person)
     %li= link_to image_tag("icons/logout.png", :title => "Logout"), logout_path
 
 %nav
