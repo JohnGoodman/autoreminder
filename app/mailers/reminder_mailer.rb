@@ -5,20 +5,20 @@ class ReminderMailer < ActionMailer::Base
       @vehicle = reminder.vehicle
       @person = @vehicle.person
       @pet = nil
+      email_address = reminder.vehicle.email.present? ? reminder.vehicle.email : @person.email
     else
       @pet= reminder.pet
       @person = @pet.person
       @vehicle = nil
+      email_address = @person.email
     end
     @store = reminder.service_reminder.store
     # @body = reminder.service_reminder.name == 'Custom Reminder' ? reminder.custom_email_body : reminder.service_reminder.email_body
 
     subject = reminder.service_reminder.name == 'Custom Reminder' ? reminder.custom_email_subject : reminder.service_reminder.email_subject
 
-    bcc = 'john@poeticsystems.com'
-    # to = person.email
-    # to = @person.name + "<" + @person.email + ">"
-    to = 'jgoodman09@gmail.com'
+    bcc = 'jgoodman09@gmail.com'
+    to = @person.name + "<" + email_address + ">"
 
     # attach files
     # files.each do |file|
@@ -40,10 +40,8 @@ class ReminderMailer < ActionMailer::Base
     # @body = reminder.service_reminder.name == 'Custom Reminder' ? reminder.custom_email_body : reminder.service_reminder.email_body
     subject = reminder.service_reminder.name == 'Custom Reminder' ? reminder.custom_email_subject : reminder.service_reminder.email_subject
 
-    bcc = 'john@poeticsystems.com'
-    # to = person.email
-    # to = @person.name + "<" + @person.email + ">"
-    to = 'jgoodman09@gmail.com'
+    bcc = 'jgoodman09@gmail.com'
+    to = @person.name + "<" + @person.email + ">"
 
     mail(
       :to => to,

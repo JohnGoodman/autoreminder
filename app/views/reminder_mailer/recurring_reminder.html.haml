@@ -28,7 +28,7 @@
       %tr
         %td{:colspan => 3, :style => 'padding:0 15px;' }
           %p Dear #{@person.name},
-          = @reminder.service_reminder.name == 'Custom Reminder' ? @reminder.custom_email_body : @reminder.service_reminder.email_body
+          = @reminder.service_reminder.name == 'Custom Reminder' ? @reminder.custom_email_body.html_safe : @reminder.service_reminder.email_body.html_safe
 
           - if @vehicle
             %p
