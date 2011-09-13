@@ -29,7 +29,18 @@ Ylc::Application.routes.draw do
   namespace :company do
     root :to => 'companies#show'
     resources :companies, :only => [:show, :edit, :update]
+    resources :stores do
+      get 'mass_assign_service_reminders', :on => :member
+      # get 'assign_service_reminders', :on => :member
+      match 'assign_service_reminders' => 'stores#assign_service_reminders', :as => 'assign_service_reminders'
+      resources :service_reminders, :except => [:index]
+    end
     resources :emails
+    resources :people do
+      get 'edit_profile', :on => :member
+      put 'update_profile', :on => :member
+    end
+    resources :service_reminders
   end
 
   # Admin routes

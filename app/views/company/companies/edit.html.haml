@@ -1,7 +1,6 @@
-%h1 Editing company
+= content_for(:secondary_navigation) do
+  = render 'nav'
+
+%h1 Edit Company
 
 = render 'form'
-
-= link_to 'Show', @company
-\|
-= link_to 'Back', companies_path

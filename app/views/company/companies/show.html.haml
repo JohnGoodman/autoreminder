@@ -1,36 +1,9 @@
-%p#notice= notice
+= content_for(:secondary_navigation) do
+  = render 'nav'
 
-%p
-  %b Name:
-  = @company.name
-%p
-  %b Address:
-  = @company.address
-%p
-  %b Address two:
-  = @company.address_two
-%p
-  %b Phone:
-  = @company.phone
-%p
-  %b Phone two:
-  = @company.phone_two
-%p
-  %b Email:
-  = @company.email
-%p
-  %b Fax:
-  = @company.fax
-%p
-  %b City:
-  = @company.city
-%p
-  %b State:
-  = @company.state
-%p
-  %b Zip:
-  = @company.zip
+%h1 Company Overview
 
-= link_to 'Edit', edit_company_path(@company)
-\|
-= link_to 'Back', companies_path
+- if @company.avatar.present?
+  %p
+    = image_tag @company.avatar.url(:thumb)
+  %p &nbsp;

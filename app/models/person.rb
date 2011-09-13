@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   belongs_to :role
   belongs_to :store
+  belongs_to :company
   has_many :emails
   has_many :vehicles, :dependent => :destroy
   accepts_nested_attributes_for :vehicles, :reject_if => lambda { |a| a[:year].blank? && a[:make].blank? && a[:model].blank? }, :allow_destroy => true

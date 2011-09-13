@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_person!
   before_filter :check_scope
   before_filter :get_store
+  before_filter :get_company
   protect_from_forgery
 
   def current_user
@@ -59,6 +60,13 @@ class ApplicationController < ActionController::Base
     if current_user.role?(:store)
       @store = current_user.store
       @company = @store.company
+    end
+  end
+
+  def get_company
+    return unless current_user
+    if current_user.role?(:company)
+      @company = current_user.company
     end
   end
 

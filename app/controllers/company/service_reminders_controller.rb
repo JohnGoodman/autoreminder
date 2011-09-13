@@ -1,27 +1,16 @@
-class Admin::ServiceRemindersController < ApplicationController
+class Company::ServiceRemindersController < ApplicationController
   before_filter :authenticate_person!
-  before_filter :get_store
-  layout 'admin'
+  layout 'company'
 
   set_tab :service_reminder_new, :subnav, :only => :new
   set_tab :service_reminder_edit, :subnav, :only => [:edit, :update]
 
   def index
-    @service_reminders = ServiceReminder.admin_reminders
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @service_reminders }
-    end
+    @service_reminders = @company.service_reminders
   end
 
   def show
     @service_reminder = ServiceReminder.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @service_reminder }
-    end
   end
 
   def new
@@ -38,12 +27,11 @@ class Admin::ServiceRemindersController < ApplicationController
   end
 
   def create
-    @service_reminder = ServiceReminder.new(params[:service_reminder])
-    @service_reminder.company = @store.company
-    path = admin_service_reminders_path
+    @service_reminder = @company.service_reminders.new(params[:service_reminder])
+    path = company_service_reminders_path
     if @store
       @service_reminder.store = @store
-      path = admin_company_store_path(@company, @store)
+      path = company_company_store_path(@company, @store)
     end
 
     respond_to do |format|
@@ -60,9 +48,11 @@ class Admin::ServiceRemindersController < ApplicationController
 
     respond_to do |format|
       if @service_reminder.update_attributes(params[:service_reminder])
-        format.html { redirect_to(admin_service_reminders_path, :notice => 'Service reminder was successfully updated.') }
+        format.html { redirect_to(company_service_reminders_path, :notice => 'Service reminder was successfully updated.') }
+        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
+        format.xml  { render :xml => @service_reminder.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -70,7 +60,10 @@ class Admin::ServiceRemindersController < ApplicationController
   def destroy
     @service_reminder = ServiceReminder.find(params[:id]).destroy
 
-    redirect_to([:admin, :service_reminders])
+    respond_to do |format|
+      format.html { redirect_to([:company, :service_reminders]) }
+      format.xml  { head :ok }
+    end
   end
 
   def get_store

@@ -1,10 +1,10 @@
 module ServiceRemindersHelper
-  def service_reminder_navigation_helper
+  def service_reminder_navigation_helper( namespace = 'admin')
     if @store.present?
       content_for(:secondary_navigation) do
-        render 'admin/companies/nav'
+        render "#{namespace}/companies/nav"
       end
-      render 'admin/companies/title'
+      render "#{namespace}/companies/title"
     else
       content_for(:secondary_navigation) do
         render 'nav'

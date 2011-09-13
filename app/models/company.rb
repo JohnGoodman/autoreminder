@@ -1,15 +1,12 @@
 class Company < ActiveRecord::Base
   has_many :stores, :dependent => :destroy
-  has_many :people, :through => :stores
+  has_many :people
+  has_many :service_reminders
 
   validates_presence_of :name
   validates_presence_of :company_type_id
 
   mount_uploader :avatar, AvatarUploader
-  # def store_type
-  #   # office ? 'Office' : 'Store'
-  #   reminder_type_id == '2' ? 'Office' : 'Store'
-  # end
 
   # Company Types
   # 1 - Automotive
@@ -79,22 +76,4 @@ class Company < ActiveRecord::Base
     end
     h
   end
-
-  # def use_sub_item?
-  #     sub_item_title.present?
-  #   end
-  #
-  #   def use_set_dates?
-  #     reminder_type_id == 2 # 2 for dates
-  #   end
-  #
-  #   def reminder_type
-  #     if reminder_type_id == 1
-  #       type = 'Intervals'
-  #     elsif reminder_type_id == 2
-  #       type = 'Dates'
-  #     end
-  #
-  #     type
-  #   end
 end

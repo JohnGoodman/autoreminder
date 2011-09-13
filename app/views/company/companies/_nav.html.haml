@@ -1,0 +1,10 @@
+.secondary-navigation.clearfix
+  = tabs_tag :namespace => :subnav do |tab|
+    = tab.company_store "#{@company.heading_s} Overview", company_store_path(@store) if ['edit','update','show'].include?(controller.action_name) && @store
+
+    = tab.person_edit  'Edit Person', edit_company_person_path(@person), :class => 'first' if ['edit','update','show'].include?(controller.action_name) && @person
+
+
+    = tab.service_reminder_new 'New Service Reminder', new_company_store_service_reminder_path(@store), :class => "right last" if ['index','new'].include?(controller.action_name) && ['service_reminders'].include?(controller.controller_name)
+
+    = tab.person_new 'New Person', new_company_person_path, :class => "right last" if ['index','new'].include?(controller.action_name) && controller.controller_name == 'people'

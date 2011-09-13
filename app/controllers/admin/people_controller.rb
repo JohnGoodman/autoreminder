@@ -25,6 +25,7 @@ class Admin::PeopleController < ApplicationController
   def create
     @person = Person.new(params[:person])
     @person.online_access = true
+    @person.company = @company
 
     respond_to do |format|
       if @person.save

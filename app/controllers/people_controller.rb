@@ -68,6 +68,7 @@ class PeopleController < ApplicationController
   def create
     @person = @store.people.new(params[:person])
     @person.role = Role.find(4) unless params[:person][:role]
+    @person.company = @store.company
 
     respond_to do |format|
       if @person.save

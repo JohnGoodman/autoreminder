@@ -1,0 +1,8 @@
+- content_for(:secondary_navigation) do
+  = render 'nav'
+
+= render 'title'
+= render 'form'
+
+%hr
+=link_to 'Delete Service Reminder', [:company, :service_reminder], :confirm => 'Delete this service reminder?', :method => :delete

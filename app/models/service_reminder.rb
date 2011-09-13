@@ -1,5 +1,6 @@
 class ServiceReminder < ActiveRecord::Base
   belongs_to :store
+  belongs_to :company
   has_many :customer_service_reminders
 
   attr_accessible :store_id, :name, :description, :email_subject, :email_body

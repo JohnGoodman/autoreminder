@@ -1,0 +1,18 @@
+= javascript_include_tag :ckeditor
+
+- semantic_form_for [:company, @service_reminder] do |form|
+  = render "shared/form_errors", :errors => @service_reminder.errors
+
+  - form.inputs "General Information", :class => "" do
+    = form.input :name
+    = form.input :email_subject, :as => :string
+    %li
+      %label Email Body
+    %li
+      = form.cktext_area :email_body, :toolbar => 'Easy', :width => 800, :height => 400
+  - form.buttons do
+    = service_reminder_store_helper(form)
+    = service_reminder_company_helper(form)
+    = submit_button 'Service Reminder'
+    .or-cancel
+      or #{link_to 'Cancel', (@store ? [:company, @store] : [:company, :service_reminders])}

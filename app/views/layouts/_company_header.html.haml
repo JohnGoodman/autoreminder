@@ -1,0 +1,13 @@
+%h1= link_to @company.name, company_root_path
+
+%nav.right
+  %ul
+    %li= link_to image_tag("icons/account.png", :title => "Edit My Profile"), edit_profile_company_person_path(current_person)
+    %li= link_to image_tag("icons/logout.png", :title => "Logout"), logout_path
+
+%nav
+  %ul
+    %li= link_to "Edit", edit_company_company_path(@company)
+    %li= link_to @company.heading_p, company_stores_path
+    %li= link_to "People", company_people_path
+    %li= link_to "Reminders", company_service_reminders_path

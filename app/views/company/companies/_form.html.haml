@@ -1,40 +1,15 @@
-= form_for @company do |f|
-  -if @company.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@company.errors.count, "error")} prohibited this company from being saved:"
-      %ul
-        - @company.errors.full_messages.each do |msg|
-          %li= msg
+- semantic_form_for [:company, @company], :html => { :multipart => true } do |form|
+  = render "shared/form_errors", :errors => @company.errors
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :address_two
-    = f.text_field :address_two
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :phone_two
-    = f.text_field :phone_two
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :fax
-    = f.text_field :fax
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :zip
-    = f.text_field :zip
-  .actions
-    = f.submit 'Save'
+  - form.inputs "", :class => "" do
+    - if @company.avatar.present?
+      %li
+        %label Current Logo
+        = image_tag @company.avatar.url(:thumb)
+    = form.input :avatar, :as => :file, :label => 'Logo', :hint => 'Only JPG or PNG files'
+    = form.input :name
+
+  - form.buttons do
+    = submit_button 'Company'
+    .or-cancel
+      or #{link_to 'Cancel', company_root_path}
