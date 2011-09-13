@@ -19,7 +19,7 @@ class Company < ActiveRecord::Base
   # Singular and Plural heading helper methods
   def type
     h = case company_type_id
-      when 1 then 'Autmotive'
+      when 1 then 'Automotive'
       when 2 then 'Vets Office'
       when 3 then 'Doctors Office'
     end
