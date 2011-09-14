@@ -12,4 +12,8 @@ class ServiceReminder < ActiveRecord::Base
   def self.admin_reminders
     ServiceReminder.where(:store_id => nil)
   end
+
+  def can_delete?
+    customer_service_reminders.empty?
+  end
 end

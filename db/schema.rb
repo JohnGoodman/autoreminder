@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913022727) do
+ActiveRecord::Schema.define(:version => 20110913234929) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string    "data_file_name",                  :null => false
@@ -103,6 +103,11 @@ ActiveRecord::Schema.define(:version => 20110913022727) do
   end
 
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
+
+  create_table "people_stores", :id => false, :force => true do |t|
+    t.integer "person_id"
+    t.integer "store_id"
+  end
 
   create_table "pets", :force => true do |t|
     t.integer   "person_id"

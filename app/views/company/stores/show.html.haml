@@ -1,0 +1,49 @@
+- content_for(:secondary_navigation) do
+  = render 'company/companies/nav'
+
+= render 'company/stores/title'
+
+%p
+  %b Address:
+  = @store.address
+%p
+  %b Address two:
+  = @store.address_two
+%p
+  %b Phone:
+  = @store.phone
+%p
+  %b Phone two:
+  = @store.phone_two
+%p
+  %b Email:
+  = @store.email
+%p
+  %b Fax:
+  = @store.fax
+%p
+  %b City:
+  = @store.city
+%p
+  %b State:
+  = @store.state
+%p
+  %b Zip:
+  = @store.zip
+
+%hr
+%h2 Service Reminders
+
+%table.table
+  %thead
+    %tr
+      %th Name
+
+  %tbody
+    - @service_reminders.each do |service_reminder|
+      %tr
+        %td= link_to service_reminder.name, edit_company_store_service_reminder_path(@store, service_reminder)
+
+    - if @service_reminders.empty?
+      %tr
+        %td{ :colspan => 1 } No Service Reminders found.

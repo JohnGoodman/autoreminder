@@ -1,4 +1,9 @@
-%h1= link_to @company.name, company_root_path
+%h1
+  - if @company.avatar.present?
+    #image_holder
+      = link_to (image_tag @company.avatar.url(:thumb), :alt => "#{@company.name}"), company_root_path
+  - else
+    = link_to @company.name, company_root_path
 
 %nav.right
   %ul

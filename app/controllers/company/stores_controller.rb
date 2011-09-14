@@ -1,14 +1,13 @@
-class Admin::StoresController < ApplicationController
+class Company::StoresController < ApplicationController
   before_filter :authenticate_person!
-  layout 'admin'
-  before_filter :get_company
+  layout 'company'
 
-  set_tab :company_stores, :subnav, :only => :index
-  set_tab :store_new, :subnav, :only => :new
-  set_tab :company_store, :subnav, :only => :show
+  set_tab :store_edit, :subnav, :only => [:edit, :update]
+  set_tab :store_show, :subnav, :only => :show
+  set_tab :store_mass_assign, :subnav, :only => :mass_assign_service_reminders
 
   def index
-    @stores = @company.stores.all
+    @stores = current_user.stores.all
   end
 
   def show
@@ -24,41 +23,21 @@ class Admin::StoresController < ApplicationController
     @store = Store.find(params[:id])
   end
 
-  def create
-    @store = @company.stores.new(params[:store])
-
-    respond_to do |format|
-      if @store.save
-        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => @company.heading_s + ' was successfully created.') }
-      else
-        format.html { render :action => "new" }
-      end
-    end
-  end
-
   def update
     @store = Store.find(params[:id])
 
     respond_to do |format|
       if @store.update_attributes(params[:store])
-        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => @company.heading_s + ' was successfully updated.') }
+        format.html { redirect_to(company_store_path(@store), :notice => @company.heading_s + ' was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
     end
   end
 
-  def destroy
-    @store = Store.find(params[:id]).destroy
-
-    respond_to do |format|
-      format.html { redirect_to(admin_company_stores_path(@company)) }
-    end
-  end
-
   def mass_assign_service_reminders
     @store = Store.find(params[:id])
-    @service_reminders = ServiceReminder.admin_reminders
+    @service_reminders = @company.service_reminders.where(:store_id => nil)
   end
 
   def assign_service_reminders
@@ -84,14 +63,10 @@ class Admin::StoresController < ApplicationController
 
     respond_to do |format|
       if @store.update_attributes(params[:store])
-        format.html { redirect_to(admin_company_store_path(@company, @store), :notice => 'Store was successfully updated.') }
+        format.html { redirect_to(company_store_path(@store), :notice => 'Store was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
     end
-  end
-
-  def get_company
-    params[:company_id] ? @company = Company.find(params[:company_id]) : @company = Company.find(Store.find(params[:id]).company_id)
   end
 end

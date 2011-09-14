@@ -2,6 +2,7 @@ class Person < ActiveRecord::Base
   belongs_to :role
   belongs_to :store
   belongs_to :company
+  has_and_belongs_to_many :stores
   has_many :emails
   has_many :vehicles, :dependent => :destroy
   accepts_nested_attributes_for :vehicles, :reject_if => lambda { |a| a[:year].blank? && a[:make].blank? && a[:model].blank? }, :allow_destroy => true
@@ -17,7 +18,7 @@ class Person < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes
+  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes, :store_ids
 
   # Validations
   validates_presence_of     :first_name
@@ -30,7 +31,7 @@ class Person < ActiveRecord::Base
   validate                  :password_valid?,         :if => :password_required?
   validates_presence_of     :email
   validates_uniqueness_of   :email,                   :scope => :store, :if => :customer?
-  validates_presence_of     :store,                   :if => :store_required?
+  validates_presence_of     :store_id,                   :if => :store_required?
 
   def role?(check_role)
     role.name == check_role.to_s
@@ -54,6 +55,10 @@ class Person < ActiveRecord::Base
 
   def self.not_customers
     Person.joins(:role).where(:role => {:id.ne => 4})
+  end
+
+  def self.gm_store_employees(store_ids)
+    Person.joins(:role).where(:store_id => store_ids, :role => {:id => 3})
   end
 
   protected

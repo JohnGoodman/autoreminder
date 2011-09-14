@@ -1,7 +1,6 @@
-class Admin::PeopleController < ApplicationController
+class Company::PeopleController < ApplicationController
   before_filter :authenticate_person!
-  before_filter :get_company, :except => [:edit_profile, :update_profile]
-  layout 'admin'
+  layout 'company'
 
   set_tab :people, :subnav, :only => :index
   set_tab :person_new, :subnav, :only => [:new, :create]
@@ -9,30 +8,30 @@ class Admin::PeopleController < ApplicationController
 
   def index
     # @people = Person.not_customers
-    @people = @company.people.not_customers
+    @people = @company.people.gm_store_employees(current_user.store_ids)
   end
 
   def new
     @person = Person.new
-    @stores = @company.stores
-    @roles = Role.where(:id => [2,3])
+    @stores = current_user.stores
   end
 
   def edit
     @person = Person.find(params[:id])
-    @stores = @company.stores
+    @stores = current_user.stores
   end
 
   def create
     @person = Person.new(params[:person])
     @person.online_access = true
     @person.company = @company
+    @person.role = Role.find(3)
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to(admin_company_people_path(@company), :notice => 'Person was successfully created.') }
+        format.html { redirect_to(company_people_path, :notice => 'Person was successfully created.') }
       else
-        @stores = @company.stores
+        @stores = current_user.stores
         format.html { render :action => "new" }
       end
     end
@@ -43,9 +42,9 @@ class Admin::PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        format.html { redirect_to(admin_company_people_path(@company), :notice => 'Person was successfully updated.') }
+        format.html { redirect_to(company_people_path, :notice => 'Person was successfully updated.') }
       else
-        @stores = @company.stores
+        @stores = current_user.stores
         format.html { render :action => "edit" }
       end
     end
@@ -61,7 +60,7 @@ class Admin::PeopleController < ApplicationController
     respond_to do |format|
       if @person.update_attributes(params[:person])
         sign_in(@person, :bypass => true)
-        format.html { redirect_to(admin_companies_path, :notice => 'Profile was successfully updated.') }
+        format.html { redirect_to(company_root_path, :notice => 'Profile was successfully updated.') }
       else
         format.html { render :action => "edit_profile" }
       end
@@ -70,13 +69,6 @@ class Admin::PeopleController < ApplicationController
 
   def destroy
     @person = Person.find(params[:id]).destroy
-
-    respond_to do |format|
-      format.html { redirect_to(admin_company_people_path(@company)) }
-    end
-  end
-
-  def get_company
-    params[:company_id] ? @company = Company.find(params[:company_id]) : @company = Company.find(Store.find(params[:id]).company_id)
+    redirect_to(company_people_path)
   end
 end

@@ -1,0 +1,32 @@
+- content_for(:secondary_navigation) do
+  = render 'company/companies/nav'
+
+%h1= @company.heading_p
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Address
+      %th Address two
+      %th Phone
+      %th Phone two
+      %th Email
+      %th Fax
+      %th City
+      %th State
+      %th Zip
+
+  %tbody
+    - @stores.each do |store|
+      %tr
+        %td= link_to store.name, company_store_path(store)
+        %td= store.address
+        %td= store.address_two
+        %td= store.phone
+        %td= store.phone_two
+        %td= store.email
+        %td= store.fax
+        %td= store.city
+        %td= store.state
+        %td= store.zip

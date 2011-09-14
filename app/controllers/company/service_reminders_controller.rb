@@ -1,12 +1,13 @@
 class Company::ServiceRemindersController < ApplicationController
   before_filter :authenticate_person!
+  before_filter :get_store
   layout 'company'
 
-  set_tab :service_reminder_new, :subnav, :only => :new
+  set_tab :service_reminder_new, :subnav, :only => [:new, :create]
   set_tab :service_reminder_edit, :subnav, :only => [:edit, :update]
 
   def index
-    @service_reminders = @company.service_reminders
+    @service_reminders = @company.service_reminders.where(:store_id => nil)
   end
 
   def show
@@ -46,9 +47,11 @@ class Company::ServiceRemindersController < ApplicationController
   def update
     @service_reminder = ServiceReminder.find(params[:id])
 
+    path = params[:service_reminder][:store_id].present? ? company_store_path(params[:service_reminder][:store_id]) : company_service_reminders_path
+
     respond_to do |format|
       if @service_reminder.update_attributes(params[:service_reminder])
-        format.html { redirect_to(company_service_reminders_path, :notice => 'Service reminder was successfully updated.') }
+        format.html { redirect_to(path, :notice => 'Service reminder was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -66,12 +69,18 @@ class Company::ServiceRemindersController < ApplicationController
     end
   end
 
+  def store_exists?
+    params[:store_id].present?
+  end
+
   def get_store
-    if params[:store_id]
-      @store = Store.find(params[:store_id])
-    elsif params[:service_reminder] && params[:service_reminder][:store_id]
-      @store = Store.find(params[:service_reminder][:store_id])
-    end
-    @company = @store.company if @store
+    return unless params[:store_id].present?
+    @store = Store.find(params[:store_id])
+  #   if params[:store_id]
+  #     @store = Store.find(params[:store_id])
+  #   elsif params[:service_reminder] && params[:service_reminder][:store_id]
+  #     @store = Store.find(params[:service_reminder][:store_id])
+  #   end
+  #   @company = @store.company if @store
   end
 end

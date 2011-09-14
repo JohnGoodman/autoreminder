@@ -1,0 +1,20 @@
+- content_for(:secondary_navigation) do
+  = render 'company/companies/nav'
+
+%h1 Store Employees
+
+%table.table
+  %thead
+    %tr
+      %th Username
+      %th Name
+      %th Email
+      %th Role
+
+  %tbody
+    - @people.each do |person|
+      %tr
+        %td= link_to person.username, edit_company_person_path(person)
+        %td= person.name
+        %td= person.email
+        %td= person.store.name

@@ -1,8 +1,16 @@
 - content_for(:secondary_navigation) do
-  = render 'nav'
+  - if @store
+    = render 'company/companies/nav'
+  - else
+    = render 'nav'
 
-= render 'title'
+- if @store
+  = render 'company/stores/title'
+  %h2 Edit Service Reminder
+- else
+  = render 'title'
+
 = render 'form'
-
-%hr
-=link_to 'Delete Service Reminder', [:company, :service_reminder], :confirm => 'Delete this service reminder?', :method => :delete
+- if @service_reminder.can_delete?
+  %hr
+  =link_to 'Delete Service Reminder', [:company, :service_reminder], :confirm => 'Delete this service reminder?', :method => :delete

@@ -4,6 +4,7 @@
   = render "shared/form_errors", :errors => @service_reminder.errors
 
   - form.inputs "General Information", :class => "" do
+    = form.input :store_id, :as => :hidden if @store
     = form.input :name
     = form.input :email_subject, :as => :string
     %li

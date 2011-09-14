@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def root
     if current_user.role? :admin
       redirect_to admin_root_path
-    elsif current_user.role? :company
+    elsif current_user.role? :general_manager
       redirect_to company_root_path
     elsif current_user.role? :store
       redirect_to store_people_path(current_user.store)
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
             flash[:alert] = 'Error. You are not allowed to access that page.'
             redirect_to admin_root_path
           end
-        elsif current_user.role? :company
+        elsif current_user.role? :general_manager
           if params[:controller].split("/")[0] != 'company'
             flash[:alert] = 'Error. You are not allowed to access that page.'
             redirect_to company_root_path
@@ -65,7 +65,7 @@ class ApplicationController < ActionController::Base
 
   def get_company
     return unless current_user
-    if current_user.role?(:company)
+    if current_user.role?(:general_manager)
       @company = current_user.company
     end
   end
