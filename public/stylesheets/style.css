@@ -1346,7 +1346,8 @@ form.formtastic fieldset.buttons {
   margin: 8px;
 }
 /* line 13, ../../app/stylesheets/partials/_flash.scss */
-.flash .error, .flash .error-list, #flash .error, #flash .error-list {
+.flash .error, .flash .error-list, #flash .error, #flash .error-list,
+.flash .alert, .flash .alert-list, #flash .alert, #flash .alert-list {
   border: 1px solid #993624;
   background: #96301e url("../images/messages/error.png") no-repeat 10px center;
 }
