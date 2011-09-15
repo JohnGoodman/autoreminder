@@ -34,6 +34,17 @@ class Store < ActiveRecord::Base
     people.where(:role_id => Role.find_by_name('customer'))
   end
 
+  def assign_company_reminders
+    # Loop the companies reminders, clone and save to the store
+    company.service_reminders.each do |reminder|
+      new_reminder = reminder.clone
+      new_reminder.company = nil
+      new_reminder.store = self
+      new_reminder.save
+    end
+
+  end
+
   # def use_set_dates?
   #     company.reminder_type_id == 2 # 2 for dates
   #   end

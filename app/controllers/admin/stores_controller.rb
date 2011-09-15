@@ -29,6 +29,7 @@ class Admin::StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
+        @store.assign_company_reminders
         format.html { redirect_to(admin_company_store_path(@company, @store), :notice => @company.heading_s + ' was successfully created.') }
       else
         format.html { render :action => "new" }

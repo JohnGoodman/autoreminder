@@ -32,8 +32,8 @@ class SendReminders
   def self.find_appointment_reminders
     # Get the appointment reminders
     # Send 7 days in advance
-    start_datetime = ((Date.today + 7.days).to_s + " 00:00:00").to_datetime
-    end_datetime = ((Date.today + 7.days).to_s + " 23:59:59").to_datetime
+    start_datetime = ((Date.today + 6.days).to_s + " 00:00:00").to_datetime
+    end_datetime = ((Date.today + 6.days).to_s + " 23:59:59").to_datetime
 
     appointment_reminders_7_day = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 0)
 

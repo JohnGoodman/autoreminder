@@ -37,6 +37,7 @@ class Company::ServiceRemindersController < ApplicationController
 
     respond_to do |format|
       if @service_reminder.save
+        @company.assinged_reminder_to_stores(@service_reminder)
         format.html { redirect_to(path, :notice => 'Service reminder was successfully created.') }
       else
         format.html { render :action => "new" }

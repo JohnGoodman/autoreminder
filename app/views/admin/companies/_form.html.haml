@@ -8,7 +8,7 @@
         = image_tag @company.avatar.url(:thumb)
     = form.input :avatar, :as => :file, :label => 'Logo', :hint => 'Only JPG or PNG files'
     = form.input :name
-    = form.input :company_type_id, :as => :select, :collection => [['Automotive',1],['Vets Office', 2],['Doctors Office',3]], :prompt => true, :required => true
+    = form.input :company_type_id, :as => :select, :collection => [['Automotive',1],['Vets Office', 2],['Medical Office',3]], :prompt => true, :required => true
 
   - form.buttons do
     = submit_button 'Company'

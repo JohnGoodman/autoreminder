@@ -13,6 +13,16 @@ class Company < ActiveRecord::Base
     Person.where(:store_id => store_ids, :role_id => Role.find_by_name('customer'))
   end
 
+  def assinged_reminder_to_stores(reminder)
+    # Loop the stores and clone the reminder to each store
+    stores.each do |store|
+      new_reminder = reminder.clone
+      new_reminder.company = nil
+      new_reminder.store = store
+      new_reminder.save
+    end
+  end
+
   # Company Types
   # 1 - Automotive
   # 2 - Vet Office
@@ -23,7 +33,7 @@ class Company < ActiveRecord::Base
     h = case company_type_id
       when 1 then 'Automotive'
       when 2 then 'Vets Office'
-      when 3 then 'Doctors Office'
+      when 3 then 'Medical Office'
     end
     h
   end

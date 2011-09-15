@@ -1,9 +1,9 @@
 %h1
   - if @company.avatar.present?
     #image_holder
-      = link_to (image_tag @company.avatar.url(:thumb), :alt => "#{@company.name}"), company_root_path
+      = image_tag @company.avatar.url(:thumb), :alt => "#{@company.name}"
   - else
-    = link_to @company.name, company_root_path
+    = @company.name
 
 %nav.right
   %ul
@@ -12,8 +12,9 @@
 
 %nav
   %ul
+    %li= link_to "Home", company_root_path
     %li= link_to "Edit", edit_company_company_path(@company)
     %li= link_to @company.heading_p, company_stores_path
-    %li= link_to "People", company_people_path
+    %li= link_to "Employees", company_people_path
     %li= link_to "Reminders", company_service_reminders_path
     %li= link_to "Mass Email", company_emails_path
