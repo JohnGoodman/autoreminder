@@ -9,8 +9,8 @@ class Company < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def customers
-    Person.where(:store_id => store_ids, :role_id => Role.find_by_name('customer'))
+  def customers(gm_store_ids)
+    Person.where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
   end
 
   def assinged_reminder_to_stores(reminder)
