@@ -2,11 +2,16 @@ class Company < ActiveRecord::Base
   has_many :stores, :dependent => :destroy
   has_many :people
   has_many :service_reminders
+  has_many :emails
 
   validates_presence_of :name
   validates_presence_of :company_type_id
 
   mount_uploader :avatar, AvatarUploader
+
+  def customers
+    Person.where(:store_id => store_ids, :role_id => Role.find_by_name('customer'))
+  end
 
   # Company Types
   # 1 - Automotive

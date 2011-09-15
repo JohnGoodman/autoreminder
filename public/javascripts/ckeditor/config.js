@@ -53,7 +53,7 @@ CKEDITOR.editorConfig = function( config )
   config.toolbar_Easy =
     [
         ['Source','-','Preview'],
-        ['Bold','Italic','Underline','Strike'],
+        ['Bold','Italic','Underline','Strike','TextColor'],
         ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
         ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'], '/',
         ['Format'],

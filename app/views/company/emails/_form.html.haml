@@ -1,0 +1,29 @@
+= javascript_include_tag :ckeditor
+
+- semantic_form_for [:company, @email], :html => { :multipart => true} do |form|
+  = render "shared/form_errors", :errors => @email.errors
+
+  - form.inputs "", :class => "" do
+    = form.input :subject
+    %li
+      %label Email Body
+    %li
+      = form.cktext_area :body, :toolbar => 'Easy', :width => 800, :height => 400
+
+    %li
+      %label
+      %strong Attachments
+      = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
+      = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
+      = form.input :attachments, :label => '&nbsp;', :as => :file, :input_html => {:name => 'email[attachments][]'}
+
+    = form.input :preview_to, :input_html => {:value => current_person.email}, :hint => 'Email address to send a preview to'
+  - form.buttons do
+    = content_tag :button, 'Save', {:type => :submit, :class => 'positive', :name => 'save', :value => true}
+    = content_tag :button, 'Preview', {:type => :submit, :class => 'positive', :name => 'preview', :value => true}
+    .right
+      = content_tag :button, 'Save & Send', {:type => :submit, :class => 'positive', :name => 'save_send', :value => true, :onclick => "return confirm_javascript_function('Are you sure you are ready to Save & Send this email?');"}
+      = content_tag :button, 'Send', {:type => :submit, :class => 'positive', :name => 'send', :value => true, :onclick => "return confirm_javascript_function('Are you sure you are ready to Save this email?');"}
+
+    .or-cancel
+      or #{link_to 'Cancel', company_emails_path }
