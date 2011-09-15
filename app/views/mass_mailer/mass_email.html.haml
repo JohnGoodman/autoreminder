@@ -28,24 +28,24 @@
       %tr
         %td &nbsp;
 
-        %tr
-          %td{:style => 'padding:0 15px;' }= body.html_safe
+      %tr
+        %td{:style => 'padding:0 15px;' }= body.html_safe
 
-        %p Thank You,
+          %p Thank You,
 
-        %p
-          %strong= @store.name
-          %br
-          %small= @store.address
-          %br
-          - unless @store.address_two.blank?
-            %small= @store.address_two
+          %p
+            %strong= @store.name
             %br
-          %small= @store.city
-          ,
-          %small= @store.state
-          %small= @store.zip
-          %small= @store.phone
+            %small= @store.address
+            %br
+            - unless @store.address_two.blank?
+              %small= @store.address_two
+              %br
+            %small= @store.city
+            ,
+            %small= @store.state
+            %small= @store.zip
+            %small= @store.phone
 
       %tr
         %td &nbsp;
