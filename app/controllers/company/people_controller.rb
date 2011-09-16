@@ -120,10 +120,14 @@ class Company::PeopleController < ApplicationController
   end
 
   def customer_create
-    @store = Store.find(params[:person][:store_id])
-    @person = @store.people.new(params[:person])
+    @person = Person.new(params[:person])
     @person.role = Role.find(4) unless params[:person][:role]
     @person.company = @company
+
+    if params[:person][:store_id].present?
+      @store = Store.find(params[:person][:store_id])
+      @person.store_id = @store.id
+    end
 
     respond_to do |format|
       if @person.save

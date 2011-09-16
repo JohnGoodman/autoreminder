@@ -18,7 +18,7 @@ class Person < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes, :store_ids
+  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes, :store_ids, :company_id, :store
 
   # Validations
   validates_presence_of     :first_name
@@ -31,7 +31,7 @@ class Person < ActiveRecord::Base
   validate                  :password_valid?,         :if => :password_required?
   validates_presence_of     :email
   validates_uniqueness_of   :email,                   :scope => :store, :if => :customer?
-  validates_presence_of     :store_id,                   :if => :store_required?
+  validates_presence_of     :store_id,                :if => :store_required?
 
   def role?(check_role)
     role.name == check_role.to_s
@@ -84,10 +84,11 @@ class Person < ActiveRecord::Base
     end
 
     def store_required?
-      role && role?(:store)
+      role && (role?(:store) || role?(:customer))
     end
 
     def customer?
+      return false unless store_id.present?
       role && role?(:customer)
     end
 
