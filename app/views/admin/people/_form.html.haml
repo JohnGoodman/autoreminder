@@ -15,7 +15,7 @@
     = form.input :email, :required => true
   - form.inputs "Online Access", :class => "" do
     = form.input :online_access, :as => :normal_boolean, :hint => "Uncheck to revoke the person's ability to login." if ['edit','update'].include?(controller.action_name)
-    = form.input :role, :collection => @roles, :prompt => true
+    = form.input :role, :collection => [["General Manager",2], ["Store Employee",3]], :prompt => true
     = form.input :store, :collection => @stores, :label => @company.heading_s, :include_blank => 'Please Select', :required => true, :hint => 'Select One'
     = form.input :stores, :collection => @stores, :label => @company.heading_p, :required => true, :hint => 'Hold Ctrl (Windows) or Command (Mac) to Select Multiple', :input_html => {:size => (@stores.count > 5 ? 10 : 5)}
     = form.input :password, :required => true, :input_html => {:autocomplete => 'off'}

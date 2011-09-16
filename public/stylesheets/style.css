@@ -1014,7 +1014,8 @@ select:focus {
 }
 
 /* line 142, ../../app/stylesheets/partials/_forms.scss */
-a#index_add_customer {
+a#index_add_customer,
+a#index_add_email {
   font-size: 30px;
   padding: 30px 40px;
   text-decoration: none;
@@ -1035,7 +1036,8 @@ a#index_add_customer {
 }
 
 /* line 157, ../../app/stylesheets/partials/_forms.scss */
-a#index_add_customer:hover {
+a#index_add_customer:hover,
+a#index_add_email:hover {
   -webkit-box-shadow: 0px 0px 5px #59051A;
   -moz-box-shadow: 0px 0px 5px #59051A;
   box-shadow: 0px 0px 5px #59051A;

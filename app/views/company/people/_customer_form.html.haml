@@ -1,0 +1,36 @@
+- content_for(:stylesheets) do
+  = stylesheet_link_tag 'customer.css'
+
+- content_for(:javascripts) do
+  = javascript_include_tag 'customer.js'
+
+- semantic_form_for [@form_path.to_sym, :company, @person] do |form|
+  = render "shared/form_errors", :errors => @person.errors
+
+  - form.inputs "", :class => "" do
+    = form.input :first_name
+    = form.input :last_name
+    = form.input :email
+    = form.input :store, :collection => current_person.stores, :prompt => true, :required => true
+
+  - @i = 1
+
+  - if @company.company_type_id == 1
+    -form.semantic_fields_for :vehicles do |builder|
+      = render "vehicle_fields", :f => builder
+    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :vehicles)
+
+  - elsif @company.company_type_id == 2
+    -form.semantic_fields_for :pets do |builder|
+      = render "pet_fields", :f => builder
+    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :pets)
+
+  - elsif @company.company_type_id == 3
+    -form.semantic_fields_for :appointments do |builder|
+      = render "appointment_fields", :f => builder
+    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
+
+  - form.buttons do
+    = submit_button 'Customer'
+    .or-cancel
+      or #{link_to 'Cancel', customer_index_company_people_path}

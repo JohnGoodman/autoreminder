@@ -1,0 +1,12 @@
+- content_for(:secondary_navigation) do
+  = render 'company/people/customer_nav'
+
+= render 'company/people/customer_title'
+- if @company.company_type_id == 1
+  %h2 Add #{@company.reminder_title} to #{@vehicle.name}
+- elsif @company.company_type_id == 2
+  %h2 Add #{@company.reminder_title} to #{@pet.name}
+- elsif @company.company_type_id == 3
+  %h2 Add #{@company.reminder_title} to #{@person.name}
+
+= render 'form'

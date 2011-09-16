@@ -1,0 +1,12 @@
+- semantic_form_for [:company, @person, @vehicle] do |form|
+  = render "shared/form_errors", :errors => @vehicle.errors
+
+  - form.inputs "", :class => "" do
+    = form.input :year
+    = form.input :make
+    = form.input :model
+    = form.input :email
+    = form.input :unsubscribe, :as => :normal_boolean, :label => 'Unsubscribe', :hint => 'Do not send any email reminders.'
+    = submit_button 'Vehicle'
+    .or-cancel
+      or #{link_to 'Cancel', customer_show_company_person_path(@person)}

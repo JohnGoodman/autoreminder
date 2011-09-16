@@ -1,0 +1,20 @@
+.secondary-navigation.clearfix
+  = tabs_tag :namespace => :subnav do |tab|
+    - if ['customer_index', 'customer_new', 'customer_create', 'search'].exclude?(controller.action_name)
+      = tab.customer_show  'Customer Overview', customer_show_company_person_path(@person), :class => 'first'
+      = tab.customer_edit  'Edit Customer', customer_edit_company_person_path(@person)
+
+    - if @company.company_type_id == 1 ####################################################################
+      = tab.vehicle_new "Add #{@company.sub_s}", new_company_person_vehicle_path(@person), :class => "right last" if ['customer_show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+
+      = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_company_person_vehicle_customer_service_reminder_path(@person, @vehicle), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
+
+    - elsif @company.company_type_id == 2 ####################################################################
+      = tab.pet_new "Add #{@company.sub_s}", new_customer_person_pet_path(@person), :class => "right last" if ['customer_show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+
+      = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_company_person_pet_customer_service_reminder_path(@person, @pet), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
+
+    - elsif @company.company_type_id == 3 ####################################################################
+      = tab.vehicle_new "Add #{@company.sub_s}", new_company_person_customer_service_reminder_path(@person), :class => "right last" if ['customer_show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+
+      = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_customer_person_customer_service_reminder_path(@person), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)

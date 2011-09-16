@@ -1,0 +1,28 @@
+- top = @i == 1 ? 'top' : ''
+%div{:class => "office fields_holder #{top}"}
+  - @i += 1
+  - f.inputs "", :class => "fields reminder hide_custom" do
+    = f.input :service_reminder, :collection => @service_reminders, :prompt => true, :wrapper_html => {:class => 'float_left'}, :input_html => {:onchange => 'select_reminder(this)'}, :label => "Select #{@company.reminder_title} Type"
+
+    = f.input :appointment_date, :as => :string, :wrapper_html => {:class => 'float_left'}, :input_html => {:class => 'datetimepicker'}, :label => 'Set Date and Time'
+
+    %li.left
+      %p &nbsp;
+      = link_to_function "Remove #{@company.sub_s}", "remove_fields(this)", :class => 'remove_button'
+
+    %li &nbsp;
+    = f.input :custom_name, :wrapper_html => {:class => 'custom'}, :input_html => {:title => ''}
+    = f.input :custom_email_subject, :wrapper_html => {:class => 'custom'}, :input_html => {:title => ''}
+    = f.input :custom_email_body, :wrapper_html => {:class => 'custom'}, :input_html => {:title => ''}
+
+    = f.hidden_field :_destroy
+
+:javascript
+  $('.datetimepicker').datetimepicker({
+    changeMonth: true,
+    changeYear: true,
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    dateFormat: 'yy-mm-dd',
+    minDate: new Date(y, m, d, 8, 30)
+  });

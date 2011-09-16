@@ -1,0 +1,41 @@
+- content_for(:stylesheets) do
+  = stylesheet_link_tag 'search_customer.css'
+
+- content_for(:secondary_navigation) do
+  = render 'customer_nav'
+
+/ %h1 Customers
+
+= form_tag [:search, :company, :people], :id => 'search_customers_form' do
+  = hidden_field_tag :direction, params[:direction]
+  = hidden_field_tag :sort, params[:sort]
+  = text_field_tag :search, params[:search], :id => 'search_cusomters', :title => 'Find Customer By Name Or Email', :tabindex => 1
+
+.clearfix
+- if @searching
+  #search-results
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th Store
+
+      %tbody
+        - @people.each do |person|
+          %tr
+            %td= link_to highlighter(person, :reverse_name), customer_show_company_person_path(person)
+            %td= person.email
+            %td= person.store.name
+
+        - if @people.empty?
+          %tr
+            %td{ :colspan => 3 } No Customers found.
+
+- else
+  #index_add_customer_holder
+    = link_to 'New Customer', customer_new_company_people_path, :id => 'index_add_customer'
+    = link_to 'Mass Email', company_emails_path, :id => 'index_add_email'
+
+  .clearfix
+  %p &nbsp;

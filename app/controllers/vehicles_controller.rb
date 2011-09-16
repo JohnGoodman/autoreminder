@@ -59,7 +59,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to(vehicles_url) }
+      format.html { redirect_to(store_person_path(@store, @person)) }
       format.xml  { head :ok }
     end
   end

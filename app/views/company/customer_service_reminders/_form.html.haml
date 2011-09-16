@@ -1,0 +1,33 @@
+- content_for(:stylesheets) do
+  = stylesheet_link_tag 'customer.css'
+
+- content_for(:javascripts) do
+  = javascript_include_tag 'customer.js'
+
+- semantic_form_for [:company, @person, @vehicle, @customer_service_reminder] do |form|
+  = render "shared/form_errors", :errors => @customer_service_reminder.errors
+
+  - form.inputs "", :class => "hide_custom" do
+    = form.input :service_reminder, :collection => @service_reminders, :label => @company.reminder_title, :input_html => {:onchange => 'select_reminder(this)'}, :prompt => true
+    = form.input :custom_name, :wrapper_html => {:class => 'custom'}
+    = form.input :custom_email_subject, :wrapper_html => {:class => 'custom'}
+    = form.input :custom_email_body, :wrapper_html => {:class => 'custom'}
+
+    - if @company.company_type_id == 1
+      = form.input :interval, :as => :select, :collection => months_list, :prompt => true
+      = form.input :recurring, :as => :normal_boolean
+      = form.input :max_send, :as => :select, :collection => [['Unlimited','']] + months_list(15, 'times'), :include_blank => false
+
+    - elsif @company.company_type_id == 2
+      = form.input :interval, :as => :select, :collection => months_list, :prompt => true
+      = form.input :recurring, :as => :normal_boolean
+      = form.input :max_send, :as => :select, :collection => [['Unlimited','']] + months_list(15, 'times'), :include_blank => false
+
+    - elsif @company.company_type_id == 3
+      = form.input :appointment_date, :as => :string, :input_html => {:class => 'datetimepicker', :title => 'Set Date and Time'}
+
+    = submit_button @company.reminder_title
+    = hidden_field_tag 'customer_service_reminder[vehicle_id]', @vehicle.id if @vehicle
+    = hidden_field_tag 'customer_service_reminder[pet_id]', @pet.id if @pet
+    .or-cancel
+      or #{link_to 'Cancel', customer_show_company_person_path(@person)}

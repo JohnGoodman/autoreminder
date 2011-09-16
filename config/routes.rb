@@ -27,7 +27,8 @@ Ylc::Application.routes.draw do
 
   # Company routes
   namespace :company do
-    root :to => 'companies#show'
+    # root :to => 'companies#show'
+    root :to => 'people#customer_index'
     resources :companies, :only => [:show, :edit, :update]
     resources :stores do
       get 'mass_assign_service_reminders', :on => :member
@@ -38,6 +39,23 @@ Ylc::Application.routes.draw do
     resources :people do
       get 'edit_profile', :on => :member
       put 'update_profile', :on => :member
+      # CRUD for Customers
+      get 'customer_index', :on => :collection
+      get 'customer_new', :on => :collection
+      get 'customer_edit', :on => :member
+      get 'customer_show', :on => :member
+      post 'customer_create', :on => :collection
+      put 'customer_update', :on => :member
+
+      post 'search', :on => :collection
+      get 'search', :on => :collection
+      resources :customer_service_reminders
+      resources :vehicles, :except => [:index, :show] do
+        resources :customer_service_reminders
+      end
+      resources :pets, :except => [:index, :show] do
+        resources :customer_service_reminders
+      end
     end
     resources :service_reminders
   end

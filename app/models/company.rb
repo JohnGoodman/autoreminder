@@ -9,6 +9,15 @@ class Company < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  def search( search, gm_store_ids )
+    search = search.split(/\s/).map { |t| "%#{t}%" }
+    customers(gm_store_ids).where(
+      { :first_name.matches_any => search } |
+      { :last_name.matches_any => search } |
+      { :email.matches_any => search }
+    ).order('last_name')
+  end
+
   def customers(gm_store_ids)
     Person.where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
   end
