@@ -38,6 +38,8 @@
             = @reminder.service_reminder.name
             on
             = @reminder.appointment_date.strftime( '%b %d, %Y')
+            at
+            = @reminder.appointment_date.strftime("%I:%M%p")
 
           %hr
 

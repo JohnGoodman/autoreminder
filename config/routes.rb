@@ -31,8 +31,8 @@ Ylc::Application.routes.draw do
     root :to => 'people#customer_index'
     resources :companies, :only => [:show, :edit, :update]
     resources :stores do
-      get 'mass_assign_service_reminders', :on => :member
-      match 'assign_service_reminders' => 'stores#assign_service_reminders', :as => 'assign_service_reminders'
+      # get 'mass_assign_service_reminders', :on => :member
+      # match 'assign_service_reminders' => 'stores#assign_service_reminders', :as => 'assign_service_reminders'
       resources :service_reminders, :except => [:index]
     end
     resources :emails
