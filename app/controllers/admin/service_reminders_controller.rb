@@ -10,7 +10,7 @@ class Admin::ServiceRemindersController < ApplicationController
   def index
     if @company
       @company = Company.find(params[:company_id])
-      @service_reminders = @company.service_reminders.admin_reminders
+      @service_reminders = @company.service_reminders
     else
       @service_reminders = ServiceReminder.admin_reminders
     end
