@@ -10,7 +10,7 @@ class ServiceReminder < ActiveRecord::Base
   validates_presence_of :email_body
 
   def self.admin_reminders
-    ServiceReminder.where(:store_id => nil)
+    ServiceReminder.where(:store_id => nil, :company_id => nil)
   end
 
   def can_delete?
