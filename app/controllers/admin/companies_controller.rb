@@ -4,85 +4,90 @@ class Admin::CompaniesController < ApplicationController
 
   set_tab :company_new, :subnav, :only => :new
   set_tab :company_edit, :subnav, :only => :edit
-  set_tab :company_show, :subnav, :only => :show
+  set_tab :company_mass_reminders, :subnav, :only => :mass_assign_service_reminders
 
   def index
     @companies = Company.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @companies }
-    end
   end
 
-  # GET /companies/1
-  # GET /companies/1.xml
   def show
     @company = Company.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @company }
-    end
   end
 
-  # GET /companies/new
-  # GET /companies/new.xml
   def new
     @company = Company.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @company }
-    end
   end
 
-  # GET /companies/1/edit
   def edit
     @company = Company.find(params[:id])
   end
 
-  # POST /companies
-  # POST /companies.xml
   def create
     @company = Company.new(params[:company])
 
     respond_to do |format|
       if @company.save
         format.html { redirect_to(admin_company_path(@company), :notice => 'Company was successfully created.') }
-        format.xml  { render :xml => @company, :status => :created, :location => @company }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /companies/1
-  # PUT /companies/1.xml
   def update
     @company = Company.find(params[:id])
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
         format.html { redirect_to(admin_company_path(@company), :notice => 'Company was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /companies/1
-  # DELETE /companies/1.xml
   def destroy
+    @company = Company.find(params[:id]).destroy
+
+    redirect_to(admin_companies_path)
+  end
+
+  def mass_assign_service_reminders
     @company = Company.find(params[:id])
-    @company.destroy
+    @service_reminders = ServiceReminder.admin_reminders
+  end
+
+  def assign_service_reminders
+    @company = Company.find(params[:id])
+    notice = nil
+    alert = nil
+    success = false
+    assigned_count = 0
+
+    if params[:company][:reminders]
+      # loop them, create new reminders based off the default
+      params[:company][:reminders].each do |reminder|
+        if ServiceReminder.exists?(reminder)
+          service_reminder = ServiceReminder.find(reminder).clone
+          service_reminder.company = @company
+          if service_reminder.save
+            @company.assinged_reminder_to_stores(service_reminder)
+            assigned_count += 1
+          end
+        end
+      end
+      notice = assigned_count.to_s + " Service Reminder(s) assigned."
+      success = true
+    else
+      alert = 'Error: No service reminders were selected.'
+    end
 
     respond_to do |format|
-      format.html { redirect_to(admin_companies_path) }
-      format.xml  { head :ok }
+      if success
+        format.html { redirect_to(admin_company_path(@company), :notice => notice) }
+      else
+        format.html { render :action => "mass_assign_service_reminders", alert => alert }
+      end
     end
   end
 end

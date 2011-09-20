@@ -53,10 +53,8 @@ class Company::ServiceRemindersController < ApplicationController
     respond_to do |format|
       if @service_reminder.update_attributes(params[:service_reminder])
         format.html { redirect_to(path, :notice => 'Service reminder was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @service_reminder.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -1,7 +1,15 @@
 - content_for(:secondary_navigation) do
-  = render 'nav'
+  - if @company
+    = render 'admin/companies/nav'
+  - else
+    = render 'nav'
 
-= render 'title'
+- if @company
+  = render 'admin/companies/title'
+  %h2 Edit Service Reminder
+- else
+  = render 'title'
+
 = render 'form'
 
 %hr

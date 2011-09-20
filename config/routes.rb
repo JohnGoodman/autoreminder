@@ -71,10 +71,13 @@ Ylc::Application.routes.draw do
       resources :people do
       end
       resources :stores do
-        get 'mass_assign_service_reminders', :on => :member
-        match 'assign_service_reminders' => 'stores#assign_service_reminders', :as => 'assign_service_reminders'
-        resources :service_reminders, :except => [:index]
+        # get 'mass_assign_service_reminders', :on => :member
+        # match 'assign_service_reminders' => 'stores#assign_service_reminders', :as => 'assign_service_reminders'
+        # resources :service_reminders, :except => [:index]
       end
+      resources :service_reminders
+      get 'mass_assign_service_reminders', :on => :member
+      put 'assign_service_reminders', :on => :member
     end
     resources :service_reminders
   end

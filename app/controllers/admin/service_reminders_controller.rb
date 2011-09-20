@@ -1,17 +1,18 @@
 class Admin::ServiceRemindersController < ApplicationController
   before_filter :authenticate_person!
   before_filter :get_store
+  before_filter :get_company
   layout 'admin'
 
   set_tab :service_reminder_new, :subnav, :only => :new
   set_tab :service_reminder_edit, :subnav, :only => [:edit, :update]
 
   def index
-    @service_reminders = ServiceReminder.admin_reminders
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @service_reminders }
+    if @company
+      @company = Company.find(params[:company_id])
+      @service_reminders = @company.service_reminders.admin_reminders
+    else
+      @service_reminders = ServiceReminder.admin_reminders
     end
   end
 
@@ -34,20 +35,30 @@ class Admin::ServiceRemindersController < ApplicationController
   end
 
   def edit
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+    end
     @service_reminder = ServiceReminder.find(params[:id])
   end
 
   def create
     @service_reminder = ServiceReminder.new(params[:service_reminder])
-    @service_reminder.company = @store.company
+    # @service_reminder.company = @store.company
     path = admin_service_reminders_path
-    if @store
-      @service_reminder.store = @store
-      path = admin_company_store_path(@company, @store)
+    # if @store
+    #   @service_reminder.store = @store
+    #   path = admin_company_store_path(@company, @store)
+    # end
+
+    if params[:service_reminder][:company_id]
+      @company = Company.find(params[:service_reminder][:company_id])
+      @service_reminder.company = @company
+      path = admin_company_service_reminders_path(@company, :service_reminders)
     end
 
     respond_to do |format|
       if @service_reminder.save
+        @company.assinged_reminder_to_stores(@service_reminder) if @company
         format.html { redirect_to(path, :notice => 'Service reminder was successfully created.') }
       else
         format.html { render :action => "new" }
@@ -70,7 +81,7 @@ class Admin::ServiceRemindersController < ApplicationController
   def destroy
     @service_reminder = ServiceReminder.find(params[:id]).destroy
 
-    redirect_to([:admin, :service_reminders])
+    redirect_to(:back, :notice => 'Reminder successfully deleted.')
   end
 
   def get_store
@@ -80,5 +91,10 @@ class Admin::ServiceRemindersController < ApplicationController
       @store = Store.find(params[:service_reminder][:store_id])
     end
     @company = @store.company if @store
+  end
+
+  def get_company
+    return unless params[:company_id]
+    @company = Company.find(params[:company_id])
   end
 end

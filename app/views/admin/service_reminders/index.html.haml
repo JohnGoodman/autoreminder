@@ -1,7 +1,14 @@
 - content_for(:secondary_navigation) do
-  = render 'nav'
+  - if @company
+    = render 'admin/companies/nav'
+  - else
+    = render 'nav'
 
-%h1 Service Reminders
+- if @company
+  = render 'admin/companies/title'
+  %h2 Service Reminders
+- else
+  %h1 Service Reminders
 
 %table.table
   %thead
