@@ -1,3 +1,7 @@
+:css
+  #stores_ol { width: 525px; float:left;}
+  #stores_ol li { padding:5px 0; width:174px; float:left; }
+
 = javascript_include_tag :ckeditor
 
 - semantic_form_for [:company, @email], :html => { :multipart => true} do |form|
@@ -5,6 +9,14 @@
 
   - form.inputs "", :class => "" do
     = form.input :subject
+    %li
+      %label= @company.heading_p + "*"
+      %ol#stores_ol
+        - @stores.each do |store|
+          %li
+            = check_box_tag 'store_ids[]', store.id, true
+            = store.name
+
     %li
       %label Email Body
     %li
