@@ -27,7 +27,11 @@ class People::SessionsController < Devise::SessionsController
         end
       end #if person
     else
-      alert = 'Error. No email provided.'
+      if params[:person][:email].blank?
+        alert = 'Error. No email provided. Please contact your store or office directly to be unsubscribed.'
+      elsif params[:person][:store_id].blank?
+        alert = 'Error. We could not find your store or office. Please contact your store or office directly to be unsubscribed.'
+      end
     end # params present
 
     if success

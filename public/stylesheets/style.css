@@ -1346,6 +1346,7 @@ form.formtastic fieldset.buttons {
 /* line 11, ../../app/stylesheets/partials/_flash.scss */
 .flash .message p, #flash .message p {
   margin: 8px;
+  padding:0 30px;
 }
 /* line 13, ../../app/stylesheets/partials/_flash.scss */
 .flash .error, .flash .error-list, #flash .error, #flash .error-list,

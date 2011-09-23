@@ -8,7 +8,7 @@
     @include box-shadow(0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1));
   }
 
-  .message p { margin: 8px; }
+  .message p { margin: 8px; padding:0 30px;}
 
   .error, .error-list {
     border: 1px solid #993624;
