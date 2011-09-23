@@ -19,7 +19,7 @@
               %th Interval
               %th Recurring
               %th Times Sent
-              %th Max Sends
+              / %th Max Sends
               %th
 
           - vehicle.customer_service_reminders.each do |reminder|
@@ -31,7 +31,7 @@
                 %td= pluralize(reminder.interval, 'month')
                 %td= yes_no_helper reminder.recurring
                 %td= reminder.times_sent
-                %td= max_send_helper reminder.max_send
+                / %td= max_send_helper reminder.max_send
                 %td= link_to 'Remove', company_person_vehicle_customer_service_reminder_path(@person, vehicle, reminder), :confirm => "Delete this #{@company.reminder_title}?", :method => :delete
       - if vehicle.customer_service_reminders.empty?
         %p No reminders for this #{@company.sub_s} yet.
