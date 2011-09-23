@@ -21,7 +21,7 @@
       </tr>
       <tr>
         <td colspan='3' style='background:#360000; padding:10px; color:#f3f3f3; font-size:12px;'>
-          <%= link_to 'Unsubscribe', 'http://auto-reminders.com?sid=' + @store.id.to_s + "&email=" + @person.email %>
+          <%= link_to 'Unsubscribe', 'http://auto-reminders.com/unsubscribe?sid=' + @store.id.to_s + "&email=" + @person.email %>
         </td>
       </tr>
     </table>
