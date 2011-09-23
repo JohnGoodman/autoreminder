@@ -1,0 +1,22 @@
+<%= render 'layouts/email/header' %>
+<p>
+  Dear <%= @person.name %>,
+</p>
+<%= @reminder.service_reminder.name == 'Custom Reminder' ? @reminder.custom_email_body.html_safe : @reminder.service_reminder.email_body.html_safe %>
+
+<%- if @vehicle -%>
+  <p>
+    <strong>Vehicle</strong>
+  </p>
+  <p>
+    <%= @vehicle.name %>
+  </p>
+<%- else -%>
+  <p>
+    <strong>Pet</strong>
+  </p>
+  <p>
+    <%= @pet.name %>
+  </p>
+<%- end -%>
+<%= render 'layouts/email/footer' %>

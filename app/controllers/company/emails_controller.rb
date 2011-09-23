@@ -60,7 +60,7 @@ class Company::EmailsController < ApplicationController
       email_count = 0
 
       # loop store customers
-      @company.customers(params[:store_ids]).each do |customer|
+      @company.customers(params[:store_ids], true).each do |customer|
         # Send the email
         email_count += 1 if MassMailer.mass_email( customer.store, @email, customer, bcc, uploaded_files ).deliver
       end

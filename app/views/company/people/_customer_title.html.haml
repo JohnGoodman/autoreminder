@@ -1,3 +1,5 @@
 .clearfix
   %h1.left
     = @person.name
+    - if @person.unsubscribe
+      = "- Unsubscribed"

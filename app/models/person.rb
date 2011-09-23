@@ -4,6 +4,7 @@ class Person < ActiveRecord::Base
   belongs_to :company
   has_and_belongs_to_many :stores
   has_many :emails
+  has_many :customer_service_reminders
   has_many :vehicles, :dependent => :destroy
   accepts_nested_attributes_for :vehicles, :reject_if => lambda { |a| a[:year].blank? && a[:make].blank? && a[:model].blank? }, :allow_destroy => true
 
@@ -18,7 +19,7 @@ class Person < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes, :store_ids, :company_id, :store
+  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes, :store_ids, :company_id, :store, :unsubscribe
 
   # Validations
   validates_presence_of     :first_name
@@ -36,6 +37,8 @@ class Person < ActiveRecord::Base
   def role?(check_role)
     role.name == check_role.to_s
   end
+
+  scope :subscribed, where({:unsubscribe => nil} | {:unsubscribe => false})
 
   def name
     [first_name, last_name].join ' '
@@ -91,5 +94,4 @@ class Person < ActiveRecord::Base
       return false unless store_id.present?
       role && role?(:customer)
     end
-
 end

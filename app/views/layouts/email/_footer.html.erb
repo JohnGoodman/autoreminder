@@ -1,0 +1,30 @@
+          <p>Thank You,</p>
+          <p>
+          <strong><%= @store.name %></strong>
+          <br>
+          <small><%= @store.address %></small>
+          <br>
+          <%- unless @store.address_two.blank? -%>
+            <small><%= @store.address_two %></small>
+            <br>
+          <%- end -%>
+          <small><%= @store.city %></small>
+          ,
+          <small><%= @store.state %></small>
+          <small><%= @store.zip %></small>
+          <small><%= @store.phone %></small>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan='3' style='background:#360000; padding:10px; color:#f3f3f3; font-size:12px;'>
+          <%= link_to 'Unsubscribe', 'http://auto-reminders.com?sid=' + @store.id.to_s + "&email=" + @person.email %>
+        </td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+  </body>
+</html>

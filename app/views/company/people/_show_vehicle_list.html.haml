@@ -3,8 +3,10 @@
     %li
       %h2
         = vehicle.name
-        - if vehicle.email
-          = " - " + vehicle.email if vehicle.email.present?
+        - if vehicle.email.present?
+          = " - " + vehicle.email
+          - if vehicle.unsubscribe
+            %strong= "- Unsubscribed"
         = link_to "Add #{@company.reminder_title_s}", new_company_person_vehicle_customer_service_reminder_path(@person, vehicle), :class => 'right button'
 
       - if vehicle.customer_service_reminders.any?

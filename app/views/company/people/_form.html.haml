@@ -12,6 +12,6 @@
     = form.input :password, :required => true, :input_html => {:autocomplete => 'off'}
     = form.input :password_confirmation, :required => true, :input_html => {:autocomplete => 'off'}
   - form.buttons do
-    = submit_button 'Person'
+    = content_tag :button, 'Save Customer', {:type => :submit, :class => 'positive'}
     .or-cancel
       or #{link_to 'Cancel', company_people_path }

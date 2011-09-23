@@ -37,11 +37,13 @@ class SendReminders
 
     appointment_reminders_7_day = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 0)
 
+    CustomerServiceReminder.joins(:person).where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 0).where(:person => [{:unsubscribe => false} | {:unsubscribe => nil}])
+
     # Send 2 days in advance
     start_datetime = ((Date.today + 2.days).to_s + " 00:00:00").to_datetime
     end_datetime = ((Date.today + 2.days).to_s + " 23:59:59").to_datetime
 
-    appointment_reminders_2_day = CustomerServiceReminder.where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 1)
+    appointment_reminders_2_day = CustomerServiceReminder.joins(:person).where(:appointment_date.gte => start_datetime, :appointment_date.lte => end_datetime, :times_sent => 1).where(:person => [{:unsubscribe => false} | {:unsubscribe => nil}])
 
     appointment_reminders = appointment_reminders_2_day + appointment_reminders_7_day
 
@@ -63,6 +65,19 @@ class SendReminders
   # Reject reminders that do not fit the citeria
   def self.check_reminder(c, today)
     # return true = reject
+
+    # check for unsubscribed Pet
+    if c.pet
+      return true if c.pet.person.unsubscribe
+    end
+
+    # check for unsubscribed Vehicle
+    if c.vehicle
+      return true if c.vehicle.person.unsubscribe
+      return true if c.vehicle.unsubscribe
+    end
+
+    dlsj
 
     # See if it is recurring
     unless c.recurring

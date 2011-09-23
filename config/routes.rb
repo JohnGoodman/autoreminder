@@ -7,6 +7,9 @@ Ylc::Application.routes.draw do
   devise_for :people, :controllers => { :sessions => 'people/sessions' } do
     get "/login" => "people/sessions#new"
     get "/logout" => "people/sessions#destroy"
+    get "/unsubscribe" => "people/sessions#unsubscribe"
+    post "/unsubscribe_person" => "people/sessions#unsubscribe_person"
+    get "/unsubscribe_success" => "people/sessions#unsubscribe_success"
   end
 
   resources :stores, :except => [:index, :new, :create] do

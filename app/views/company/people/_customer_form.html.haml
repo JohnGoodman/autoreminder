@@ -12,25 +12,27 @@
     = form.input :last_name
     = form.input :email
     = form.input :store, :collection => current_person.stores, :prompt => true, :required => true
+    = form.input :unsubscribe, :as => :normal_boolean if ['customer_edit','customer_update'].include?(controller.action_name)
 
-  - @i = 1
+  - if ['customer_new','customer_create'].include?(controller.action_name)
+    - @i = 1
 
-  - if @company.company_type_id == 1
-    -form.semantic_fields_for :vehicles do |builder|
-      = render "vehicle_fields", :f => builder
-    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :vehicles)
+    - if @company.company_type_id == 1
+      -form.semantic_fields_for :vehicles do |builder|
+        = render "vehicle_fields", :f => builder
+      %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :vehicles)
 
-  - elsif @company.company_type_id == 2
-    -form.semantic_fields_for :pets do |builder|
-      = render "pet_fields", :f => builder
-    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :pets)
+    - elsif @company.company_type_id == 2
+      -form.semantic_fields_for :pets do |builder|
+        = render "pet_fields", :f => builder
+      %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :pets)
 
-  - elsif @company.company_type_id == 3
-    -form.semantic_fields_for :appointments do |builder|
-      = render "appointment_fields", :f => builder
-    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
+    - elsif @company.company_type_id == 3
+      -form.semantic_fields_for :appointments do |builder|
+        = render "appointment_fields", :f => builder
+      %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
 
   - form.buttons do
-    = submit_button 'Customer'
+    = content_tag :button, 'Save Customer', {:type => :submit, :class => 'positive'}
     .or-cancel
-      or #{link_to 'Cancel', customer_index_company_people_path}
+      or #{link_to 'Cancel', (@person.id ? customer_show_company_person_path(@person) : customer_index_company_people_path)}

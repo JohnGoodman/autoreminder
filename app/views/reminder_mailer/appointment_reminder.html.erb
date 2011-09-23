@@ -1,0 +1,12 @@
+<%= render 'layouts/email/header' %>
+<p>
+  Dear <%= @person.name %>,
+</p>
+<%= @reminder.service_reminder.name == 'Custom Reminder' ? @reminder.custom_email_body.html_safe : @reminder.service_reminder.email_body.html_safe %>
+
+<hr>
+<p>
+  <strong>Appointment:</strong> <%= @reminder.service_reminder.name %> on <%= @reminder.appointment_date.strftime( '%b %d, %Y') %> at <%= @reminder.appointment_date.strftime("%I:%M%p") %>
+</p>
+<hr>
+<%= render 'layouts/email/footer' %>

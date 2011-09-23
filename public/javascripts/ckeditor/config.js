@@ -59,7 +59,7 @@ CKEDITOR.editorConfig = function( config )
         ['Format'],
         ['Cut','Copy','Paste','PasteText','PasteFromWord',],
         ['Undo','Redo','-','SelectAll','RemoveFormat'],
-        ['Link','Unlink','Image'],
+        ['Link','Unlink'],
         ['HorizontalRule','SpecialChar']
     ];
 

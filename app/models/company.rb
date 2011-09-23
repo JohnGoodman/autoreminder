@@ -18,8 +18,12 @@ class Company < ActiveRecord::Base
     ).order('last_name')
   end
 
-  def customers(gm_store_ids)
-    Person.where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
+  def customers(gm_store_ids, only_subscribed = false)
+    if only_subscribed
+      Person.subscribed.where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
+    else
+      Person.where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
+    end
   end
 
   def assinged_reminder_to_stores(reminder)

@@ -1,0 +1,7 @@
+<%- body = @email.body.gsub("~EMAIL~",@person.email.to_s) -%>
+<%- body = body.gsub("~FIRST_NAME~",@person.first_name.to_s) -%>
+<%- body = body.gsub("~LAST_NAME~",@person.last_name.to_s) -%>
+
+<%= render 'layouts/email/header' %>
+<%= body.html_safe %>
+<%= render 'layouts/email/footer' %>

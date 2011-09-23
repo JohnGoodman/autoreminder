@@ -19,12 +19,14 @@
         %tr
           %th Name
           %th Email
+          %th Unsubscribed
 
       %tbody
         - @people.each do |person|
           %tr
             %td= link_to highlighter(person, :reverse_name), store_person_path(@store, person)
             %td= person.email
+            %td= person.unsubscribe ? 'Yes' : ''
 
         - if @people.empty?
           %tr

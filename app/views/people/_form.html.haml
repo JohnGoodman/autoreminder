@@ -11,25 +11,27 @@
     = form.input :first_name
     = form.input :last_name
     = form.input :email
+    = form.input :unsubscribe, :as => :normal_boolean if ['edit','update'].include?(controller.action_name)
 
-  - @i = 1
+  - if ['new','create'].include?(controller.action_name)
+    - @i = 1
 
-  - if @company.company_type_id == 1
-    -form.semantic_fields_for :vehicles do |builder|
-      = render "vehicle_fields", :f => builder
-    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :vehicles)
+    - if @company.company_type_id == 1
+      -form.semantic_fields_for :vehicles do |builder|
+        = render "vehicle_fields", :f => builder
+      %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :vehicles)
 
-  - elsif @company.company_type_id == 2
-    -form.semantic_fields_for :pets do |builder|
-      = render "pet_fields", :f => builder
-    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :pets)
+    - elsif @company.company_type_id == 2
+      -form.semantic_fields_for :pets do |builder|
+        = render "pet_fields", :f => builder
+      %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :pets)
 
-  - elsif @company.company_type_id == 3
-    -form.semantic_fields_for :appointments do |builder|
-      = render "appointment_fields", :f => builder
-    %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
+    - elsif @company.company_type_id == 3
+      -form.semantic_fields_for :appointments do |builder|
+        = render "appointment_fields", :f => builder
+      %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
 
   - form.buttons do
-    = submit_button 'Customer'
+    = content_tag :button, 'Save Customer', {:type => :submit, :class => 'positive'}
     .or-cancel
-      or #{link_to 'Cancel', store_people_path(@store)}
+      or #{link_to 'Cancel', (@person.id ? store_person_path(@store, @person) : store_people_path(@store))}
