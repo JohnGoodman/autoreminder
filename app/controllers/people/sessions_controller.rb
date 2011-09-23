@@ -34,7 +34,8 @@ class People::SessionsController < Devise::SessionsController
       redirect_to(unsubscribe_success_path)
     else
       flash[:alert] = alert
-      redirect_to(unsubscribe_path, :store_id => @store.id)
+      store_id = @store ? @store.id : nil
+      redirect_to(unsubscribe_path, :store_id => store_id)
       # render(:unsubscribe)
     end
   end
