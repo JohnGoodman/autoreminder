@@ -15,3 +15,17 @@ div.textarea {
   margin:0px;
   list-style:none;
 }
+
+#vehicles_list h2 {
+  margin-bottom:10px;
+  font-weight:bold;
+}
+
+#vehicles_list h2 a {
+  margin-top:-5px;
+  font-weight:normal;
+}
+
+#vehicles_list li {
+  margin-bottom:20px;
+}

@@ -1,20 +1,21 @@
 .secondary-navigation.clearfix
   = tabs_tag :namespace => :subnav do |tab|
-    - if ['index', 'new', 'create', 'search'].exclude?(controller.action_name)
+    - if ['index', 'new', 'create', 'search'].exclude?(controller.action_name) || ['vehicles','customer_service_reminders'].include?(controller.controller_name)
       = tab.person_show  'Person Overview', store_person_path(@store, @person), :class => 'first'
       = tab.person_edit  'Edit Person', edit_store_person_path(@store, @person)
 
     - if @company.company_type_id == 1 ####################################################################
-      = tab.vehicle_new "Add #{@company.sub_s}", new_store_person_vehicle_path(@store, @person), :class => "right last" if ['show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+      = tab.vehicle_new "Add #{@company.sub_s}", new_store_person_vehicle_path(@store, @person), :class => "right last" if ['show'].include?(controller.action_name) && ['people','vehicles'].include?(controller.controller_name)
+      /if ['show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
 
-      = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_store_person_vehicle_customer_service_reminder_path(@store, @person, @vehicle), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
+      / = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_store_person_vehicle_customer_service_reminder_path(@store, @person, @vehicle), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
 
     - elsif @company.company_type_id == 2 ####################################################################
       = tab.pet_new "Add #{@company.sub_s}", new_store_person_pet_path(@store, @person), :class => "right last" if ['show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
 
-      = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_store_person_pet_customer_service_reminder_path(@store, @person, @pet), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
+      / = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_store_person_pet_customer_service_reminder_path(@store, @person, @pet), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
 
     - elsif @company.company_type_id == 3 ####################################################################
       = tab.vehicle_new "Add #{@company.sub_s}", new_store_person_customer_service_reminder_path(@store, @person), :class => "right last" if ['show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
 
-      = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_store_person_customer_service_reminder_path(@store, @person), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
+      / = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_store_person_customer_service_reminder_path(@store, @person), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)

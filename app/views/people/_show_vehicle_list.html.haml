@@ -7,7 +7,7 @@
           = " - " + vehicle.email
           - if vehicle.unsubscribe
             %strong= "- Unsubscribed"
-        = link_to "Add #{@company.reminder_title_s}", new_store_person_vehicle_customer_service_reminder_path(@store, @person, vehicle), :class => 'right button'
+        = link_to "Add #{@company.reminder_title}", new_store_person_vehicle_customer_service_reminder_path(@store, @person, vehicle), :class => 'right button'
 
       - if vehicle.customer_service_reminders.any?
         %table.table
@@ -32,7 +32,7 @@
                 %td= yes_no_helper reminder.recurring
                 %td= reminder.times_sent
                 / %td= max_send_helper reminder.max_send
-                %td= link_to 'Remove', store_person_vehicle_customer_service_reminder_path(@store, @person, vehicle, reminder), :confirm => "Delete this #{@company.sub_s}?", :method => :delete
+                %td= link_to 'Remove', store_person_vehicle_customer_service_reminder_path(@store, @person, vehicle, reminder), :confirm => "Delete this #{@company.reminder_title}?", :method => :delete
       - if vehicle.customer_service_reminders.empty?
         %p No reminders for this #{@company.sub_s} yet.
 

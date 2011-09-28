@@ -7,26 +7,26 @@
   %thead
     %tr
       %th Name
-      %th Address
-      %th Address two
-      %th Phone
-      %th Phone two
+      / %th Address
+      / %th Address two
+      / %th Phone
+      / %th Phone two
       %th Email
-      %th Fax
+      / %th Fax
       %th City
       %th State
-      %th Zip
+      / %th Zip
 
   %tbody
     - @stores.each do |store|
       %tr
         %td= link_to store.name, company_store_path(store)
-        %td= store.address
-        %td= store.address_two
-        %td= store.phone
-        %td= store.phone_two
+        / %td= store.address
+        / %td= store.address_two
+        / %td= store.phone
+        / %td= store.phone_two
         %td= store.email
-        %td= store.fax
+        / %td= store.fax
         %td= store.city
         %td= store.state
-        %td= store.zip
+        / %td= store.zip

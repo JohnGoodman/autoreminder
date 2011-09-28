@@ -1,20 +1,25 @@
-%h1
-  - if @company.avatar.present?
-    #image_holder
-      = image_tag @company.avatar.url(:thumb), :alt => "#{@company.name}"
-  - else
-    = @company.name
-
-%nav.right
+#profile
   %ul
-    %li= link_to image_tag("icons/account.png", :title => "Edit My Profile"), edit_profile_company_person_path(current_person)
-    %li= link_to image_tag("icons/logout.png", :title => "Logout"), logout_path
-
-%nav
-  %ul
-    %li= link_to "Home", company_root_path
-    %li= link_to "Edit", edit_company_company_path(@company)
-    %li= link_to @company.heading_p, company_stores_path
-    %li= link_to "Employees", company_people_path
-    %li= link_to "Create Reminders", company_service_reminders_path
-    %li= link_to "Mass Email", company_emails_path
+    %li= link_to current_person.name, edit_profile_company_person_path(current_person), :title => 'Edit Profile'
+    %li= link_to 'Logout', logout_path, :title => 'Logout'
+/
+/ %h1
+/   - if @company.avatar.present?
+/     #image_holder
+/       = image_tag @company.avatar.url(:thumb), :alt => "#{@company.name}"
+/   - else
+/     = @company.name
+/
+/ %nav.right
+/   %ul
+/     %li= link_to image_tag("icons/account.png", :title => "Edit My Profile"), edit_profile_company_person_path(current_person)
+/     %li= link_to image_tag("icons/logout.png", :title => "Logout"), logout_path
+/
+/ %nav
+/   %ul
+/     %li= link_to "Home", company_root_path
+/     %li= link_to "Edit", edit_company_company_path(@company)
+/     %li= link_to @company.heading_p, company_stores_path
+/     %li= link_to "Employees", company_people_path
+/     %li= link_to "Create Reminders", company_service_reminders_path
+/     %li= link_to "Mass Email", company_emails_path

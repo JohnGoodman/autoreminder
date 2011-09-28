@@ -67,8 +67,13 @@ form.formtastic fieldset > ol > li.add_service_reminder_title {
 
 form.formtastic fieldset > ol > li.add_reminder {
  margin-top:15px;
+ float:left;
 }
 
+form.formtastic fieldset > ol > li.remove_v {
+  float:right;
+  margin-top:15px;
+}
 
 form.formtastic fieldset > ol > li.custom {
 }
@@ -90,9 +95,14 @@ form.formtastic fieldset > ol > li.float_left.recurring label {
   padding-left:0px;
 }
 
+form.formtastic fieldset.reminder > ol > li {
+  margin-top:0em;
+}
+
 a.remove_button { margin-left:10px; }
 
 form.formtastic fieldset > ol > li.add_service_reminder_title {
   padding:5px 5px 5px 20px;
   background:#f3f3f3;
+  font-weight:bold;
 }

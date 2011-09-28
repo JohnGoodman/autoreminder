@@ -81,6 +81,7 @@ class Company::EmailsController < ApplicationController
       if success
         format.html { redirect_to(path, :notice => notice, :alert => alert) }
       else
+        @stores = current_user.stores
         format.html { render :action => "edit" }
       end
     end

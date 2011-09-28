@@ -34,7 +34,7 @@
 
 - else
   #index_add_customer_holder
-    = link_to 'New Customer', new_store_person_path(@store), :id => 'index_add_customer'
+    = link_to 'New Customer', new_store_person_path(@store), :id => 'index_add_customer', :class => 'store'
     / = link_to 'Mass Email', store_emails_path(@store), :id => 'index_add_email'
 
   .clearfix

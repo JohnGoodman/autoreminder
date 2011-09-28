@@ -10,7 +10,7 @@
     #container
       #box
         .block
-          = yield(:secondary_navigation) if content_for?(:secondary_navigation)
+          /= yield(:secondary_navigation) if content_for?(:secondary_navigation)
           = yield
 
       %footer#footer.full

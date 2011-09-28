@@ -1,17 +1,21 @@
+:css
+  .inner { padding:15px; }
+  
 %h2 Unsubscribe
-.content.login
-  = form_for(resource, :as => resource_name, :url => unsubscribe_person_path, :html => {:class => 'form login'}) do |f|
-    - flash.each do |type, message|
-      .flash
-        .message.error
-          %p= message
-    .group.clearfix
-      .left
-        = f.label :email, :class => "label right"
-      .right
-        = f.text_field :email, :class => "text_field", :value => params[:email]
-        = f.hidden_field :store_id, :value => params[:sid] if params[:sid].present?
-        = f.hidden_field :store_id, :value => @store.id if @store.present?
-    .group.navform.clearfix
-      .right
-        = content_tag :button, 'Unsubscribe', {:type => :submit, :class => 'positive'}
+.inner
+  .content.login
+    = form_for(resource, :as => resource_name, :url => unsubscribe_person_path, :html => {:class => 'form login'}) do |f|
+      - flash.each do |type, message|
+        .flash
+          .message.error
+            %p= message
+      .group.clearfix
+        .left
+          = f.label :email, :class => "label right"
+        .right
+          = f.text_field :email, :class => "text_field", :value => params[:email]
+          = f.hidden_field :store_id, :value => params[:sid] if params[:sid].present?
+          = f.hidden_field :store_id, :value => @store.id if @store.present?
+      .group.navform.clearfix
+        .right
+          = content_tag :button, 'Unsubscribe', {:type => :submit, :class => 'positive'}

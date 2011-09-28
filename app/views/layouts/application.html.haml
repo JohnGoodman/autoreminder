@@ -9,21 +9,42 @@
   %body{ :class => "#{controller.controller_name}" }
     #container
       %header#header.clearfix
-        = render "layouts/header"
+        = render "layouts/frontend_header"
 
       #wrapper.clearfix
-        #main{ :role => 'main', :class => content_for?(:sidebar) ? '' : 'full' }
+
+
+        #main{ :role => 'main' }
           = render "layouts/flashes"
+          %nav
+            %h1
+              - if @store.company.avatar.present?
+                #image_holder
+                  = image_tag @store.company.avatar.url(:thumb), :alt => "#{@store.name}"
+              - else
+                = @store.name
+
+            %p
+              = @store.name
+              %br
+              = @store.address
+              %br
+              - if @store.address_two.present?
+                = @store.address_two
+                %br
+              = @store.city + ", " + @store.state + " " + @store.zip.to_s
+
+            %ul
+              %li= link_to "Home", root_path
+              %li= link_to "New Customer", new_store_person_path(@store)
+
           .block
-            = yield(:secondary_navigation) if content_for?(:secondary_navigation)
-            .content= yield
-            = yield(:breadcrumb) if content_for?(:breadcrumb)
+            .content
+              = yield(:secondary_navigation) if content_for?(:secondary_navigation)
+              .inner
+                = yield
 
-        - if content_for?(:sidebar)
-          #sidebar
-            = yield(:sidebar)
-
-        %footer#footer{ :class => content_for?(:sidebar) ? '' : 'full' }
+        %footer#footer
           = render "layouts/footer"
 
     -# Javascript at the bottom for fast page loading

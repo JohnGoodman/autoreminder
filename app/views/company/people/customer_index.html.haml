@@ -36,8 +36,13 @@
 
 - else
   #index_add_customer_holder
-    = link_to 'New Customer', customer_new_company_people_path, :id => 'index_add_customer'
-    = link_to 'Mass Email', company_emails_path, :id => 'index_add_email'
+    / = link_to 'New Customer', customer_new_company_people_path, :id => 'index_add_customer'
+    / = link_to 'Mass Email', company_emails_path, :id => 'index_add_email'
+    = link_to customer_new_company_people_path do
+      = content_tag(:div, 'New Customer', :id => 'index_add_customer')
+    = link_to company_emails_path do
+      = content_tag(:div, 'Mass Email', :id => 'index_add_email')
+
 
   .clearfix
   %p &nbsp;

@@ -1,7 +1,4 @@
-%h1= link_to 'FIP Online', root_path
-
-%nav.right
+#profile
   %ul
-    %li#help= 'Help'
-    %li= link_to image_tag("icons/home.png", :title => "My Profile"), root_path
-    %li= link_to image_tag("icons/logout.png", :title => "Logout"), logout_path
+    %li= link_to current_person.name, edit_profile_store_person_path(@store, current_person), :title => 'Edit Profile'
+    %li= link_to 'Logout', logout_path, :title => 'Logout'

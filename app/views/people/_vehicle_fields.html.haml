@@ -7,14 +7,19 @@
     = f.input :model, :wrapper_html => {:class => 'float_left'}
     = f.input :email, :wrapper_html => {:class => 'float_left'}, :label => "Email for this #{@company.sub_s}"
 
-    %li.left
-      %p &nbsp;
-      = link_to_function "Remove #{@company.sub_s}", "remove_fields(this)", :class => 'remove_button'
-    = f.hidden_field :_destroy
-
-    %li &nbsp;
+    / %li.remove_v
+    /   /%p &nbsp;
+    /   = link_to_function "Remove #{@company.sub_s}", "remove_fields(this)", :class => 'remove_button'
+    / = f.hidden_field :_destroy
+    .clearfix
     %li.add_service_reminder_title Reminders
     -f.semantic_fields_for :customer_service_reminders do |builder|
       = render "customer_service_reminder_fields", :f => builder
 
     %li.add_reminder= link_to_add_fields("Add Reminder", f, :customer_service_reminders)
+
+    %li.remove_v
+      /%p &nbsp;
+      = link_to_function "Remove #{@company.sub_s}", "remove_fields(this)", :class => 'remove_button'
+    = f.hidden_field :_destroy
+
