@@ -455,7 +455,13 @@ body {
   margin-bottom: 15px;
 }
 
-/* line 94, ../../app/stylesheets/partials/_layout.scss */
+/* line 93, ../../app/stylesheets/partials/_layout.scss */
+#footer.login {
+  float: none;
+  width: 100%;
+}
+
+/* line 95, ../../app/stylesheets/partials/_layout.scss */
 #autoreminder {
   width: 150px;
   height: 67px;
@@ -463,20 +469,20 @@ body {
   background: url(/images/Autoreminder.png);
 }
 
-/* line 106, ../../app/stylesheets/partials/_layout.scss */
+/* line 107, ../../app/stylesheets/partials/_layout.scss */
 #main h1, #main span.pid {
   font-size: 170%;
   padding-bottom: 10px;
 }
-/* line 112, ../../app/stylesheets/partials/_layout.scss */
+/* line 113, ../../app/stylesheets/partials/_layout.scss */
 #main h1.left {
   float: left;
 }
-/* line 114, ../../app/stylesheets/partials/_layout.scss */
+/* line 115, ../../app/stylesheets/partials/_layout.scss */
 #main span.pid {
   float: right;
 }
-/* line 118, ../../app/stylesheets/partials/_layout.scss */
+/* line 119, ../../app/stylesheets/partials/_layout.scss */
 #main .content {
   # padding: 15px;
   width: 650px;
@@ -496,11 +502,11 @@ body {
   -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
 }
-/* line 129, ../../app/stylesheets/partials/_layout.scss */
+/* line 130, ../../app/stylesheets/partials/_layout.scss */
 #main .content .inner {
   padding: 15px;
 }
-/* line 134, ../../app/stylesheets/partials/_layout.scss */
+/* line 135, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation {
   background: #e0e0e0 url("../images/bg-secondary-navigation.png") top;
   border-bottom-width: 0px;
@@ -518,25 +524,25 @@ body {
   border-top-right-radius: 6px;
   margin-bottom: 10px;
 }
-/* line 141, ../../app/stylesheets/partials/_layout.scss */
+/* line 142, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul {
   margin: 0;
   list-style-type: none;
 }
-/* line 144, ../../app/stylesheets/partials/_layout.scss */
+/* line 145, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li {
   float: left;
 }
-/* line 145, ../../app/stylesheets/partials/_layout.scss */
+/* line 146, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li.right {
   float: right;
 }
-/* line 147, ../../app/stylesheets/partials/_layout.scss */
+/* line 148, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li.active,
 #main .secondary-navigation ul li.current {
   background: white url("../images/bg-secondary-navigation-active.png") top;
 }
-/* line 148, ../../app/stylesheets/partials/_layout.scss */
+/* line 149, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li.first {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -545,7 +551,7 @@ body {
   -khtml-border-top-left-radius: 6px;
   border-top-left-radius: 6px;
 }
-/* line 149, ../../app/stylesheets/partials/_layout.scss */
+/* line 150, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li.last {
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
@@ -554,14 +560,14 @@ body {
   -khtml-border-top-right-radius: 6px;
   border-top-right-radius: 6px;
 }
-/* line 151, ../../app/stylesheets/partials/_layout.scss */
+/* line 152, ../../app/stylesheets/partials/_layout.scss */
 #main .secondary-navigation ul li a,
 #main .secondary-navigation ul li span {
   display: block;
   padding: 10px 15px;
   text-decoration: none;
 }
-/* line 159, ../../app/stylesheets/partials/_layout.scss */
+/* line 160, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb {
   background-color: #F4F4F4;
   -moz-border-radius-bottomleft: 6px;
@@ -577,7 +583,7 @@ body {
   -khtml-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-/* line 164, ../../app/stylesheets/partials/_layout.scss */
+/* line 165, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul {
   margin-left: 0;
   height: 20px;
@@ -585,16 +591,16 @@ body {
   padding-top: 0px;
   list-style-type: none;
 }
-/* line 170, ../../app/stylesheets/partials/_layout.scss */
+/* line 171, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul li.first {
   padding-left: 15px;
   background: none;
 }
-/* line 175, ../../app/stylesheets/partials/_layout.scss */
+/* line 176, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul li.active {
   color: #A4A4A4;
 }
-/* line 177, ../../app/stylesheets/partials/_layout.scss */
+/* line 178, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul li {
   color: #777;
   display: block;
@@ -605,23 +611,23 @@ body {
   float: left;
   font-size: 93%;
 }
-/* line 186, ../../app/stylesheets/partials/_layout.scss */
+/* line 187, ../../app/stylesheets/partials/_layout.scss */
 #main .breadcrumb ul li a {
   text-decoration: none;
   color: #777;
 }
-/* line 193, ../../app/stylesheets/partials/_layout.scss */
+/* line 194, ../../app/stylesheets/partials/_layout.scss */
 #main #error_explanation {
   margin: 0 0 10px 20px;
 }
-/* line 197, ../../app/stylesheets/partials/_layout.scss */
+/* line 198, ../../app/stylesheets/partials/_layout.scss */
 #main p.inline-errors {
   display: inline;
   margin: 0px 0 0 5px;
   padding: 0px;
 }
 
-/* line 205, ../../app/stylesheets/partials/_layout.scss */
+/* line 206, ../../app/stylesheets/partials/_layout.scss */
 #sidebar .block {
   padding-top: 2px;
   padding-bottom: 2px;
@@ -634,7 +640,7 @@ body {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
   margin-bottom: 20px;
 }
-/* line 213, ../../app/stylesheets/partials/_layout.scss */
+/* line 214, ../../app/stylesheets/partials/_layout.scss */
 #sidebar h3 {
   color: #111;
   padding: 10px 0;
@@ -642,12 +648,12 @@ body {
   font-size: 13px;
 }
 
-/* line 222, ../../app/stylesheets/partials/_layout.scss */
+/* line 223, ../../app/stylesheets/partials/_layout.scss */
 #box {
   width: 480px;
   margin: 50px auto 20px auto;
 }
-/* line 226, ../../app/stylesheets/partials/_layout.scss */
+/* line 227, ../../app/stylesheets/partials/_layout.scss */
 #box .block {
   background: white;
   text-shadow: 0 1px 0 white;
@@ -663,7 +669,7 @@ body {
   border-radius: 6px;
   margin-bottom: 20px;
 }
-/* line 233, ../../app/stylesheets/partials/_layout.scss */
+/* line 234, ../../app/stylesheets/partials/_layout.scss */
 #box .block h2 {
   font-size: 170%;
   background: #261F1F;
@@ -684,7 +690,7 @@ body {
   padding: 10px 15px;
   margin: 0;
 }
-/* line 244, ../../app/stylesheets/partials/_layout.scss */
+/* line 245, ../../app/stylesheets/partials/_layout.scss */
 #box .block .content {
   /*padding: 10px 20px; */
 }

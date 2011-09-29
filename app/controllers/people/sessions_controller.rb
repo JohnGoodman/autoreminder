@@ -20,7 +20,7 @@ class People::SessionsController < Devise::SessionsController
         end
       else # find Vehcilce
         @vehicle = Vehicle.find_by_email(params[:person][:email])
-        if @vehicle.update_attribute(:unsubscribe, true)
+        if @vehicle && @vehicle.update_attribute(:unsubscribe, true)
           success = true
         else
           alert = "Error. #{params[:person][:email]} could not be unsubscribed. Please contact your store or office directly to be unsubscribed."

@@ -90,6 +90,7 @@ body { background-image: url('../images/layout/background.png'); }
 #wrapper{ padding: 0px; }
 #main { width: 900px; display:inline-block; }
 #footer { width:600px; float:right; margin-bottom:15px; }
+#footer.login { float:none; width:100%; }
 
 #autoreminder {
   width:150px;
