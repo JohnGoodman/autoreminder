@@ -2,7 +2,8 @@
   = render 'admin/companies/nav'
 
 = render 'admin/companies/title'
-
+= link_to 'Add ' + @company.heading_s, new_admin_company_store_path, :class => 'button positive right'
+.clear
 %h2= @company.heading_p
 
 %table.table

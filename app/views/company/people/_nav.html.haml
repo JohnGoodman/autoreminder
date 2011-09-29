@@ -1,5 +1,5 @@
-.secondary-navigation.clearfix
-  = tabs_tag :namespace => :subnav do |tab|
-    = tab.person_edit  'Edit Person', edit_company_person_path(@person), :class => 'first' if ['edit','update','show'].include?(controller.action_name)
-
-    = tab.person_new   'New Person', new_company_person_path, :class => "right last" if ['index','new'].include?(controller.action_name)
+/ .secondary-navigation.clearfix
+/   = tabs_tag :namespace => :subnav do |tab|
+/     = tab.person_edit  'Edit Person', edit_company_person_path(@person), :class => 'first' if ['edit','update','show'].include?(controller.action_name)
+/
+/     / = tab.person_new   'New Person', new_company_person_path, :class => "right last" if ['index','new'].include?(controller.action_name)

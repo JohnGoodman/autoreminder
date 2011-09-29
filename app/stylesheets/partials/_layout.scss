@@ -9,9 +9,11 @@ a.right { float: right; }
 div.center,
 td.center { text-align: center; }
 
+.clear { clear:both; }
+
 .right_align { text-align: right; }
 
-h2 { padding: 10px 0; }
+h2 { padding: 10px 0; font-size:115%; }
 
 .cross {
   display:block;
@@ -73,7 +75,6 @@ nav {
   ul li {
     padding: 4px 15px 0 15px;
     a {
-      color: white;
       @include font-size(14px);
       img { vertical-align: middle; }
     }
@@ -104,6 +105,8 @@ body { background-image: url('../images/layout/background.png'); }
 #main {
   h1, span.pid {
     @include font-size(22px);
+    padding-bottom:10px;
+
   }
 
   h1.left { float: left; }
@@ -133,7 +136,7 @@ body { background-image: url('../images/layout/background.png'); }
     border-bottom-width: 0px;
     @include border-top-left-radius(6px);
     @include border-top-right-radius(6px);
-    margin-bottom:25px;
+    margin-bottom:10px;
 
     ul {
       margin: 0;

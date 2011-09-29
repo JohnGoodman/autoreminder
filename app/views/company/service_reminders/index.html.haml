@@ -1,8 +1,9 @@
-- content_for(:secondary_navigation) do
-  = render 'nav'
-
-%h1 Service Reminders
-
+/ - content_for(:secondary_navigation) do
+/   = render 'nav'
+/
+%h1.left Reminders
+= link_to 'New Service Reminder', new_company_service_reminder_path, :class => 'button positive right'
+.clear
 %table.table
   %thead
     %tr

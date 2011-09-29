@@ -3,9 +3,9 @@
   <body style='margin:0px; padding:0px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background:#f3f3f3;'>
     <p>&nbsp;</p>
     <table cellpadding='none' colspacing='none' style='width:700px; margin:0 auto; padding:0; border:1px solid #999; background:#ffffff;'>
-    <tr style='background:#360000; height:140px; color:#f3f3f3;'>
+    <tr style='height:140px;'>
       <%- if @store.company.avatar.present? -%>
-        <td style='height:120px; border:5px solid white; float:left; margin:10px 15px 10px 10px; background:#ccc;'>
+        <td style='height:120px; float:left; margin:10px 15px 10px 10px;'>
           <%= image_tag @store.company.avatar.url(:thumb), :alt => "#{@store.name}" %>
         </td>
       <%- end -%>
@@ -15,28 +15,25 @@
             <td style='padding-top:13px;'>&nbsp;</td>
           </tr>
           <tr>
-            <td style='padding-top:13px; font-size:20px; color:#f1f1f1;'>A Friendly Reminder From</td>
+            <td style='padding-top:13px; font-size:20px;'>A Friendly Reminder From</td>
           </tr>
           <tr>
-            <td style='font-size:30px; color:#f1f1f1;'><%= @store.name %></td>
+            <td style='font-size:30px;'><%= @store.name %></td>
           </tr>
           <tr>
-            <td style='padding-top:5px; font-size:12px; color:#f1f1f1;'>
-              <span style='padding-right:8px; color:#f1f1f1;'><%= @store.address %></span>
+            <td style='padding-top:5px; font-size:12px;'>
+              <span style='padding-right:8px;'><%= @store.address %></span>
               <%- unless @store.address_two.blank? -%>
-                <span style='padding-right:8px; color:#f1f1f1;'><%= @store.address_two %></span>
+                <span style='padding-right:8px;'><%= @store.address_two %></span>
               <%- end -%>
-              <span style='padding-right:8px; color:#f1f1f1;'><%= @store.city %></span>
-              <span style='padding-right:8px; color:#f1f1f1;'><%= @store.state %></span>
-              <span style='padding-right:8px; color:#f1f1f1;'><%= @store.zip %></span>
-              <span style='padding-right:8px; color:#f1f1f1;'><%= @store.phone %></span>
+              <span style='padding-right:8px;'><%= @store.city %></span>
+              <span style='padding-right:8px;'><%= @store.state %></span>
+              <span style='padding-right:8px;'><%= @store.zip %></span>
+              <span style='padding-right:8px;'><%= @store.phone %></span>
             </td>
           </tr>
         </table>
       </td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan='3' style='padding:0 15px;'>
+      <td colspan='3' style='padding:15px; background:#FAFAFA; border-top:1px solid #cccccc;'>

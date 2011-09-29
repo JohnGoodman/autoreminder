@@ -1,11 +1,10 @@
-.clearfix
-  %h1.left
-    = @company.name
-    - if @store
-      = " :: "
-      - if controller.action_name == 'new'
-        %small New #{@company.heading_s}
-      - if controller.action_name == 'edit'
-        %small Edit #{@company.heading_s}
-      - else
-        %small= @store.name
+%h1.left
+  = @company.name
+  / - if @store
+  /   = " :: "
+  /   - if controller.action_name == 'new'
+  /     %small New #{@company.heading_s}
+  /   - if controller.action_name == 'edit'
+  /     %small Edit #{@company.heading_s}
+  /   - else
+  /     %small= @store.name

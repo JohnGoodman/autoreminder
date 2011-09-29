@@ -1,10 +1,11 @@
 / - content_for(:stylesheets) do
 /   = stylesheet_link_tag 'search_customer.css'
+/
+/ - content_for(:secondary_navigation) do
+/   = render 'nav'
 
-- content_for(:secondary_navigation) do
-  = render 'nav'
-
-%h1 Saved Mass Emails
+%h1.left Saved Mass Emails
+= link_to "New Mass Email", new_company_email_path, :class => 'button positive right'
 
 .clearfix
 

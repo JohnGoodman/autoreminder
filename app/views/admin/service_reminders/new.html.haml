@@ -1,10 +1,12 @@
 - if @company
   - content_for(:secondary_navigation) do
     = render 'admin/companies/nav'
-    
+
   = render 'admin/companies/title'
-  %h2 New Service Reminder
+  .clear
+  %h2 New Reminder
 - else
-  = service_reminder_navigation_helper
-  = service_reminder_title_helper('New Service Reminder')
+  / = service_reminder_navigation_helper
+  / = service_reminder_title_helper('New Reminder')
+  %h1 New Reminder
 = render 'form'

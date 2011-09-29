@@ -5,7 +5,7 @@ class Admin::StoresController < ApplicationController
 
   set_tab :company_stores, :subnav, :only => :index
   set_tab :store_new, :subnav, :only => :new
-  set_tab :company_store, :subnav, :only => :show
+  set_tab :company_stores, :subnav, :only => [:show, :edit, :update]
 
   def index
     @stores = @company.stores.all

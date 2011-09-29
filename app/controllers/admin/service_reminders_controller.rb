@@ -4,8 +4,8 @@ class Admin::ServiceRemindersController < ApplicationController
   before_filter :get_company
   layout 'admin'
 
-  set_tab :service_reminder_new, :subnav, :only => :new
-  set_tab :service_reminder_edit, :subnav, :only => [:edit, :update]
+  set_tab :service_reminder_new, :subnav
+  # set_tab :service_reminder_edit, :subnav, :only => [:edit, :update]
 
   def index
     if @company

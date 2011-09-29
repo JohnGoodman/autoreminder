@@ -10,7 +10,8 @@
 
   .message p { margin: 8px; padding:0 30px;}
 
-  .error, .error-list {
+  .error, .error-list,
+  .alert {
     border: 1px solid #993624;
     background: #96301E url('../images/messages/error.png') no-repeat 10px center;
   }

@@ -1,7 +1,8 @@
 - content_for(:secondary_navigation) do
   = render 'nav'
 
-%h1 Companies
+%h1.left Companies
+= link_to 'New Company', new_admin_company_path, :class => 'button positive right'
 
 %table.table
   %tr

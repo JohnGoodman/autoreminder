@@ -6,9 +6,13 @@
 
 - if @company
   = render 'admin/companies/title'
-  %h2 Service Reminders
+  = link_to 'New Reminder', new_admin_company_service_reminder_path(@company), :class => 'button positive right'
+  .clear
+  %h2 Reminders
 - else
-  %h1 Service Reminders
+  %h1.left Reminders
+  = link_to 'New Reminder', new_admin_service_reminder_path, :class => 'button positive right'
+  .clear
 
 %table.table
   %thead
@@ -17,8 +21,12 @@
 
   %tbody
     - @service_reminders.each do |service_reminder|
-      %tr
-        %td= link_to service_reminder.name, edit_admin_service_reminder_path(service_reminder)
+      - if @company
+        %tr
+          %td= link_to service_reminder.name, edit_admin_company_service_reminder_path(@company, service_reminder)
+      - else
+        %tr
+          %td= link_to service_reminder.name, edit_admin_service_reminder_path(service_reminder)
 
     - if @service_reminders.empty?
       %tr

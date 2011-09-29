@@ -2,7 +2,7 @@
   Edit Profile:
   = @person.name
 
-- semantic_form_for [:admin, @person], :url => update_profile_admin_person_path(@person) do |form|
+- semantic_form_for [:company, @person], :url => update_profile_company_person_path(@person) do |form|
   = render "shared/form_errors", :errors => @person.errors
 
   - form.inputs "", :class => "" do
@@ -18,4 +18,4 @@
   - form.buttons do
     = content_tag :button, 'Update Profile', {:type => :submit, :class => 'positive'}
     .or-cancel
-      or #{link_to 'Cancel', admin_root_path }
+      or #{link_to 'Cancel', company_root_path }

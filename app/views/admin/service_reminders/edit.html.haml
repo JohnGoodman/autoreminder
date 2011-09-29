@@ -1,14 +1,16 @@
 - content_for(:secondary_navigation) do
   - if @company
     = render 'admin/companies/nav'
-  - else
-    = render 'nav'
+  / - else
+  /   = render 'nav'
 
 - if @company
   = render 'admin/companies/title'
+  .clear
   %h2 Edit Service Reminder
 - else
-  = render 'title'
+  / = render 'title'
+  %h1 Edit Reminder
 
 = render 'form'
 

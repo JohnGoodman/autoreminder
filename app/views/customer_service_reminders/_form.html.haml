@@ -26,8 +26,9 @@
     - elsif @company.company_type_id == 3
       = form.input :appointment_date, :as => :string, :input_html => {:class => 'datetimepicker', :title => 'Set Date and Time'}
 
-    = submit_button @company.reminder_title
-    = hidden_field_tag 'customer_service_reminder[vehicle_id]', @vehicle.id if @vehicle
-    = hidden_field_tag 'customer_service_reminder[pet_id]', @pet.id if @pet
-    .or-cancel
-      or #{link_to 'Cancel', store_person_path(@store, @person)}
+    - form.buttons do
+      = submit_button @company.reminder_title
+      = hidden_field_tag 'customer_service_reminder[vehicle_id]', @vehicle.id if @vehicle
+      = hidden_field_tag 'customer_service_reminder[pet_id]', @pet.id if @pet
+      .or-cancel
+        or #{link_to 'Cancel', store_person_path(@store, @person)}

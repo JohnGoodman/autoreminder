@@ -2,6 +2,7 @@
   = render 'admin/companies/nav'
 
 = render 'admin/companies/title'
+.clear
 %h2 Mass Assign Service Reminders
 
 - semantic_form_for [:admin, @company], :url => assign_service_reminders_admin_company_path(@company) do |form|

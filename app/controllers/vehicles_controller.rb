@@ -2,7 +2,8 @@ class VehiclesController < ApplicationController
   before_filter :authenticate_person!
   before_filter :get_person
 
-  set_tab :vehicle_new, :subnav, :only => :new
+  # set_tab :vehicle_new, :subnav, :only => :new
+  set_tab :person_edit, :subnav
 
   def index
     @vehicles = @store.vehicles.all

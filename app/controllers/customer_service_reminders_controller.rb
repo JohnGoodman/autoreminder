@@ -3,7 +3,8 @@ class CustomerServiceRemindersController < ApplicationController
   before_filter :get_person
   # before_filter :get_vehicle, :only => [:create, :update]
 
-  set_tab :customer_service_reminder_new, :subnav
+  # set_tab :customer_service_reminder_new, :subnav
+  set_tab :person_edit, :subnav
 
   def index
     @customer_service_reminders = CustomerServiceReminder.all

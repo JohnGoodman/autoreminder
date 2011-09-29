@@ -2,6 +2,7 @@ class Admin::CompaniesController < ApplicationController
   before_filter :authenticate_person!
   layout 'admin'
 
+  set_tab :company_show, :subnav, :only => :show
   set_tab :company_new, :subnav, :only => :new
   set_tab :company_edit, :subnav, :only => :edit
   set_tab :company_mass_reminders, :subnav, :only => :mass_assign_service_reminders

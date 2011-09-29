@@ -2,13 +2,14 @@
   - if @store
     = render 'company/companies/nav'
   - else
-    = render 'nav'
+    / = render 'nav'
 
 - if @store
   = render 'company/stores/title'
-  %h2 Edit Service Reminder ( Updates will only affect this store's reminder )
+  %h2 Edit Reminder ( Updates will only affect this store's reminder )
 - else
-  = render 'title'
+  / = render 'title'
+  %h1 Edit Reminder
 
 = render 'form'
 - if @service_reminder.can_delete?
