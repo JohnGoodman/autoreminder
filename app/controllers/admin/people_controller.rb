@@ -3,9 +3,9 @@ class Admin::PeopleController < ApplicationController
   before_filter :get_company, :except => [:edit_profile, :update_profile]
   layout 'admin'
 
-  set_tab :people, :subnav, :only => :index
-  set_tab :person_new, :subnav, :only => [:new, :create]
-  set_tab :person_edit, :subnav, :only => [:edit, :update]
+  set_tab :people, :subnav
+  # set_tab :person_new, :subnav, :only => [:new, :create]
+  # set_tab :person_edit, :subnav, :only => [:edit, :update]
 
   def index
     # @people = Person.not_customers

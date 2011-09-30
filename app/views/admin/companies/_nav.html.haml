@@ -15,7 +15,7 @@
     = tab.company_mass_reminders 'Mass Assign Reminders', mass_assign_service_reminders_admin_company_path(@company) if ['edit','update','show','mass_assign_service_reminders'].include?(controller.action_name) || ['stores','service_reminders','people'].include?(controller.controller_name)
 
 
-    = tab.person_edit  'Edit Person', edit_admin_company_person_path(@company, @person) if ['edit','update','show'].include?(controller.action_name) && @person
+    / = tab.person_edit  'Edit Person', edit_admin_company_person_path(@company, @person) if ['edit','update','show'].include?(controller.action_name) && @person
 
 
     / = tab.company_new 'New Company', new_admin_company_path, :class => "right last" if ['index','new'].include?(controller.action_name) && controller.controller_name == 'companies'
