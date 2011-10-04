@@ -18,11 +18,17 @@ class Company < ActiveRecord::Base
     ).order('last_name')
   end
 
-  def customers(gm_store_ids, only_subscribed = false)
-    if only_subscribed
-      Person.subscribed.where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
+  def customers(gm_store_ids, only_subscribed = false, mass_email = nil)
+    if mass_email
+      mass_email_sql = {:send_mass_emails => true}
     else
-      Person.where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
+      mass_email_sql = {:id.gt => 0}
+    end
+
+    if only_subscribed
+      Person.subscribed.where(mass_email_sql).where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
+    else
+      Person.where(mass_email_sql).where(:store_id => gm_store_ids, :role_id => Role.find_by_name('customer'))
     end
   end
 
