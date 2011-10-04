@@ -20,6 +20,7 @@
           %th Name
           %th Email
           %th Store
+          %th Mass Email
           %th Unsubscribed
 
       %tbody
@@ -28,6 +29,7 @@
             %td= link_to highlighter(person, :reverse_name), customer_show_company_person_path(person)
             %td= person.email
             %td= person.store.name
+            %td= person.send_mass_emails ? 'Yes' : ''
             %td= person.unsubscribe ? 'Yes' : ''
 
         - if @people.empty?

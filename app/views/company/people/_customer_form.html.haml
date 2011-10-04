@@ -8,9 +8,15 @@
   = render "shared/form_errors", :errors => @person.errors
 
   - form.inputs "", :class => "" do
+    - if ['edit','update'].include?(controller.action_name)
+      %li
+        %label &nbsp;
+        %strong Customer added on #{short_date(@person.created_at)}
+
     = form.input :first_name
     = form.input :last_name
     = form.input :email
+    = form.input :send_mass_emails, :as => :normal_boolean
     = form.input :store, :collection => current_person.stores, :prompt => true, :required => true
     = form.input :unsubscribe, :as => :normal_boolean if ['customer_edit','customer_update'].include?(controller.action_name)
 

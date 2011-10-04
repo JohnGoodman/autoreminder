@@ -18,6 +18,7 @@
       / %th Fax
       %th City
       %th State
+      %th{:title => 'Customer Count'} Cust.
       / %th Zip
 
   %tbody
@@ -32,4 +33,5 @@
         / %td= store.fax
         %td= store.city
         %td= store.state
+        %td= store.customers.count
         / %td= store.zip

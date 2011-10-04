@@ -30,6 +30,7 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = @person.vehicles.new(params[:vehicle])
+    @vehicle.current_milage = @vehicle.milage_at_signup unless @vehicle.milage_at_signup.blank?
 
     respond_to do |format|
       if @vehicle.save

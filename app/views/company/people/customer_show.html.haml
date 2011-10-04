@@ -5,6 +5,8 @@
   = render 'customer_nav'
 
 = render 'customer_title'
+%p Added #{short_date(@person.created_at)}
+%p &nbsp;
 
 - if @company.company_type_id == 1
   = render 'show_vehicle_list'

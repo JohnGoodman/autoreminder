@@ -19,7 +19,7 @@ class Person < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes, :store_ids, :company_id, :store, :unsubscribe
+  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :first_name, :last_name, :store_id, :note, :email, :role_id, :online_access, :vehicles_attributes, :appointments_attributes, :pets_attributes, :store_ids, :company_id, :store, :unsubscribe, :send_mass_emails
 
   # Validations
   validates_presence_of     :first_name
@@ -33,6 +33,14 @@ class Person < ActiveRecord::Base
   validates_presence_of     :email
   validates_uniqueness_of   :email,                   :scope => :store, :if => :customer?
   validates_presence_of     :store_id,                :if => :store_required?
+
+  after_create do
+    return unless role_id == 4 # customer
+    return unless company.thank_you_text.present? && company.thank_you_subject.present?
+
+    # Send the thank you email
+    MassMailer.thank_you_email( store, company.thank_you_text, company.thank_you_subject, self, store.manager ).deliver
+  end
 
   def role?(check_role)
     role.name == check_role.to_s

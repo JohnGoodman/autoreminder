@@ -45,6 +45,13 @@ class Store < ActiveRecord::Base
 
   end
 
+  def manager
+    # The employee if there is only one
+    managers = people.where(:role_id => 3) # employee
+    return nil unless managers.count == 1
+    managers.first
+  end
+
   # def use_set_dates?
   #     company.reminder_type_id == 2 # 2 for dates
   #   end

@@ -8,6 +8,15 @@
           - if vehicle.unsubscribe
             %strong= "- Unsubscribed"
         = link_to "Add #{@company.reminder_title_s}", new_company_person_vehicle_customer_service_reminder_path(@person, vehicle), :class => 'right button'
+        - if @company.additional_vehicle_fields
+          - if vehicle.milage_at_signup.present?
+            %br
+            %small
+              = vehicle.milage_at_signup.to_s + " Miles at signup"
+          - if vehicle.average_miles_per_year.present?
+            %br
+            %small
+              = vehicle.average_miles_per_year.to_s + " Average miles per year"
 
       - if vehicle.customer_service_reminders.any?
         %table.table

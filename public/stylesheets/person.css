@@ -26,6 +26,10 @@ div.textarea {
   font-weight:normal;
 }
 
+#vehicles_list h2 small {
+  font-weight:normal;
+}
+
 #vehicles_list li {
   margin-bottom:20px;
 }

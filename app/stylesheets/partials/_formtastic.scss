@@ -57,7 +57,7 @@ form.formtastic fieldset > ol > li.search input[size] { /*width:auto; max-width:
 
 /* LABELS
 --------------------------------------------------------------------------------------------------*/
-form.formtastic fieldset > ol > li label { width: 135px; text-align: right; margin-right: 7px; }
+form.formtastic fieldset > ol > li label { width: 135px; text-align: right; margin-right: 7px; text-transform:capitalize; }
 
 #sidebar form.formtastic fieldset > ol > li label { width: 95px; text-align:left; margin-right:7px; }
 

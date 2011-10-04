@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922022436) do
+ActiveRecord::Schema.define(:version => 20111004005155) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string    "data_file_name",                  :null => false
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(:version => 20110922022436) do
     t.integer   "reminder_type_id"
     t.string    "avatar"
     t.integer   "company_type_id"
+    t.text      "thank_you_text"
+    t.string    "thank_you_subject"
+    t.boolean   "additional_vehicle_fields"
   end
 
   create_table "customer_service_reminders", :force => true do |t|
@@ -102,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20110922022436) do
     t.string    "username"
     t.integer   "company_id"
     t.boolean   "unsubscribe"
+    t.boolean   "send_mass_emails"
   end
 
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
@@ -161,6 +165,9 @@ ActiveRecord::Schema.define(:version => 20110922022436) do
     t.boolean   "unsubscribe"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.integer   "average_miles_per_year"
+    t.integer   "milage_at_signup"
+    t.integer   "current_milage"
   end
 
 end

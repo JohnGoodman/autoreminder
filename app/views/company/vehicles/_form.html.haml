@@ -6,6 +6,15 @@
     = form.input :make
     = form.input :model
     = form.input :email
+    - if @company.additional_vehicle_fields
+      - if ['new','create'].include?(controller.action_name)
+        = form.input :milage_at_signup
+      - else
+        %li
+          %label Milage at Signup
+          %span= @vehicle.milage_at_signup
+      = form.input :current_milage if ['edit','update'].include?(controller.action_name)
+      = form.input :average_miles_per_year
     = form.input :unsubscribe, :as => :normal_boolean, :label => 'Unsubscribe', :hint => 'Do not send any email reminders.'
     = submit_button 'Vehicle'
     .or-cancel

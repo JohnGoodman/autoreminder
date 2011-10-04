@@ -1,12 +1,21 @@
 - semantic_form_for [@store, @person, @vehicle] do |form|
   = render "shared/form_errors", :errors => @vehicle.errors
-
   - form.inputs "", :class => "" do
     = form.input :year
     = form.input :make
     = form.input :model
     = form.input :email
+    - if @company.additional_vehicle_fields
+      - if ['new','create'].include?(controller.action_name)
+        = form.input :milage_at_signup
+      - else
+        %li
+          %label Milage at Signup
+          %span= @vehicle.milage_at_signup
+      = form.input :current_milage if ['edit','update'].include?(controller.action_name)
+      = form.input :average_miles_per_year
     = form.input :unsubscribe, :as => :normal_boolean, :label => 'Unsubscribe', :hint => 'Do not send any email reminders.'
-    = submit_button 'Vehicle'
-    .or-cancel
-      or #{link_to 'Cancel', store_person_path(@store, @person)}
+    - form.buttons do
+      = submit_button 'Vehicle'
+      .or-cancel
+        or #{link_to 'Cancel', store_person_path(@store, @person)}

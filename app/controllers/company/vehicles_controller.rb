@@ -16,6 +16,7 @@ class Company::VehiclesController < ApplicationController
 
   def create
     @vehicle = @person.vehicles.new(params[:vehicle])
+    @vehicle.current_milage = @vehicle.milage_at_signup unless @vehicle.milage_at_signup.blank?
 
     if @vehicle.save
       redirect_to(customer_show_company_person_path(@person), :notice => 'Vehicle was successfully created.')

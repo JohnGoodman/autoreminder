@@ -6,6 +6,9 @@
     = f.input :make, :wrapper_html => {:class => 'float_left'}
     = f.input :model, :wrapper_html => {:class => 'float_left'}
     = f.input :email, :wrapper_html => {:class => 'float_left'}, :label => "Email for this #{@company.sub_s}"
+    - if @company.additional_vehicle_fields
+      = f.input :milage_at_signup, :wrapper_html => {:class => 'float_left'}
+      = f.input :average_miles_per_year, :wrapper_html => {:class => 'float_left'}
 
     / %li.remove_v
     /   /%p &nbsp;

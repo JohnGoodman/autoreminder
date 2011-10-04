@@ -1209,6 +1209,7 @@ form.formtastic fieldset > ol > li label {
   width: 135px;
   text-align: right;
   margin-right: 7px;
+  text-transform: capitalize;
 }
 
 /* line 62, ../../app/stylesheets/partials/_formtastic.scss */

@@ -11,6 +11,12 @@
 %p
   %b Type:
   = @company.type
+%p
+  %b Total Customers:
+  = @company.customers(@company.store_ids).count
+%p
+  %b Subscribed Customers:
+  = @company.customers(@company.store_ids, true).count
 
 %hr
 = link_to 'Delete Company', admin_company_path(@company), :confirm => 'Delete this company?', :method => :delete
