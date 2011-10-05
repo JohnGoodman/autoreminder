@@ -39,7 +39,7 @@ class Person < ActiveRecord::Base
     return unless company.thank_you_text.present? && company.thank_you_subject.present?
 
     # Send the thank you email
-    MassMailer.thank_you_email( store, company.thank_you_text, company.thank_you_subject, self, store.manager ).deliver
+    MassMailer.thank_you_email( store, company.thank_you_text, company.thank_you_subject, self ).deliver
   end
 
   def role?(check_role)

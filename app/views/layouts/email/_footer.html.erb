@@ -1,6 +1,6 @@
           <p>Thank You,</p>
           <p>
-          <strong><%= @store.name %></strong>
+          <strong><%= @store.manager ? @store.manager.name : @store.name %></strong>
           <br>
           <small><%= @store.address %></small>
           <br>

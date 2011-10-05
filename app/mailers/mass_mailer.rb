@@ -1,5 +1,5 @@
 class MassMailer < ActionMailer::Base
-  def mass_email( store, email, person, bcc, files=[], preview = nil, from_person = nil )
+  def mass_email( store, email, person, bcc, files=[], preview = nil )
     @store = store
     @email = email
     @person = person
@@ -19,7 +19,7 @@ class MassMailer < ActionMailer::Base
     )
   end
 
-  def thank_you_email( store, email_body, email_subject, person, from_person = nil )
+  def thank_you_email( store, email_body, email_subject, person )
     @email_body = email_body
     @person = person
     @store = store
