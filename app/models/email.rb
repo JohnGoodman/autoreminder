@@ -3,11 +3,15 @@ class Email < ActiveRecord::Base
   belongs_to :store
   belongs_to :company
 
-  validates_presence_of     :subject
-  validates_presence_of     :body
-  validates_presence_of     :preview_to, :if => :sending_preview?
+  mount_uploader :advertisement_image, AdvertisementUploader
 
-  attr_accessible :store, :company, :person, :subject, :preview_to, :body, :template, :save_email, :send, :preview
+  validates_presence_of     :subject, :unless => :is_advertisement?
+  validates_presence_of     :body, :unless => :is_advertisement?
+  validates_presence_of     :preview_to, :if => :sending_preview?
+  validates_presence_of     :advertisement_subject, :if => :is_advertisement?
+  validates_presence_of     :advertisement_image, :if => :is_advertisement?
+
+  attr_accessible :store, :company, :person, :subject, :preview_to, :body, :template, :save_email, :send, :preview, :advertisement_image, :advertisement_subject
   attr_accessor :preview
 
   scope :templates, where(:template => true)
@@ -15,5 +19,9 @@ class Email < ActiveRecord::Base
   private
     def sending_preview?
       preview.present? && preview
+    end
+
+    def is_advertisement?
+      advertisement.present?
     end
 end

@@ -193,6 +193,21 @@ body { background-image: url('../images/layout/background.png'); }
   }
   #error_explanation {
     margin:0 0 10px 20px;
+    color:#96301e;
+    border-top:1px solid #96301e;
+    border-bottom:1px solid #96301e;
+    margin:0px;
+    padding:10px;
+
+    h2 {
+      color:#96301e;
+      padding-top:0px;
+    }
+
+    ul {
+      margin-left:20px;
+      list-style:circle;
+    }
   }
 
   p.inline-errors {
@@ -245,3 +260,6 @@ body { background-image: url('../images/layout/background.png'); }
     .content {/*padding: 10px 20px; */}
   }
 }
+
+#stores_ol { width: 425px; float:left;}
+#stores_ol li { padding:5px 0; width:174px; float:left; }

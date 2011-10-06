@@ -94,4 +94,34 @@ class Company::EmailsController < ApplicationController
       format.html { redirect_to(company_emails_path) }
     end
   end
+
+  def load_advertisement
+    @advertisement = Email.new
+    @stores = current_user.stores
+  end
+
+  def send_advertisement
+    success = false
+    email_count = 0
+    @advertisement = Email.new(params[:email])
+    @advertisement.advertisement = true
+
+    if @advertisement.save
+      # Put the file into a mailer
+      @company.customers(params[:store_ids], true, true).each do |customer|
+        # Send the email
+        email_count += 1 if MassMailer.advertisement_email( customer.store, @advertisement, customer ).deliver
+      end
+      success = true
+    end
+
+    # Return
+    if success
+      redirect_to( company_root_path, :notice => 'Advertisement successfully sent to ' + email_count.to_s + ' customers.')
+    else
+      @stores = current_user.stores
+      # flash[:alert] = 'Error.'
+      render :load_advertisement
+    end
+  end
 end

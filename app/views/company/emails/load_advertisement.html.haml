@@ -1,0 +1,20 @@
+%h1 New Advertisement
+
+- semantic_form_for [:send_advertisement, :company, @advertisement], :html => { :multipart => true } do |form|
+  = render "shared/form_errors", :errors => @advertisement.errors
+
+  - form.inputs "", :class => "" do
+    = form.input :advertisement_subject
+    %li
+      %label= @company.heading_p + "*"
+      %ol#stores_ol
+        - @stores.each do |store|
+          %li
+            = check_box_tag 'store_ids[]', store.id, true
+            = store.name
+    = form.input :advertisement_image, :as => :file, :label => 'Load Image', :hint => 'Only JPG or PNG files'
+
+  - form.buttons do
+    = content_tag :button, 'Send Advertisement', {:type => :submit, :class => 'positive', :name => 'save', :value => true}
+    .or-cancel
+      or #{link_to 'Cancel', company_root_path}

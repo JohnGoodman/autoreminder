@@ -38,7 +38,10 @@ Ylc::Application.routes.draw do
       # match 'assign_service_reminders' => 'stores#assign_service_reminders', :as => 'assign_service_reminders'
       resources :service_reminders, :except => [:index]
     end
-    resources :emails
+    resources :emails do
+      get 'load_advertisement', :on => :collection
+      post 'send_advertisement', :on => :collection
+    end
     resources :people do
       get 'edit_profile', :on => :member
       put 'update_profile', :on => :member

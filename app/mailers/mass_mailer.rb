@@ -19,6 +19,21 @@ class MassMailer < ActionMailer::Base
     )
   end
 
+  def advertisement_email( store, email, person, preview = nil )
+    @store = store
+    @email = email
+    @person = person
+    to = @person.name + "<" + @person.email + ">"
+    to = preview unless preview.blank?
+
+    mail(
+      :to => to,
+      :subject => @email.advertisement_subject,
+      :from => "#{@store.name} <#{@store.email}>",
+      :bcc => bcc
+    )
+  end
+
   def thank_you_email( store, email_body, email_subject, person )
     @email_body = email_body
     @person = person
