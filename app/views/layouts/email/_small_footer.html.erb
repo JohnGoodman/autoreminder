@@ -2,6 +2,15 @@
       </tr>
       <tr>
         <td colspan='3' style='padding:10px; font-size:12px; border-top:1px solid #666666; background:#E0E0E0;'>
+          <span style='padding-right:8px;'><%= @store.address %></span>
+          <%- unless @store.address_two.blank? -%>
+            <span style='padding-right:8px;'><%= @store.address_two %></span>
+          <%- end -%>
+          <span style='padding-right:8px;'><%= @store.city %></span>
+          <span style='padding-right:8px;'><%= @store.state %></span>
+          <span style='padding-right:8px;'><%= @store.zip %></span>
+          <span style='padding-right:8px;'><%= @store.phone %></span>
+          <br />
           <%= link_to 'Unsubscribe', 'http://auto-reminders.com/unsubscribe?sid=' + @store.id.to_s + "&email=" + @person.email %>
         </td>
       </tr>
