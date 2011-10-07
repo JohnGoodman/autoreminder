@@ -100,7 +100,7 @@ body { background-image: url('../images/layout/background.png'); }
 }
 
 #main .block {
-
+  display:inline;
 }
 
 #main {
@@ -117,7 +117,7 @@ body { background-image: url('../images/layout/background.png'); }
   }
 
   .content {
-    # padding: 15px;
+    padding:0px;
     width:650px;
     min-height:365px;
     float:right;

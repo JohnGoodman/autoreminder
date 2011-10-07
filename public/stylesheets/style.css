@@ -469,6 +469,11 @@ body {
   background: url(/images/Autoreminder.png);
 }
 
+/* line 102, ../../app/stylesheets/partials/_layout.scss */
+#main .block {
+  display: inline;
+}
+
 /* line 107, ../../app/stylesheets/partials/_layout.scss */
 #main h1, #main span.pid {
   font-size: 170%;
@@ -484,7 +489,7 @@ body {
 }
 /* line 119, ../../app/stylesheets/partials/_layout.scss */
 #main .content {
-  # padding: 15px;
+  padding: 0px;
   width: 650px;
   min-height: 365px;
   float: right;
