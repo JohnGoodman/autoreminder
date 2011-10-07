@@ -45,7 +45,7 @@ $(function() {
     showOtherMonths: true,
     selectOtherMonths: true,
     dateFormat: 'yy-mm-dd',
-    minDate: new Date(y, m, d, 8, 30)
+    minDate: new Date(y, m, d, 6, 00)
   });
 
   // Select all
