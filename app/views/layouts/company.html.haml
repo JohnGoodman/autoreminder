@@ -16,7 +16,7 @@
 
         #main{ :role => 'main' }
           = render "layouts/flashes"
-          %nav
+          #nav
             %h1
               - if @company.avatar.present?
                 #image_holder
@@ -24,7 +24,8 @@
               - else
                 = @company.name
 
-            %p= @company.name
+            %p
+              %strong= @company.name
 
             %ul
               %li= link_to "Home", company_root_path
