@@ -370,13 +370,13 @@ h1, h2, h3, span.pid {
 }
 
 /* line 43, ../../app/stylesheets/partials/_layout.scss */
-header#header #profile ul {
+#header #profile ul {
   list-style: none;
   float: right;
   margin-bottom: 5px;
 }
 /* line 48, ../../app/stylesheets/partials/_layout.scss */
-header#header #profile ul li {
+#header #profile ul li {
   display: inline;
   padding: 0 2px;
 }
