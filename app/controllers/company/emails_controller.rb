@@ -106,13 +106,17 @@ class Company::EmailsController < ApplicationController
     @advertisement = Email.new(params[:email])
     @advertisement.advertisement = true
 
-    if @advertisement.save
-      # Put the file into a mailer
-      @company.customers(params[:store_ids], true, true).each do |customer|
-        # Send the email
-        email_count += 1 if MassMailer.advertisement_email( customer.store, @advertisement, customer ).deliver
+    if params[:save]
+      if @advertisement.save
+        # Put the file into a mailer
+        @company.customers(params[:store_ids], true, true).each do |customer|
+          # Send the email
+          email_count += 1 if MassMailer.advertisement_email( customer.store, @advertisement, customer ).deliver
+        end
+        success = true
       end
-      success = true
+    elsif params[:preview]
+
     end
 
     # Return

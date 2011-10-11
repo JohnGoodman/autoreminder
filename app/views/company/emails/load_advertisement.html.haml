@@ -15,6 +15,8 @@
     = form.input :advertisement_image, :as => :file, :label => 'Load Image', :hint => 'Only JPG or PNG files'
 
   - form.buttons do
-    = content_tag :button, 'Send Advertisement', {:type => :submit, :class => 'positive', :name => 'save', :value => true}
+    = content_tag :button, 'Preview', {:type => :submit, :class => 'positive', :name => 'preview', :value => true}
     .or-cancel
       or #{link_to 'Cancel', company_root_path}
+    .right
+      = content_tag :button, 'Send Advertisement', {:type => :submit, :class => 'positive', :name => 'save', :value => true}
