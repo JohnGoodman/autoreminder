@@ -11,7 +11,7 @@
         - @stores.each do |store|
           %li
             = check_box_tag 'store_ids[]', store.id, true
-            = store.name
+            = store.name + " (" + @company.customers([store.id],true,true).count.to_s + ")"
 
     %li
       %label Email Body

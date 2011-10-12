@@ -69,7 +69,8 @@ class Company::EmailsController < ApplicationController
     end
 
     if params[:preview]
-      if MassMailer.mass_email( @company.stores.first, @email, current_person, bcc, uploaded_files, @email.preview_to ).deliver
+      preview_store = Store.find(params[:store_ids].first)
+      if MassMailer.mass_email( preview_store, @email, current_person, bcc, uploaded_files, @email.preview_to ).deliver
         notice = 'Preview email sent to ' + @email.preview_to
       else
         alert = 'Error. Failed to send preview email.'
@@ -103,20 +104,32 @@ class Company::EmailsController < ApplicationController
   def send_advertisement
     success = false
     email_count = 0
-    @advertisement = Email.new(params[:email])
-    @advertisement.advertisement = true
 
-    if params[:save]
-      if @advertisement.save
-        # Put the file into a mailer
-        @company.customers(params[:store_ids], true, true).each do |customer|
-          # Send the email
-          email_count += 1 if MassMailer.advertisement_email( customer.store, @advertisement, customer ).deliver
-        end
-        success = true
+    if params[:email][:id]
+      @advertisement = Email.find(params[:email][:id])
+      # if params[:email][:advertisement_image].blank? && @advertisement.advertisement_image.present?
+      #   params[:email][:advertisement_image] = @advertisement.advertisement_image
+      # end
+      saved = true if @advertisement.update_attributes(params[:email])
+    else
+
+      @advertisement = Email.new(params[:email])
+      @advertisement.advertisement = true
+      saved = true if @advertisement.save
+    end
+
+    if saved && params[:send]
+      # Put the file into a mailer
+      @company.customers(params[:store_ids], true, true).each do |customer|
+        # Send the email
+        email_count += 1 if MassMailer.advertisement_email( customer.store, @advertisement, customer ).deliver
       end
-    elsif params[:preview]
-
+      success = true
+    elsif saved && params[:preview]
+      preview_store = Store.find(params[:store_ids].first)
+      MassMailer.advertisement_email( preview_store, @advertisement, current_user, @advertisement.preview_to ).deliver
+      success = false # so we render instead of redirect
+      flash[:notice] = 'Preivew sent.'
     end
 
     # Return

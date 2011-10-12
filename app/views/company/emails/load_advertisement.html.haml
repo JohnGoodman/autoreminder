@@ -1,6 +1,6 @@
 %h1 New Advertisement
 
-- semantic_form_for [:send_advertisement, :company, @advertisement], :html => { :multipart => true } do |form|
+- semantic_form_for @advertisement, :url => send_advertisement_company_emails_path, :html => { :multipart => true } do |form|
   = render "shared/form_errors", :errors => @advertisement.errors
 
   - form.inputs "", :class => "" do
@@ -10,13 +10,21 @@
       %ol#stores_ol
         - @stores.each do |store|
           %li
-            = check_box_tag 'store_ids[]', store.id, true
-            = store.name
-    = form.input :advertisement_image, :as => :file, :label => 'Load Image', :hint => 'Only JPG or PNG files'
-
+            = check_box_tag 'store_ids[]', store.id, (params[:store_ids].present? ? params[:store_ids].include?(store.id.to_s) : true)
+            = store.name + " (" + @company.customers([store.id],true,true).count.to_s + ")"
+    - if @advertisement.id
+      %li
+        %label Image
+        = image_tag @advertisement.advertisement_image.url, :width => '300'
+      = form.input :advertisement_image, :as => :file, :label => 'Load a Different Image', :hint => 'Only JPG or PNG files'
+    - else
+      = form.input :advertisement_image, :as => :file, :label => 'Load Image', :hint => 'Only JPG or PNG files'
+    = form.input :preview_to, :input_html => {:value => (@advertisement.preview_to ? @advertisement.preview_to : current_person.email)}, :hint => 'Email address to send a preview to'
   - form.buttons do
+    - if @advertisement.id
+      = form.input :id, :as => :hidden
     = content_tag :button, 'Preview', {:type => :submit, :class => 'positive', :name => 'preview', :value => true}
     .or-cancel
       or #{link_to 'Cancel', company_root_path}
     .right
-      = content_tag :button, 'Send Advertisement', {:type => :submit, :class => 'positive', :name => 'save', :value => true}
+      = content_tag :button, 'Send Advertisement', {:type => :submit, :class => 'positive', :name => 'send', :value => true}

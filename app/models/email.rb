@@ -9,7 +9,8 @@ class Email < ActiveRecord::Base
   validates_presence_of     :body, :unless => :is_advertisement?
   validates_presence_of     :preview_to, :if => :sending_preview?
   validates_presence_of     :advertisement_subject, :if => :is_advertisement?
-  validates_presence_of     :advertisement_image, :if => :is_advertisement?
+  # validates_presence_of     :advertisement_image, :if => :is_advertisement?
+  validates_presence_of     :advertisement_image, :unless => :is_already_saved?
 
   attr_accessible :store, :company, :person, :subject, :preview_to, :body, :template, :save_email, :send, :preview, :advertisement_image, :advertisement_subject
   attr_accessor :preview
@@ -23,5 +24,9 @@ class Email < ActiveRecord::Base
 
     def is_advertisement?
       advertisement.present?
+    end
+
+    def is_already_saved?
+      id.present?
     end
 end

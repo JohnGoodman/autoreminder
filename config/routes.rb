@@ -41,6 +41,7 @@ Ylc::Application.routes.draw do
     resources :emails do
       get 'load_advertisement', :on => :collection
       post 'send_advertisement', :on => :collection
+      put 'send_advertisement', :on => :collection
     end
     resources :people do
       get 'edit_profile', :on => :member
