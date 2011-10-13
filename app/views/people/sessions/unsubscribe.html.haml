@@ -1,6 +1,6 @@
 :css
   .inner { padding:15px; }
-  
+
 %h2 Unsubscribe
 .inner
   .content.login
@@ -19,3 +19,9 @@
       .group.navform.clearfix
         .right
           = content_tag :button, 'Unsubscribe', {:type => :submit, :class => 'positive'}
+
+- content_for(:contact_info) do
+  %span P.O. Box 5452
+  %span Brandon, MS 39047
+  %span (877) 321-4952
+  %span Desolutions@mail.com

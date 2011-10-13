@@ -10,7 +10,7 @@
         = image_tag @company.avatar.url(:thumb)
     = form.input :avatar, :as => :file, :label => 'Logo', :hint => 'Only JPG or PNG files'
     = form.input :name
-    = form.input :company_type_id, :as => :select, :collection => [['Automotive',1],['Vets Office', 2],['Medical Office',3]], :prompt => true, :required => true
+    = form.input :company_type_id, :as => :select, :collection => [['Automotive',1],['Vets Office', 2],['Medical Office',3],['General',4]], :prompt => true, :required => true
     = form.input :additional_vehicle_fields, :as => :normal_boolean
     = form.input :thank_you_subject
     %li

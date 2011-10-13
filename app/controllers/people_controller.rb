@@ -35,6 +35,10 @@ class PeopleController < ApplicationController
       1.times do
         appointment = @person.appointments.build
       end
+    elsif @company.company_type_id == 4
+      1.times do
+        general_reminder = @person.general_reminders.build
+      end
     end
 
   end

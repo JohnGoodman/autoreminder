@@ -94,6 +94,8 @@ body { background-image: url('../images/layout/background.png'); }
 #main { width: 900px; display:inline-block; }
 #footer { width:600px; float:right; margin-bottom:15px; }
 #footer.login { float:none; width:100%; }
+#footer #contact_info { text-align:center; margin-top:10px; color:#444444; font-size:95%; }
+#footer #contact_info span { padding:0 5px; }
 
 #autoreminder {
   width:150px;

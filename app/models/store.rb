@@ -52,16 +52,4 @@ class Store < ActiveRecord::Base
     managers.first
   end
 
-  # def use_set_dates?
-  #     company.reminder_type_id == 2 # 2 for dates
-  #   end
-  #
-  #   def use_sub_item?
-  #     company.sub_item_title.present?
-  #   end
-
-  # def type
-  #     company.office ? 'Office' : 'Store'
-  #   end
-
 end

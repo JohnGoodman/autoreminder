@@ -36,6 +36,12 @@
         = render "appointment_fields", :f => builder
       %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
 
+    - elsif @company.company_type_id == 4
+      -form.semantic_fields_for :general_reminders do |builder|
+        %h2 Reminders
+        = render "general_reminder_fields", :f => builder
+      %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :general_reminders)
+
   - form.buttons do
     = content_tag :button, 'Save Customer', {:type => :submit, :class => 'positive'}
     .or-cancel

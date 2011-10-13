@@ -1,0 +1,24 @@
+- if @person.general_reminders.any?
+  %table.table
+    %thead
+      %tr
+        %th= @company.reminder_title
+        %th Created
+        %th Last Sent
+        %th Interval
+        %th Recurring
+        %th Times Sent
+        %th
+
+    - @person.general_reminders.each do |reminder|
+      %tbody
+        %tr
+          %td= reminder.service_reminder.name
+          %td= short_date reminder.created_at
+          %td= reminder.last_sent
+          %td= pluralize(reminder.interval, 'month')
+          %td= yes_no_helper reminder.recurring
+          %td= reminder.times_sent
+          %td= link_to 'Remove', store_person_customer_service_reminder_path(@store, @person, reminder), :confirm => "Delete this #{@company.reminder_title}?", :method => :delete
+- if @person.general_reminders.empty?
+  %p No #{@company.reminder_title_s} for this person yet.

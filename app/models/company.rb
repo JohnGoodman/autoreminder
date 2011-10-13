@@ -46,6 +46,7 @@ class Company < ActiveRecord::Base
   # 1 - Automotive
   # 2 - Vet Office
   # 3 - Doctor Office
+  # 4 - General
 
   # Singular and Plural heading helper methods
   def type
@@ -53,6 +54,7 @@ class Company < ActiveRecord::Base
       when 1 then 'Automotive'
       when 2 then 'Vets Office'
       when 3 then 'Medical Office'
+      when 4 then 'General'
     end
     h
   end
@@ -62,6 +64,7 @@ class Company < ActiveRecord::Base
       when 1 then 'Store'
       when 2 then 'Office'
       when 3 then 'Office'
+      when 4 then 'Office'
     end
     h
   end
@@ -71,6 +74,7 @@ class Company < ActiveRecord::Base
       when 1 then 'Stores'
       when 2 then 'Offices'
       when 3 then 'Offices'
+      when 4 then 'Offices'
     end
     h
   end
@@ -80,6 +84,7 @@ class Company < ActiveRecord::Base
       when 1 then 'Vehicle'
       when 2 then 'Pet'
       when 3 then 'Appointment'
+      when 4 then 'Reminder'
     end
     h
   end
@@ -89,6 +94,7 @@ class Company < ActiveRecord::Base
       when 1 then 'Vehicles'
       when 2 then 'Pets'
       when 3 then 'Appointments'
+      when 4 then 'Reminders'
     end
     h
   end
@@ -98,6 +104,7 @@ class Company < ActiveRecord::Base
       when 1 then 'Reminder'
       when 2 then 'Reminder'
       when 3 then 'Appointment'
+      when 4 then 'Reminder'
     end
     h
   end
@@ -107,6 +114,7 @@ class Company < ActiveRecord::Base
       when 1 then 'Reminders'
       when 2 then 'Reminders'
       when 3 then 'Appointments'
+      when 4 then 'Reminders'
     end
     h
   end
