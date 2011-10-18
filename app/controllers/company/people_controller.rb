@@ -6,6 +6,9 @@ class Company::PeopleController < ApplicationController
   set_tab :person_new, :subnav, :only => [:new, :create]
   set_tab :person_edit, :subnav, :only => [:edit, :update]
 
+  set_tab :customer_show, :subnav, :only => :customer_show
+  set_tab :customer_edit, :subnav, :only => [:customer_edit, :customer_update]
+
   def index
     # @people = Person.not_customers
     @people = @company.people.gm_store_employees(current_user.store_ids)
@@ -104,6 +107,10 @@ class Company::PeopleController < ApplicationController
     elsif @company.company_type_id == 3
       1.times do
         appointment = @person.appointments.build
+      end
+    elsif @company.company_type_id == 4
+      1.times do
+        general_reminder = @person.general_reminders.build
       end
     end
   end

@@ -3,7 +3,8 @@ class Company::CustomerServiceRemindersController < ApplicationController
   before_filter :get_person
   layout 'company'
 
-  set_tab :customer_service_reminder_new, :subnav
+  set_tab :customer_service_reminder_new, :subnav, :except => [:new, :create]
+  set_tab :customer_edit, :subnav, :only => [:new, :create]
 
   def new
     @customer_service_reminder = CustomerServiceReminder.new

@@ -1,5 +1,5 @@
 .secondary-navigation.clearfix
   = tabs_tag :namespace => :subnav do |tab|
-    = tab.service_reminder_edit  'Edit Service Reminder', edit_company_service_reminder_path(@service_reminder), :class => 'first' if ['edit','update','show'].include?(controller.action_name)
+    = tab.service_reminder_edit "Edit #{@company.reminder_title}", edit_company_service_reminder_path(@service_reminder), :class => 'first' if ['edit','update','show'].include?(controller.action_name)
 
-    = tab.service_reminder_new   'New Service Reminder', new_company_service_reminder_path, :class => "right last" if ['index','new'].include?(controller.action_name)
+    = tab.service_reminder_new "New #{@company.reminder_title}", new_company_service_reminder_path, :class => "right last" if ['index','new'].include?(controller.action_name)

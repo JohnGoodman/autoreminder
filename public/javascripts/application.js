@@ -14,11 +14,11 @@ $(function() {
   });
 
   // Collapse the fieldset elements
-  $("fieldset.collapsible").collapse();
-  $("fieldset.collapsibleClosed").collapse( { closed : true } );
+  // $("fieldset.collapsible").collapse();
+  // $("fieldset.collapsibleClosed").collapse( { closed : true } );
 
   // Open fieldset if it has an error
-  $(".field_with_errors").closest('fieldset').removeClass('collapsibleClosed').removeClass('collapsed').addClass('collapsible');
+  // $(".field_with_errors").closest('fieldset').removeClass('collapsibleClosed').removeClass('collapsed').addClass('collapsible');
 
   // Datepicker
   $('input.ui-date-picker').datepicker({

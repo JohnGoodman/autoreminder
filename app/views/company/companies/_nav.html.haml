@@ -3,13 +3,13 @@
     - if (['edit','update','show','mass_assign_service_reminders'].include?(controller.action_name) && @store) || (@store && ['new','create'].include?(controller.action_name) && controller.controller_name == 'service_reminders')
       = tab.store_show "#{@company.heading_s} Overview", company_store_path(@store), :class => 'first'
       = tab.store_edit "Edit", edit_company_store_path(@store)
-      = tab.service_reminder_edit "Edit Reminder", edit_company_service_reminder_path(@service_reminder) if @service_reminder.present? && controller.controller_name == 'service_reminders'
+      = tab.service_reminder_edit "Edit #{@company.reminder_title}", edit_company_service_reminder_path(@service_reminder) if @service_reminder.present? && controller.controller_name == 'service_reminders'
       / = tab.store_mass_assign "Mass Assign Service Reminders", mass_assign_service_reminders_company_store_path(@store)
       / = tab.store_add_service_reminder "New Service Reminder", new_company_store_service_reminder_path(@store), :class => 'right' unless ['service_reminders'].include?(controller.controller_name)
 
-    = tab.person_edit  'Edit Person', edit_company_person_path(@person), :class => 'first' if ['edit','update','show'].include?(controller.action_name) && @person
+    = tab.person_edit 'Edit Person', edit_company_person_path(@person), :class => 'first' if ['edit','update','show'].include?(controller.action_name) && @person
 
 
-    = tab.service_reminder_new 'New Reminder', new_company_store_service_reminder_path(@store), :class => "right last" if ['index','new','create'].include?(controller.action_name) && ['service_reminders'].include?(controller.controller_name)
+    = tab.service_reminder_new "New #{@company.reminder_title}", new_company_store_service_reminder_path(@store), :class => "right last" if ['index','new','create'].include?(controller.action_name) && ['service_reminders'].include?(controller.controller_name)
 
     / = tab.person_new 'New Person', new_company_person_path, :class => "right last" if ['index','new'].include?(controller.action_name) && controller.controller_name == 'people'

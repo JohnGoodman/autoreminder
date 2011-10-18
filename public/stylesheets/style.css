@@ -647,25 +647,26 @@ body {
   border-bottom: 1px solid #96301e;
   margin: 0px;
   padding: 10px;
+  margin-bottom: 10px;
 }
-/* line 207, ../../app/stylesheets/partials/_layout.scss */
+/* line 208, ../../app/stylesheets/partials/_layout.scss */
 #main #error_explanation h2 {
   color: #96301e;
   padding-top: 0px;
 }
-/* line 212, ../../app/stylesheets/partials/_layout.scss */
+/* line 213, ../../app/stylesheets/partials/_layout.scss */
 #main #error_explanation ul {
   margin-left: 20px;
   list-style: circle;
 }
-/* line 218, ../../app/stylesheets/partials/_layout.scss */
+/* line 219, ../../app/stylesheets/partials/_layout.scss */
 #main p.inline-errors {
   display: inline;
   margin: 0px 0 0 5px;
   padding: 0px;
 }
 
-/* line 226, ../../app/stylesheets/partials/_layout.scss */
+/* line 227, ../../app/stylesheets/partials/_layout.scss */
 #sidebar .block {
   padding-top: 2px;
   padding-bottom: 2px;
@@ -678,7 +679,7 @@ body {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
   margin-bottom: 20px;
 }
-/* line 234, ../../app/stylesheets/partials/_layout.scss */
+/* line 235, ../../app/stylesheets/partials/_layout.scss */
 #sidebar h3 {
   color: #111;
   padding: 10px 0;
@@ -686,12 +687,12 @@ body {
   font-size: 13px;
 }
 
-/* line 243, ../../app/stylesheets/partials/_layout.scss */
+/* line 244, ../../app/stylesheets/partials/_layout.scss */
 #box {
   width: 480px;
   margin: 50px auto 20px auto;
 }
-/* line 247, ../../app/stylesheets/partials/_layout.scss */
+/* line 248, ../../app/stylesheets/partials/_layout.scss */
 #box .block {
   background: white;
   text-shadow: 0 1px 0 white;
@@ -707,7 +708,7 @@ body {
   border-radius: 6px;
   margin-bottom: 20px;
 }
-/* line 254, ../../app/stylesheets/partials/_layout.scss */
+/* line 255, ../../app/stylesheets/partials/_layout.scss */
 #box .block h2 {
   font-size: 170%;
   background: #261F1F;
@@ -728,18 +729,18 @@ body {
   padding: 10px 15px;
   margin: 0;
 }
-/* line 265, ../../app/stylesheets/partials/_layout.scss */
+/* line 266, ../../app/stylesheets/partials/_layout.scss */
 #box .block .content {
   /*padding: 10px 20px; */
 }
 
-/* line 269, ../../app/stylesheets/partials/_layout.scss */
+/* line 270, ../../app/stylesheets/partials/_layout.scss */
 #stores_ol {
   width: 425px;
   float: left;
 }
 
-/* line 270, ../../app/stylesheets/partials/_layout.scss */
+/* line 271, ../../app/stylesheets/partials/_layout.scss */
 #stores_ol li {
   padding: 5px 0;
   width: 174px;

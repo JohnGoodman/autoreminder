@@ -38,7 +38,7 @@ class Company::ServiceRemindersController < ApplicationController
     respond_to do |format|
       if @service_reminder.save
         @company.assinged_reminder_to_stores(@service_reminder)
-        format.html { redirect_to(path, :notice => 'Service reminder was successfully created.') }
+        format.html { redirect_to(path, :notice => "#{@company.reminder_title} was successfully created.") }
       else
         format.html { render :action => "new" }
       end
@@ -52,7 +52,7 @@ class Company::ServiceRemindersController < ApplicationController
 
     respond_to do |format|
       if @service_reminder.update_attributes(params[:service_reminder])
-        format.html { redirect_to(path, :notice => 'Service reminder was successfully updated.') }
+        format.html { redirect_to(path, :notice => "#{@company.reminder_title} was successfully updated.") }
       else
         format.html { render :action => "edit" }
       end

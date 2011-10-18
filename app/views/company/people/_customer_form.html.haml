@@ -13,11 +13,11 @@
         %label &nbsp;
         %strong Customer added on #{short_date(@person.created_at)}
 
+    = form.input :store, :collection => current_person.stores, :prompt => true, :required => true
     = form.input :first_name
     = form.input :last_name
     = form.input :email
     = form.input :send_mass_emails, :as => :normal_boolean
-    = form.input :store, :collection => current_person.stores, :prompt => true, :required => true
     = form.input :unsubscribe, :as => :normal_boolean if ['customer_edit','customer_update'].include?(controller.action_name)
 
   - if ['customer_new','customer_create'].include?(controller.action_name)
@@ -37,6 +37,12 @@
       -form.semantic_fields_for :appointments do |builder|
         = render "appointment_fields", :f => builder
       %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :appointments)
+
+    - elsif @company.company_type_id == 4
+      -form.semantic_fields_for :general_reminders do |builder|
+        %h2 Reminders
+        = render "general_reminder_fields", :f => builder
+      %div.add_vehicle= link_to_add_fields("Add #{@company.sub_s}", form, :general_reminders)
 
   - form.buttons do
     = content_tag :button, 'Save Customer', {:type => :submit, :class => 'positive'}

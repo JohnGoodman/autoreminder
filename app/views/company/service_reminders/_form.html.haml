@@ -14,6 +14,6 @@
   - form.buttons do
     = service_reminder_store_helper(form)
     = service_reminder_company_helper(form)
-    = submit_button 'Service Reminder'
+    = submit_button @company.reminder_title
     .or-cancel
       or #{link_to 'Cancel', (@store ? [:company, @store] : [:company, :service_reminders])}

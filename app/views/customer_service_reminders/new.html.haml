@@ -7,6 +7,11 @@
 - elsif @company.company_type_id == 2
   %h2 Add #{@company.reminder_title} to #{@pet.name}
 - elsif @company.company_type_id == 3
-  %h2 Add #{@company.reminder_title} to #{@person.name}
+  / %h2 Add #{@company.reminder_title} to #{@person.name}
+  %h2 Add #{@company.reminder_title}
+- elsif @company.company_type_id == 4
+  / %h2 Add #{@company.reminder_title} to #{@person.name}
+  %h2 Add #{@company.reminder_title}
+
 
 = render 'form'

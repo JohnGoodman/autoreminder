@@ -2,7 +2,7 @@
 /   = render 'nav'
 /
 %h1.left Reminders
-= link_to 'New Service Reminder', new_company_service_reminder_path, :class => 'button positive right'
+= link_to "New #{@company.reminder_title}", new_company_service_reminder_path, :class => 'button positive right'
 .clear
 %table.table
   %thead

@@ -17,4 +17,7 @@
     - elsif @company.company_type_id == 3 ####################################################################
       = tab.vehicle_new "Add #{@company.sub_s}", new_company_person_customer_service_reminder_path(@person), :class => "right last" if ['customer_show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
 
-      = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_company_person_customer_service_reminder_path(@person), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
+    - elsif @company.company_type_id == 4 ####################################################################
+      = tab.vehicle_new "Add #{@company.sub_s}", new_company_person_customer_service_reminder_path(@person), :class => "right last" if ['customer_show'].include?(controller.action_name) && ['people'].include?(controller.controller_name)
+
+      / = tab.customer_service_reminder_new "Add #{@company.reminder_title}", new_company_person_customer_service_reminder_path(@person), :class => "right last" if ['create','new'].include?(controller.action_name) && ['customer_service_reminders'].include?(controller.controller_name)
